@@ -31,6 +31,8 @@ jobs:
         run: python skills/secure-coding/scripts/guide.py check
       - name: Run regression checks
         run: python -B -m unittest discover -s skills/secure-coding/tests -p test_guide.py -v
+      - name: Run order query example
+        run: python -B -m unittest discover -s examples/order-query -p test_orders.py -v
       - name: Verify deterministic regeneration
         run: python skills/secure-coding/scripts/guide.py build
       - name: Verify tracked files remain unchanged

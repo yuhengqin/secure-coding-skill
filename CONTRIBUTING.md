@@ -21,6 +21,7 @@
 ```sh
 python skills/secure-coding/scripts/guide.py check
 python -B -m unittest discover -s skills/secure-coding/tests -p test_guide.py -v
+python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 git diff --check
 ```
 

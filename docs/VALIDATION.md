@@ -18,6 +18,21 @@
 | CI 配置 | YAML 解析及事件、只读权限、平台/版本矩阵核对通过；所用 actions 引用固定提交 |
 | 文档 | 新增文档的相对文件链接检查及独立发布材料核对完成；项目入口模板的路径按目标项目解释 |
 
+## 首页与案例更新复验
+
+同日，在上述 Windows / Python 3.14.2 环境中完成：
+
+| 检查 | 实际结果 |
+|---|---|
+| 规则包与工具回归 | `guide.py check` 退出 0；原有 7 项测试全部通过 |
+| 订单查询案例 | 6 项测试全部通过，退出 0；覆盖归属限制、参数绑定、缺失身份和输入边界，使用 SQLite 内存数据库 |
+| 文档代码片段 | 首页查询片段与案例函数末尾的 AST 一致；案例文档实现与 `orders.py` 去掉说明性 docstring 后的 AST 一致 |
+| 文档本地链接 | 11 份入口/说明文档中的 45 个本地文件或锚点链接均可定位；不包含上游原文及项目入口模板中的目标项目路径 |
+| CI 配置更新 | YAML 解析、触发事件、只读权限、版本矩阵、固定 action 提交及新增案例测试命令核对通过 |
+| Git 格式 | `git diff --check` 退出 0 |
+
+本次增加的是安装交接文档与可运行案例；技能运行指令、指南原文和规则库未改动。`README_AI.md` 的客户端发现/调用步骤仍须在实际目标客户端执行，文件与脚本验证不替代该步骤。
+
 ## 可复现的主要命令
 
 在仓库根目录运行：
@@ -25,6 +40,7 @@
 ```sh
 python -B skills/secure-coding/scripts/guide.py check
 python -B -m unittest discover -s skills/secure-coding/tests -p test_guide.py -v
+python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 python -B skills/secure-coding/scripts/guide.py list --language go
 python -B skills/secure-coding/scripts/guide.py show PY-BACKEND-1.2.1
 git diff --check
