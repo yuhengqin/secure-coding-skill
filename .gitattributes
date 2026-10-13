@@ -1,0 +1,8 @@
+# Keep generated Markdown and Python portable across Windows and Unix.
+* text=auto eol=lf
+# Sources are byte-pinned: Git must not rewrite their original line endings.
+skills/secure-coding/sources/* -text -whitespace
+LICENSE -text whitespace=-trailing-space
+skills/secure-coding/LICENSE -text whitespace=-trailing-space
+# Keep the existing generator's final blank line without hand-editing its output.
+skills/secure-coding/references/interpretations.md whitespace=-blank-at-eof

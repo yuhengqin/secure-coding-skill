@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/Tencent/secguide",
+  "revision": "bfda087142e3bb3f5840cbc6af82c1982d1d14e4",
+  "verified_on": "2026-10-13",
+  "method": "Exact byte comparison against files at the pinned upstream commit; no newline or encoding normalization.",
+  "license": {
+    "spdx": "CC-BY-SA-4.0",
+    "copyright": "Copyright (C) 2021 THL A29 Limited, a Tencent company. All rights reserved.",
+    "path": "LICENSE",
+    "sha256": "317408f36f0b43b11f5aa82ef4a9bb8a5b246fb49baf4f3b6244e0b819ab304e",
+    "bytes": 17537,
+    "url": "https://github.com/Tencent/secguide/blob/bfda087142e3bb3f5840cbc6af82c1982d1d14e4/LICENSE",
+    "note": "The upstream README label says CC BY 4.0, but its URL and full LICENSE specify CC BY-SA 4.0."
+  },
+  "files": [
+    {
+      "path": "sources/Python安全指南.md",
+      "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "bytes": 20622,
+      "upstream_path": "Python安全指南.md",
+      "byte_identical": true
+    },
+    {
+      "path": "sources/JavaScript安全指南.md",
+      "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27",
+      "bytes": 34435,
+      "upstream_path": "JavaScript安全指南.md",
+      "byte_identical": true
+    },
+    {
+      "path": "sources/Java安全指南.md",
+      "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20",
+      "bytes": 29096,
+      "upstream_path": "Java安全指南.md",
+      "byte_identical": true
+    },
+    {
+      "path": "sources/Go安全指南.md",
+      "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe",
+      "bytes": 28143,
+      "upstream_path": "Go安全指南.md",
+      "byte_identical": true
+    },
+    {
+      "path": "sources/C,C++安全指南.md",
+      "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab",
+      "bytes": 47584,
+      "upstream_path": "C,C++安全指南.md",
+      "byte_identical": true
+    },
+    {
+      "path": "sources/README.md",
+      "sha256": "01282422dc68a1a0448c66c068204dad253b802644e9923a47a46b1a16d6f7bd",
+      "bytes": 1254,
+      "upstream_path": "README.md",
+      "byte_identical": true
+    }
+  ],
+  "packaging_changes": {
+    "guides": "All five guide snapshots unchanged from the original local skill; match the pinned commit.",
+    "readme": {
+      "before": {
+        "path": "sources/README.md",
+        "sha256": "425aa5567f6db0a65aeb149322dd27ea4e59dc5bf711669e180b15435e68a190",
+        "bytes": 442
+      },
+      "after": "Replaced the abbreviated local README with the complete README from the pinned commit.",
+      "historical_origin": "The original local README revision was not established; no historical claim is made."
+    },
+    "additions": "Skill instructions, indexes, interpretations, tooling, tests, attribution and distribution documentation; licensed under CC BY-SA 4.0 by the secure-coding-skill contributors."
+  },
+  "supplemental_files": [
+    {
+      "path": "sources/CONTRIBUTING.md",
+      "upstream_path": "CONTRIBUTING.md",
+      "url": "https://raw.githubusercontent.com/Tencent/secguide/bfda087142e3bb3f5840cbc6af82c1982d1d14e4/CONTRIBUTING.md",
+      "sha256": "cb79b0426474b013fa21b6bb974da1c22afa0ed519d778bb648fd5caa9a94b56",
+      "bytes": 1794,
+      "byte_identical": true
+    }
+  ]
+}

@@ -1,0 +1,4490 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "PY-COMMON-1.1.1",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "避免使用不安全的对称加密算法",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.1 加密算法"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 75,
+        "end_line": 77,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-AEAD"
+      ]
+    },
+    {
+      "id": "PY-COMMON-1.2.1",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.2.1",
+      "requirement": "建议",
+      "title": "对每个重要行为都记录日志",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.2 程序日志"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 81,
+        "end_line": 83,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-1.2.2",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.2.2",
+      "requirement": "建议",
+      "title": "禁止将未经验证的用户输入直接记录日志",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.2 程序日志"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 86,
+        "end_line": 88,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-1.2.3",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.2.3",
+      "requirement": "建议",
+      "title": "避免在日志中保存敏感信息",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.2 程序日志"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 91,
+        "end_line": 93,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-1.3.1",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.3.1",
+      "requirement": "必须",
+      "title": "禁止使用空口令、弱口令、已泄露口令",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.3 系统口令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 98,
+        "end_line": 98,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-1.3.2",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.3.2",
+      "requirement": "必须",
+      "title": "口令强度要求",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.3 系统口令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 100,
+        "end_line": 107,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-PASSWORD-POLICY"
+      ]
+    },
+    {
+      "id": "PY-COMMON-1.3.3",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.3.3",
+      "requirement": "必须",
+      "title": "口令存储安全",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.3 系统口令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 109,
+        "end_line": 113,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-PASSWORD-STORAGE"
+      ]
+    },
+    {
+      "id": "PY-COMMON-1.3.4",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.3.4",
+      "requirement": "必须",
+      "title": "禁止传递明文口令",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.3 系统口令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 115,
+        "end_line": 115,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-1.3.5",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "1.3.5",
+      "requirement": "必须",
+      "title": "禁止在不安全的信道中传输口令",
+      "section": [
+        "通用类",
+        "I. 代码实现",
+        "1.3 系统口令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 117,
+        "end_line": 117,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-2.1.1",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "2.1.1",
+      "requirement": "建议",
+      "title": "使用Python 3.6+的版本",
+      "section": [
+        "通用类",
+        "II. 配置&环境",
+        "2.1 Python版本选择"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 123,
+        "end_line": 129,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-RUNTIME"
+      ]
+    },
+    {
+      "id": "PY-COMMON-2.2.2",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "2.2.2",
+      "requirement": "必须",
+      "title": "禁止使用不安全的组件",
+      "section": [
+        "通用类",
+        "II. 配置&环境",
+        "2.2 第三方包安全"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 133,
+        "end_line": 133,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-2.3.1",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "2.3.1",
+      "requirement": "必须",
+      "title": "密钥存储安全",
+      "section": [
+        "通用类",
+        "II. 配置&环境",
+        "2.3 配置信息"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 137,
+        "end_line": 139,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-COMMON-2.3.2",
+      "language": "python",
+      "scenario": "common",
+      "original_number": "2.3.2",
+      "requirement": "必须",
+      "title": "禁止硬编码敏感配置",
+      "section": [
+        "通用类",
+        "II. 配置&环境",
+        "2.3 配置信息"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 142,
+        "end_line": 144,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.1.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "按类型进行数据校验",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.1 输入验证"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 153,
+        "end_line": 173,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.2.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.2.1",
+      "requirement": "必须",
+      "title": "使用参数化查询",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.2 SQL操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 177,
+        "end_line": 262,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.2.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.2.2",
+      "requirement": "必须",
+      "title": "对参数进行过滤",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.2 SQL操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 264,
+        "end_line": 275,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.3.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.3.1",
+      "requirement": "建议",
+      "title": "避免直接调用函数执行系统命令",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.3 执行命令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 279,
+        "end_line": 282,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.3.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.3.2",
+      "requirement": "必须",
+      "title": "过滤传入命令执行函数的字符",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.3 执行命令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 284,
+        "end_line": 300,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-COMMAND"
+      ]
+    },
+    {
+      "id": "PY-BACKEND-1.3.3",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.3.3",
+      "requirement": "必须",
+      "title": "禁止不安全的代码执行",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.3 执行命令"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 302,
+        "end_line": 304,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.4.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.4.1",
+      "requirement": "必须",
+      "title": "文件类型限制",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 文件操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 308,
+        "end_line": 324,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-UPLOAD-EXT"
+      ]
+    },
+    {
+      "id": "PY-BACKEND-1.4.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.4.2",
+      "requirement": "必须",
+      "title": "禁止外部文件存储于可执行目录",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 文件操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 326,
+        "end_line": 328,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.4.3",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.4.3",
+      "requirement": "必须",
+      "title": "避免路径穿越",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 文件操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 331,
+        "end_line": 344,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.4.4",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.4.4",
+      "requirement": "必须",
+      "title": "禁用XML外部实体的方法",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 文件操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 346,
+        "end_line": 354,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.4.5",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.4.5",
+      "requirement": "必须",
+      "title": "禁用不安全的反序列化函数",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 文件操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 356,
+        "end_line": 358,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.4.6",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.4.6",
+      "requirement": "建议",
+      "title": "避免路径拼接",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 文件操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 360,
+        "end_line": 362,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.4.7",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.4.7",
+      "requirement": "建议",
+      "title": "文件名hash化处理",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 文件操作"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 365,
+        "end_line": 376,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.5.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.5.1",
+      "requirement": "必须",
+      "title": "限定访问网络资源地址范围",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 网络请求"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 382,
+        "end_line": 404,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.6.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.6.1",
+      "requirement": "必须",
+      "title": "设置正确的HTTP响应包类型",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 408,
+        "end_line": 409,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.6.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.6.2",
+      "requirement": "必须",
+      "title": "设置安全的HTTP响应头",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 411,
+        "end_line": 422,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-FRAME"
+      ]
+    },
+    {
+      "id": "PY-BACKEND-1.6.3",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.6.3",
+      "requirement": "必须",
+      "title": "对外输出页面包含第三方数据时须进行编码处理",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 424,
+        "end_line": 433,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": [
+        "INT-XSS-CONTEXT"
+      ]
+    },
+    {
+      "id": "PY-BACKEND-1.7.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.7.1",
+      "requirement": "必须",
+      "title": "敏感数据加密存储",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.7 数据输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 437,
+        "end_line": 441,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.7.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.7.2",
+      "requirement": "必须",
+      "title": "敏感信息必须由后台进行脱敏处理",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.7 数据输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 443,
+        "end_line": 445,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.7.3",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.7.3",
+      "requirement": "必须",
+      "title": "高敏感信息禁止存储、展示",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.7 数据输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 448,
+        "end_line": 451,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.7.4",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.7.4",
+      "requirement": "必须",
+      "title": "个人敏感信息脱敏展示",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.7 数据输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 453,
+        "end_line": 460,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.7.5",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.7.5",
+      "requirement": "必须",
+      "title": "隐藏后台地址",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.7 数据输出"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 462,
+        "end_line": 474,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.8.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.8.1",
+      "requirement": "必须",
+      "title": "默认鉴权",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 权限管理"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 479,
+        "end_line": 481,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.8.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.8.2",
+      "requirement": "必须",
+      "title": "授权遵循最小权限原则",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 权限管理"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 484,
+        "end_line": 486,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.8.3",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.8.3",
+      "requirement": "必须",
+      "title": "避免越权访问",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 权限管理"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 489,
+        "end_line": 498,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.8.4",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.8.4",
+      "requirement": "建议",
+      "title": "及时清理不需要的权限",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 权限管理"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 500,
+        "end_line": 502,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.9.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.9.1",
+      "requirement": "必须",
+      "title": "不向对外错误提示",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.9 异常处理"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 507,
+        "end_line": 510,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.9.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.9.2",
+      "requirement": "必须",
+      "title": "禁止异常抛出敏感信息",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.9 异常处理"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 512,
+        "end_line": 512,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.10.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.10.1",
+      "requirement": "必须",
+      "title": "生产环境关闭调试模式",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.10 Flask安全"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 516,
+        "end_line": 516,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.10.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.10.2",
+      "requirement": "建议",
+      "title": "遵循Flask安全规范",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.10 Flask安全"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 518,
+        "end_line": 520,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.11.1",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.11.1",
+      "requirement": "必须",
+      "title": "生产环境关闭调试模式",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.11 Django安全"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 525,
+        "end_line": 525,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "PY-BACKEND-1.11.2",
+      "language": "python",
+      "scenario": "backend",
+      "original_number": "1.11.2",
+      "requirement": "建议",
+      "title": "保持Django自带的安全特性开启",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.11 Django安全"
+      ],
+      "source": {
+        "path": "sources/Python安全指南.md",
+        "start_line": 527,
+        "end_line": 531,
+        "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-1.1.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "HTML标签操作，限定/过滤传入变量值",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.1 原生DOM API的安全操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 49,
+        "end_line": 80,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": [
+        "INT-XSS-CONTEXT"
+      ]
+    },
+    {
+      "id": "JS-BROWSER-1.1.2",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.1.2",
+      "requirement": "必须",
+      "title": "HTML属性操作，限定/过滤传入变量值",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.1 原生DOM API的安全操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 82,
+        "end_line": 106,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": [
+        "INT-XSS-CONTEXT"
+      ]
+    },
+    {
+      "id": "JS-BROWSER-1.2.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.2.1",
+      "requirement": "必须",
+      "title": "限定/过滤传入jQuery不安全函数的变量值",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.2 流行框架/库的安全操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 111,
+        "end_line": 143,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-1.2.2",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.2.2",
+      "requirement": "必须",
+      "title": "限定/过滤传入Vue.js不安全函数的变量值",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.2 流行框架/库的安全操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 145,
+        "end_line": 193,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-1.3.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.3.1",
+      "requirement": "必须",
+      "title": "限定跳转目标地址",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.3 页面重定向"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 198,
+        "end_line": 222,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-1.4.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.4.1",
+      "requirement": "必须",
+      "title": "使用安全的JSON解析方式",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.4 JSON解析/动态执行"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 227,
+        "end_line": 248,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-1.5.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.5.1",
+      "requirement": "必须",
+      "title": "使用安全的前端跨域通信方式",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.5 跨域通讯"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 253,
+        "end_line": 255,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-1.5.2",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "1.5.2",
+      "requirement": "必须",
+      "title": "使用postMessage应限定Origin",
+      "section": [
+        "JavaScript页面类",
+        "I. 代码实现",
+        "1.5 跨域通讯"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 257,
+        "end_line": 279,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-2.1.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "2.1.1",
+      "requirement": "必须",
+      "title": "禁止明文硬编码AK/SK",
+      "section": [
+        "JavaScript页面类",
+        "II. 配置&环境",
+        "2.1 敏感/配置信息"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 287,
+        "end_line": 289,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-2.2.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "2.2.1",
+      "requirement": "必须",
+      "title": "使用可信范围内的统计组件",
+      "section": [
+        "JavaScript页面类",
+        "II. 配置&环境",
+        "2.2 第三方组件/资源"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 294,
+        "end_line": 294,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-2.2.2",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "2.2.2",
+      "requirement": "必须",
+      "title": "禁止引入非可信来源的第三方JS",
+      "section": [
+        "JavaScript页面类",
+        "II. 配置&环境",
+        "2.2 第三方组件/资源"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 296,
+        "end_line": 296,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-BROWSER-2.3.1",
+      "language": "javascript",
+      "scenario": "browser",
+      "original_number": "2.3.1",
+      "requirement": "推荐",
+      "title": "部署CSP，并启用严格模式",
+      "section": [
+        "JavaScript页面类",
+        "II. 配置&环境",
+        "2.3 纵深安全防护"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 301,
+        "end_line": 301,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.1.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "按类型进行数据校验",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.1 输入验证"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 312,
+        "end_line": 342,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.2.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.2.1",
+      "requirement": "必须",
+      "title": "使用child_process执行系统命令，应限定或校验命令和参数的内容",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.2 执行命令"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 347,
+        "end_line": 414,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": [
+        "INT-COMMAND"
+      ]
+    },
+    {
+      "id": "JS-NODE-1.3.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.3.1",
+      "requirement": "必须",
+      "title": "限定文件操作的后缀范围",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.3 文件操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 419,
+        "end_line": 421,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.3.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.3.2",
+      "requirement": "必须",
+      "title": "校验并限定文件路径范围",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.3 文件操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 423,
+        "end_line": 465,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.3.3",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.3.3",
+      "requirement": "必须",
+      "title": "安全地处理上传文件名",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.3 文件操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 467,
+        "end_line": 470,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.3.4",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.3.4",
+      "requirement": "必须",
+      "title": "敏感资源文件，应有加密、鉴权和水印等加固措施",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.3 文件操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 472,
+        "end_line": 477,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.4.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.4.1",
+      "requirement": "必须",
+      "title": "限定访问网络资源地址范围",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.4 网络请求"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 482,
+        "end_line": 493,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.4.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.4.2",
+      "requirement": "推荐",
+      "title": "请求网络资源，应加密传输",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.4 网络请求"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 495,
+        "end_line": 499,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.5.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.5.1",
+      "requirement": "必须",
+      "title": "高敏感信息禁止存储、展示",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.5 数据输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 504,
+        "end_line": 507,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.5.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.5.2",
+      "requirement": "必须",
+      "title": "一般敏感信息脱敏展示",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.5 数据输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 509,
+        "end_line": 514,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.5.3",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.5.3",
+      "requirement": "推荐",
+      "title": "返回的字段按业务需要输出",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.5 数据输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 516,
+        "end_line": 521,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.6.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.6.1",
+      "requirement": "必须",
+      "title": "设置正确的HTTP响应包类型",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 526,
+        "end_line": 528,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.6.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.6.2",
+      "requirement": "必须",
+      "title": "添加安全响应头",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 530,
+        "end_line": 534,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.6.3",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.6.3",
+      "requirement": "必须",
+      "title": "外部输入拼接到响应页面前，进行编码处理",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 536,
+        "end_line": 544,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": [
+        "INT-XSS-CONTEXT"
+      ]
+    },
+    {
+      "id": "JS-NODE-1.6.4",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.6.4",
+      "requirement": "必须",
+      "title": "响应禁止展示物理资源、程序内部代码逻辑等敏感信息",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 546,
+        "end_line": 553,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.6.5",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.6.5",
+      "requirement": "推荐",
+      "title": "添加安全纵深防御措施",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 555,
+        "end_line": 575,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.7.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.7.1",
+      "requirement": "必须",
+      "title": "安全的代码执行方式",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.7 执行代码"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 580,
+        "end_line": 586,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.8.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.8.1",
+      "requirement": "必须",
+      "title": "限定JSONP接口的callback字符集范围",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.8 Web跨域"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 591,
+        "end_line": 593,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.8.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.8.2",
+      "requirement": "必须",
+      "title": "安全的CORS配置",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.8 Web跨域"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 595,
+        "end_line": 607,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.9.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.9.1",
+      "requirement": "必须",
+      "title": "SQL语句默认使用预编译并绑定变量",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.9 SQL操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 612,
+        "end_line": 680,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.9.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.9.2",
+      "requirement": "必须",
+      "title": "安全的ORM操作",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.9 SQL操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 682,
+        "end_line": 720,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.10.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.10.1",
+      "requirement": "必须",
+      "title": "校验参数值类型",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.10 NoSQL操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 725,
+        "end_line": 759,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.10.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.10.2",
+      "requirement": "必须",
+      "title": "NoSQL操作前，应校验权限/角色",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.10 NoSQL操作"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 761,
+        "end_line": 783,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.11.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.11.1",
+      "requirement": "必须",
+      "title": "安全的Vue服务器端渲染(Vue SSR)",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.11 服务器端渲染（SSR）"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 788,
+        "end_line": 813,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.11.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.11.2",
+      "requirement": "必须",
+      "title": "安全地使用EJS、LoDash、UnderScore进行服务器端渲染",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.11 服务器端渲染（SSR）"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 815,
+        "end_line": 839,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.11.3",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.11.3",
+      "requirement": "必须",
+      "title": "在自行实现状态存储容器并将其JSON.Stringify序列化后注入到HTML时，必须进行安全过滤",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.11 服务器端渲染（SSR）"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 841,
+        "end_line": 841,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.12.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.12.1",
+      "requirement": "必须",
+      "title": "限定跳转目标地址",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.12 URL跳转"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 846,
+        "end_line": 896,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-1.13.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "1.13.1",
+      "requirement": "推荐",
+      "title": "为Cookies中存储的关键登录态信息添加http-only保护",
+      "section": [
+        "Node.js后台类",
+        "I. 代码实现",
+        "1.13 Cookie与登录态"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 901,
+        "end_line": 903,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-2.1.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "2.1.1",
+      "requirement": "必须",
+      "title": "使用安全的依赖库",
+      "section": [
+        "Node.js后台类",
+        "II. 配置&环境",
+        "2.1 依赖库"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 911,
+        "end_line": 913,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-2.2.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "2.2.1",
+      "requirement": "必须",
+      "title": "使用非root用户运行Node.js",
+      "section": [
+        "Node.js后台类",
+        "II. 配置&环境",
+        "2.2 运行环境"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 918,
+        "end_line": 918,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-2.3.1",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "2.3.1",
+      "requirement": "必须",
+      "title": "禁止硬编码认证凭证",
+      "section": [
+        "Node.js后台类",
+        "II. 配置&环境",
+        "2.3 配置信息"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 923,
+        "end_line": 926,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-2.3.2",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "2.3.2",
+      "requirement": "必须",
+      "title": "禁止硬编码IP配置",
+      "section": [
+        "Node.js后台类",
+        "II. 配置&环境",
+        "2.3 配置信息"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 928,
+        "end_line": 932,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JS-NODE-2.3.3",
+      "language": "javascript",
+      "scenario": "node",
+      "original_number": "2.3.3",
+      "requirement": "必须",
+      "title": "禁止硬编码员工敏感信息",
+      "section": [
+        "Node.js后台类",
+        "II. 配置&环境",
+        "2.3 配置信息"
+      ],
+      "source": {
+        "path": "sources/JavaScript安全指南.md",
+        "start_line": 934,
+        "end_line": 936,
+        "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.1.1",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "序列化异常捕获",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.1 异常捕获处理"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 32,
+        "end_line": 48,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.1.2",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.1.2",
+      "requirement": "必须",
+      "title": "NullPointerException 异常捕获",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.1 异常捕获处理"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 49,
+        "end_line": 66,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.1.3",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.1.3",
+      "requirement": "必须",
+      "title": "ClassCastException 异常捕获",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.1 异常捕获处理"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 67,
+        "end_line": 82,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.1.4",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.1.4",
+      "requirement": "必须",
+      "title": "ClassNotFoundException 异常捕获",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.1 异常捕获处理"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 83,
+        "end_line": 84,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.2.1",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.2.1",
+      "requirement": "必须",
+      "title": "logcat 输出限制",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.2 数据泄露"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 88,
+        "end_line": 102,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.3.1",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.3.1",
+      "requirement": "必须",
+      "title": "addJavaScriptInterface 方法调用",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.3 webview 组件安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 106,
+        "end_line": 120,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.3.2",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.3.2",
+      "requirement": "建议",
+      "title": "setJavaScriptEnabled 方法调用",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.3 webview 组件安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 121,
+        "end_line": 133,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.3.3",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.3.3",
+      "requirement": "建议",
+      "title": "setAllowFileAccess 方法调用",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.3 webview 组件安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 134,
+        "end_line": 146,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.3.4",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.3.4",
+      "requirement": "建议",
+      "title": "setSavePassword 方法调用",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.3 webview 组件安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 147,
+        "end_line": 159,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.3.5",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.3.5",
+      "requirement": "必须",
+      "title": "onReceivedSslError 方法调用",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.3 webview 组件安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 160,
+        "end_line": 179,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.4.1",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.4.1",
+      "requirement": "必须",
+      "title": "自定义 HostnameVerifier 类",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.4 传输安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 182,
+        "end_line": 200,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.4.2",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.4.2",
+      "requirement": "必须",
+      "title": "自定义 X509TrustManager 类",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.4 传输安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 201,
+        "end_line": 218,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-1.4.3",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "1.4.3",
+      "requirement": "必须",
+      "title": "setHostnameVerifier 方法调用",
+      "section": [
+        "安卓类",
+        "I. 代码实现",
+        "1.4 传输安全"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 219,
+        "end_line": 233,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-2.1.1",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "2.1.1",
+      "requirement": "必须",
+      "title": "PermissionGroup 属性设置",
+      "section": [
+        "安卓类",
+        "II. 配置&环境",
+        "2.1 AndroidManifest.xml 配置"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 239,
+        "end_line": 240,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-2.1.2",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "2.1.2",
+      "requirement": "必须",
+      "title": "protectionLevel 属性设置",
+      "section": [
+        "安卓类",
+        "II. 配置&环境",
+        "2.1 AndroidManifest.xml 配置"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 241,
+        "end_line": 242,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-2.1.3",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "2.1.3",
+      "requirement": "建议",
+      "title": "sharedUserId 权限设置",
+      "section": [
+        "安卓类",
+        "II. 配置&环境",
+        "2.1 AndroidManifest.xml 配置"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 243,
+        "end_line": 244,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-2.1.4",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "2.1.4",
+      "requirement": "建议",
+      "title": "allowBackup 备份设置",
+      "section": [
+        "安卓类",
+        "II. 配置&环境",
+        "2.1 AndroidManifest.xml 配置"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 245,
+        "end_line": 250,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-ANDROID-2.1.5",
+      "language": "java",
+      "scenario": "android",
+      "original_number": "2.1.5",
+      "requirement": "必须",
+      "title": "debuggable 调试设置",
+      "section": [
+        "安卓类",
+        "II. 配置&环境",
+        "2.1 AndroidManifest.xml 配置"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 251,
+        "end_line": 256,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.1.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "SQL语句默认使用预编译并绑定变量",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.1 数据持久化"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 266,
+        "end_line": 291,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.1.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.1.2",
+      "requirement": "必须",
+      "title": "白名单过滤",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.1 数据持久化"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 293,
+        "end_line": 301,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.2.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.2.1",
+      "requirement": "必须",
+      "title": "文件类型限制",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.2 文件操作"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 306,
+        "end_line": 331,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.2.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.2.2",
+      "requirement": "必须",
+      "title": "禁止外部文件存储于可执行目录",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.2 文件操作"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 333,
+        "end_line": 335,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.2.3",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.2.3",
+      "requirement": "建议",
+      "title": "避免路径拼接",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.2 文件操作"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 337,
+        "end_line": 339,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.2.4",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.2.4",
+      "requirement": "必须",
+      "title": "避免路径穿越",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.2 文件操作"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 341,
+        "end_line": 343,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.3.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.3.1",
+      "requirement": "必须",
+      "title": "避免直接访问不可信地址",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.3 网络访问"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 348,
+        "end_line": 369,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.4.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.4.1",
+      "requirement": "必须",
+      "title": "XML解析器关闭DTD解析",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.4 XML读写"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 374,
+        "end_line": 421,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.1",
+      "requirement": "必须",
+      "title": "设置正确的HTTP响应包类型",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 427,
+        "end_line": 429,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.2",
+      "requirement": "建议",
+      "title": "设置安全的HTTP响应头",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 431,
+        "end_line": 459,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.3",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.3",
+      "requirement": "必须",
+      "title": "外部输入拼接到response页面前进行编码处理",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 463,
+        "end_line": 484,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": [
+        "INT-XSS-CONTEXT"
+      ]
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.4",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.4",
+      "requirement": "必须",
+      "title": "外部输入拼接到HTTP响应头中需进行过滤",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 486,
+        "end_line": 488,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.5",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.5",
+      "requirement": "必须",
+      "title": "避免不可信域名的302跳转",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 490,
+        "end_line": 513,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.6",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.6",
+      "requirement": "必须",
+      "title": "避免通过Jsonp传输非公开敏感信息",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 517,
+        "end_line": 519,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.7",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.7",
+      "requirement": "必须",
+      "title": "限定JSONP接口的callback字符集范围",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 521,
+        "end_line": 523,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.8",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.8",
+      "requirement": "必须",
+      "title": "屏蔽异常栈",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 525,
+        "end_line": 527,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.5.9",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.5.9",
+      "requirement": "必须",
+      "title": "模板&表达式",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.5 响应输出"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 529,
+        "end_line": 554,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.6.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.6.1",
+      "requirement": "建议",
+      "title": "避免不可信数据拼接操作系统命令",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.6 OS命令执行"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 559,
+        "end_line": 561,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.6.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.6.2",
+      "requirement": "必须",
+      "title": "避免创建SHELL操作",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.6 OS命令执行"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 563,
+        "end_line": 580,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.7.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.7.1",
+      "requirement": "必须",
+      "title": "非一次有效身份凭证禁止在URL中传输",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.7 会话管理"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 585,
+        "end_line": 587,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.7.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.7.2",
+      "requirement": "必须",
+      "title": "避免未经校验的数据直接给会话赋值",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.7 会话管理"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 589,
+        "end_line": 591,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.8.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.8.1",
+      "requirement": "建议",
+      "title": "对称加密",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 加解密"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 596,
+        "end_line": 602,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": [
+        "INT-AEAD"
+      ]
+    },
+    {
+      "id": "JAVA-BACKEND-1.8.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.8.2",
+      "requirement": "建议",
+      "title": "非对称加密",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 加解密"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 604,
+        "end_line": 606,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.8.3",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.8.3",
+      "requirement": "建议",
+      "title": "哈希算法",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 加解密"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 608,
+        "end_line": 610,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.8.4",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.8.4",
+      "requirement": "建议",
+      "title": "密码存储策略",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.8 加解密"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 612,
+        "end_line": 614,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": [
+        "INT-PASSWORD-STORAGE"
+      ]
+    },
+    {
+      "id": "JAVA-BACKEND-1.9.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.9.1",
+      "requirement": "必须",
+      "title": "返回信息最小化",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.9 查询业务"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 619,
+        "end_line": 621,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.9.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.9.2",
+      "requirement": "必须",
+      "title": "个人敏感信息脱敏展示",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.9 查询业务"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 623,
+        "end_line": 631,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.9.3",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.9.3",
+      "requirement": "必须",
+      "title": "数据权限校验",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.9 查询业务"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 633,
+        "end_line": 639,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.10.1",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.10.1",
+      "requirement": "必须",
+      "title": "部署CSRF防御机制",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.10 操作业务"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 644,
+        "end_line": 689,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.10.2",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.10.2",
+      "requirement": "必须",
+      "title": "权限校验",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.10 操作业务"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 691,
+        "end_line": 698,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "JAVA-BACKEND-1.10.3",
+      "language": "java",
+      "scenario": "backend",
+      "original_number": "1.10.3",
+      "requirement": "建议",
+      "title": "加锁操作",
+      "section": [
+        "后台类",
+        "I. 代码实现",
+        "1.10 操作业务"
+      ],
+      "source": {
+        "path": "sources/Java安全指南.md",
+        "start_line": 700,
+        "end_line": 702,
+        "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.1",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "切片长度校验",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 38,
+        "end_line": 68,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.2",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.2",
+      "requirement": "必须",
+      "title": "nil指针判断",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 70,
+        "end_line": 130,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.3",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.3",
+      "requirement": "必须",
+      "title": "整数安全",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 132,
+        "end_line": 173,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.4",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.4",
+      "requirement": "必须",
+      "title": "make分配长度验证",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 175,
+        "end_line": 199,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.5",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.5",
+      "requirement": "必须",
+      "title": "禁止SetFinalizer和指针循环引用同时使用",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 201,
+        "end_line": 227,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.6",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.6",
+      "requirement": "必须",
+      "title": "禁止重复释放channel",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 229,
+        "end_line": 255,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.7",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.7",
+      "requirement": "必须",
+      "title": "确保每个协程都能退出",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 257,
+        "end_line": 268,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.8",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.8",
+      "requirement": "推荐",
+      "title": "不使用unsafe包",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 270,
+        "end_line": 283,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.1.9",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.1.9",
+      "requirement": "推荐",
+      "title": "不使用slice作为函数入参",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.1 内存管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 285,
+        "end_line": 317,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.2.1",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.2.1",
+      "requirement": "必须",
+      "title": "路径穿越检查",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.2 文件操作"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 322,
+        "end_line": 366,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.2.2",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.2.2",
+      "requirement": "必须",
+      "title": "文件访问权限",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.2 文件操作"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 368,
+        "end_line": 374,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.3.1",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.3.1",
+      "requirement": "必须",
+      "title": "命令执行检查",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.3 系统接口"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 379,
+        "end_line": 423,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.4.1",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.4.1",
+      "requirement": "必须",
+      "title": "网络通信采用TLS方式",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.4 通信安全"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 428,
+        "end_line": 443,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.4.2",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.4.2",
+      "requirement": "推荐",
+      "title": "TLS启用证书验证",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.4 通信安全"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 445,
+        "end_line": 479,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.5.1",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.5.1",
+      "requirement": "必须",
+      "title": "敏感信息访问",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.5 敏感数据保护"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 484,
+        "end_line": 486,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.5.2",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.5.2",
+      "requirement": "必须",
+      "title": "敏感数据输出",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.5 敏感数据保护"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 488,
+        "end_line": 522,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.5.3",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.5.3",
+      "requirement": "必须",
+      "title": "敏感数据存储",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.5 敏感数据保护"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 524,
+        "end_line": 527,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.5.4",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.5.4",
+      "requirement": "必须",
+      "title": "异常处理和日志记录",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.5 敏感数据保护"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 529,
+        "end_line": 548,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.6.1",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.6.1",
+      "requirement": "必须",
+      "title": "不得硬编码密码/密钥",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.6 加密解密"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 553,
+        "end_line": 583,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.6.2",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.6.2",
+      "requirement": "必须",
+      "title": "密钥存储安全",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.6 加密解密"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 585,
+        "end_line": 587,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.6.3",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.6.3",
+      "requirement": "推荐",
+      "title": "不使用弱密码算法",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.6 加密解密"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 589,
+        "end_line": 599,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-COMMON-1.7.1",
+      "language": "go",
+      "scenario": "common",
+      "original_number": "1.7.1",
+      "requirement": "推荐",
+      "title": "使用regexp进行正则表达式匹配",
+      "section": [
+        "通用类",
+        "1. 代码实现类",
+        "1.7 正则表达式"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 604,
+        "end_line": 615,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.1.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.1.1",
+      "requirement": "必须",
+      "title": "按类型进行数据校验",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.1 输入校验"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 626,
+        "end_line": 669,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.2.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.2.1",
+      "requirement": "必须",
+      "title": "SQL语句默认使用预编译并绑定变量",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.2 SQL操作"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 674,
+        "end_line": 718,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.3.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.3.1",
+      "requirement": "必须",
+      "title": "资源请求过滤验证",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.3 网络请求"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 722,
+        "end_line": 775,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.4.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.4.1",
+      "requirement": "必须",
+      "title": "模板渲染过滤验证",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.4 服务器端渲染"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 779,
+        "end_line": 838,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.5.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.5.1",
+      "requirement": "必须",
+      "title": "跨域资源共享CORS限制请求来源",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.5 Web跨域"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 842,
+        "end_line": 856,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.6.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.6.1",
+      "requirement": "必须",
+      "title": "设置正确的HTTP响应包类型",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 861,
+        "end_line": 863,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.6.2",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.6.2",
+      "requirement": "必须",
+      "title": "添加安全响应头",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 865,
+        "end_line": 868,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.6.3",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.6.3",
+      "requirement": "必须",
+      "title": "外部输入拼接到HTTP响应头中需进行过滤",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 870,
+        "end_line": 872,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.6.4",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.6.4",
+      "requirement": "必须",
+      "title": "外部输入拼接到response页面前进行编码处理",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.6 响应输出"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 874,
+        "end_line": 889,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.7.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.7.1",
+      "requirement": "必须",
+      "title": "安全维护session信息",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.7 会话管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 894,
+        "end_line": 935,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.7.2",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.7.2",
+      "requirement": "必须",
+      "title": "CSRF防护",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.7 会话管理"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 937,
+        "end_line": 957,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.8.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.8.1",
+      "requirement": "必须",
+      "title": "默认鉴权",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.8 访问控制"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 962,
+        "end_line": 975,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.9.1",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.9.1",
+      "requirement": "必须",
+      "title": "禁止在闭包中直接调用循环变量",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.9 并发保护"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 980,
+        "end_line": 1019,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": [
+        "INT-GO-LOOP"
+      ]
+    },
+    {
+      "id": "GO-BACKEND-1.9.2",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.9.2",
+      "requirement": "必须",
+      "title": "禁止并发写map",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.9 并发保护"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 1021,
+        "end_line": 1041,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "GO-BACKEND-1.9.3",
+      "language": "go",
+      "scenario": "backend",
+      "original_number": "1.9.3",
+      "requirement": "必须",
+      "title": "确保并发安全",
+      "section": [
+        "后台类",
+        "1 代码实现类",
+        "1.9 并发保护"
+      ],
+      "source": {
+        "path": "sources/Go安全指南.md",
+        "start_line": 1042,
+        "end_line": 1106,
+        "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.1",
+      "requirement": "必须",
+      "title": "不得直接使用无长度限制的字符拷贝函数",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 73,
+        "end_line": 127,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.2",
+      "requirement": "必须",
+      "title": "创建进程类的函数的安全规范",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 130,
+        "end_line": 176,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.3",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.3",
+      "requirement": "必须",
+      "title": "尽量减少使用 _alloca 和可变长度数组",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 179,
+        "end_line": 221,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.4",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.4",
+      "requirement": "必须",
+      "title": "printf系列参数必须对应",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 224,
+        "end_line": 258,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.5",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.5",
+      "requirement": "必须",
+      "title": "防止泄露指针（包括%p）的值",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 261,
+        "end_line": 298,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.6",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.6",
+      "requirement": "必须",
+      "title": "不应当把用户可修改的字符串作为printf系列函数的“format”参数",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 301,
+        "end_line": 327,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.7",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.7",
+      "requirement": "必须",
+      "title": "对数组delete时需要使用delete[]",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 330,
+        "end_line": 358,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.8",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.8",
+      "requirement": "必须",
+      "title": "注意隐式符号转换",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 361,
+        "end_line": 437,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-1.9",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "1.9",
+      "requirement": "必须",
+      "title": "注意八进制问题",
+      "section": [
+        "通用安全指南",
+        "1 C/C++使用错误"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 440,
+        "end_line": 463,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.1",
+      "requirement": "必须",
+      "title": "switch中应有default",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 469,
+        "end_line": 509,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.2",
+      "requirement": "必须",
+      "title": "不应当在Debug或错误信息中提供过多内容",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 512,
+        "end_line": 542,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.3",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.3",
+      "requirement": "必须",
+      "title": "不应该在客户端代码中硬编码对称加密秘钥",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 545,
+        "end_line": 586,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.4",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.4",
+      "requirement": "必须",
+      "title": "返回栈上变量的地址",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 589,
+        "end_line": 623,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": [
+        "INT-CPP-LIFETIME"
+      ]
+    },
+    {
+      "id": "CPP-COMMON-2.5",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.5",
+      "requirement": "必须",
+      "title": "有逻辑联系的数组必须仔细检查",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 626,
+        "end_line": 656,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.6",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.6",
+      "requirement": "必须",
+      "title": "避免函数的声明和实现不同",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 659,
+        "end_line": 702,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.7",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.7",
+      "requirement": "必须",
+      "title": "检查复制粘贴的重复代码（相同代码通常代表错误）",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 705,
+        "end_line": 732,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.8",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.8",
+      "requirement": "必须",
+      "title": "左右一致的重复判断/永远为真或假的判断（通常代表错误）",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 735,
+        "end_line": 757,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.9",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.9",
+      "requirement": "必须",
+      "title": "函数每个分支都应有返回值",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 760,
+        "end_line": 795,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.10",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.10",
+      "requirement": "必须",
+      "title": "不得使用栈上未初始化的变量",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 798,
+        "end_line": 830,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.11",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.11",
+      "requirement": "建议",
+      "title": "不得直接使用刚分配的未初始化的内存（如realloc）",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 833,
+        "end_line": 863,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.12",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.12",
+      "requirement": "必须",
+      "title": "校验内存相关函数的返回值",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 866,
+        "end_line": 897,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.13",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.13",
+      "requirement": "必须",
+      "title": "不要在if里面赋值",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 900,
+        "end_line": 924,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-2.14",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "2.14",
+      "requirement": "建议",
+      "title": "确认if里面的按位操作",
+      "section": [
+        "通用安全指南",
+        "2 不推荐的编程习惯"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 927,
+        "end_line": 957,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-3.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "3.1",
+      "requirement": "必须",
+      "title": "变量应确保线程安全性",
+      "section": [
+        "通用安全指南",
+        "3    多线程"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 963,
+        "end_line": 1000,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-3.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "3.2",
+      "requirement": "必须",
+      "title": "注意signal handler导致的条件竞争",
+      "section": [
+        "通用安全指南",
+        "3    多线程"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1003,
+        "end_line": 1040,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-3.3",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "3.3",
+      "requirement": "建议",
+      "title": "注意Time-of-check Time-of-use (TOCTOU) 条件竞争",
+      "section": [
+        "通用安全指南",
+        "3    多线程"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1043,
+        "end_line": 1075,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-4.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "4.1",
+      "requirement": "必须",
+      "title": "不得明文存储用户密码等敏感数据",
+      "section": [
+        "通用安全指南",
+        "4    加密解密"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1081,
+        "end_line": 1091,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-4.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "4.2",
+      "requirement": "必须",
+      "title": "内存中的用户密码等敏感数据应该安全抹除",
+      "section": [
+        "通用安全指南",
+        "4    加密解密"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1094,
+        "end_line": 1127,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-4.3",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "4.3",
+      "requirement": "必须",
+      "title": "rand() 类函数应正确初始化",
+      "section": [
+        "通用安全指南",
+        "4    加密解密"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1130,
+        "end_line": 1156,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-4.4",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "4.4",
+      "requirement": "必须",
+      "title": "在需要高强度安全加密时不应使用弱PRNG函数",
+      "section": [
+        "通用安全指南",
+        "4    加密解密"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1159,
+        "end_line": 1215,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-4.5",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "4.5",
+      "requirement": "必须",
+      "title": "自己实现的rand范围不应过小",
+      "section": [
+        "通用安全指南",
+        "4    加密解密"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1218,
+        "end_line": 1239,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-5.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "5.1",
+      "requirement": "必须",
+      "title": "避免路径穿越问题",
+      "section": [
+        "通用安全指南",
+        "5    文件操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1245,
+        "end_line": 1300,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-5.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "5.2",
+      "requirement": "必须",
+      "title": "避免相对路径导致的安全问题（DLL、EXE劫持等问题）",
+      "section": [
+        "通用安全指南",
+        "5    文件操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1303,
+        "end_line": 1327,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-5.3",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "5.3",
+      "requirement": "必须",
+      "title": "文件权限控制",
+      "section": [
+        "通用安全指南",
+        "5    文件操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1330,
+        "end_line": 1350,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-6.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "6.1",
+      "requirement": "必须",
+      "title": "防止各种越界写（向前/向后）",
+      "section": [
+        "通用安全指南",
+        "6 内存操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1356,
+        "end_line": 1375,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-6.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "6.2",
+      "requirement": "必须",
+      "title": "防止任意地址写",
+      "section": [
+        "通用安全指南",
+        "6 内存操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1378,
+        "end_line": 1400,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-7.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "7.1",
+      "requirement": "必须",
+      "title": "防止整数溢出",
+      "section": [
+        "通用安全指南",
+        "7 数字操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1406,
+        "end_line": 1443,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-7.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "7.2",
+      "requirement": "必须",
+      "title": "防止Off-By-One",
+      "section": [
+        "通用安全指南",
+        "7 数字操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1446,
+        "end_line": 1482,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-7.3",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "7.3",
+      "requirement": "必须",
+      "title": "避免大小端错误",
+      "section": [
+        "通用安全指南",
+        "7 数字操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1485,
+        "end_line": 1491,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-7.4",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "7.4",
+      "requirement": "必须",
+      "title": "检查除以零异常",
+      "section": [
+        "通用安全指南",
+        "7 数字操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1494,
+        "end_line": 1519,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-7.5",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "7.5",
+      "requirement": "必须",
+      "title": "防止数字类型的错误强转",
+      "section": [
+        "通用安全指南",
+        "7 数字操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1522,
+        "end_line": 1560,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-7.6",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "7.6",
+      "requirement": "必须",
+      "title": "比较数据大小时加上最小/最大值的校验",
+      "section": [
+        "通用安全指南",
+        "7 数字操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1563,
+        "end_line": 1594,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-8.1",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "8.1",
+      "requirement": "建议",
+      "title": "检查在pointer上使用sizeof",
+      "section": [
+        "通用安全指南",
+        "8    指针操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1600,
+        "end_line": 1624,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-8.2",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "8.2",
+      "requirement": "必须",
+      "title": "检查直接将数组和0比较的代码",
+      "section": [
+        "通用安全指南",
+        "8    指针操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1627,
+        "end_line": 1663,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-8.3",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "8.3",
+      "requirement": "必须",
+      "title": "不应当向指针赋予写死的地址",
+      "section": [
+        "通用安全指南",
+        "8    指针操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1666,
+        "end_line": 1674,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-8.4",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "8.4",
+      "requirement": "必须",
+      "title": "检查空指针",
+      "section": [
+        "通用安全指南",
+        "8    指针操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1677,
+        "end_line": 1720,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-8.5",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "8.5",
+      "requirement": "必须",
+      "title": "释放完后置空指针",
+      "section": [
+        "通用安全指南",
+        "8    指针操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1723,
+        "end_line": 1764,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-8.6",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "8.6",
+      "requirement": "必须",
+      "title": "防止错误的类型转换（type confusion）",
+      "section": [
+        "通用安全指南",
+        "8    指针操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1767,
+        "end_line": 1833,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    },
+    {
+      "id": "CPP-COMMON-8.7",
+      "language": "cpp",
+      "scenario": "common",
+      "original_number": "8.7",
+      "requirement": "必须",
+      "title": "智能指针使用安全",
+      "section": [
+        "通用安全指南",
+        "8    指针操作"
+      ],
+      "source": {
+        "path": "sources/C,C++安全指南.md",
+        "start_line": 1836,
+        "end_line": 1894,
+        "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab"
+      },
+      "interpretations": []
+    }
+  ]
+}

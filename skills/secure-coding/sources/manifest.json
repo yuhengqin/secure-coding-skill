@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "origin": "https://github.com/Tencent/secguide",
+  "upstream_revision": "bfda087142e3bb3f5840cbc6af82c1982d1d14e4",
+  "files": [
+    {
+      "path": "sources/Python安全指南.md",
+      "sha256": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "bytes": 20622
+    },
+    {
+      "path": "sources/JavaScript安全指南.md",
+      "sha256": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27",
+      "bytes": 34435
+    },
+    {
+      "path": "sources/Java安全指南.md",
+      "sha256": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20",
+      "bytes": 29096
+    },
+    {
+      "path": "sources/Go安全指南.md",
+      "sha256": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe",
+      "bytes": 28143
+    },
+    {
+      "path": "sources/C,C++安全指南.md",
+      "sha256": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab",
+      "bytes": 47584
+    },
+    {
+      "path": "sources/README.md",
+      "sha256": "01282422dc68a1a0448c66c068204dad253b802644e9923a47a46b1a16d6f7bd",
+      "bytes": 1254
+    }
+  ],
+  "verified_on": "2026-10-13",
+  "license": "CC-BY-SA-4.0"
+}
