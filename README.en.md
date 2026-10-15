@@ -24,11 +24,9 @@ For developers using Codex CLI / IDE; any client that discovers skills under `.a
 
 ```mermaid
 flowchart LR
-    A["The change"] --> B["Pick rules by<br/>language and scenario"]
-    B --> C["Read rule bodies and<br/>applicability notes"]
-    C --> D["Implement"]
-    D --> E["Self-review the final diff<br/>with project checks"]
-    E --> F["Deliver: rule IDs, code<br/>locations, verification"]
+    A["Identify the change<br/>language and scenario"] --> B["Read relevant<br/>rules and notes"]
+    B --> C["Implement and verify<br/>with project checks"]
+    C --> D["Report evidence<br/>rule IDs and results"]
 ```
 
 For example, an assistant changing only a Go interface can follow the skill instructions to read the common entry, the Go index, and relevant rule bodies without loading the other four guidelines. The assistant selects the rules; the `guide.py` CLI validates the complete rule package locally and returns only what was requested. Actual skill activation still depends on the client.
