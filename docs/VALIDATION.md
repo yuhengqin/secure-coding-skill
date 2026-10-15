@@ -52,9 +52,15 @@ git diff --check
 
 ## 未验证范围
 
-- GitHub 远程 Actions 尚未运行；已配置 Windows / Ubuntu × Python 3.10 / 3.14 的矩阵，本次本地运行仅为 Windows / Python 3.14.2。
+- GitHub 远程 Actions 的四个矩阵 job 尚未执行；已配置 Windows / Ubuntu × Python 3.10 / 3.14 的矩阵，本次本地运行仅为 Windows / Python 3.14.2。首次运行结果见下方补记。
 - 未验证当前或其他客户端的自动发现、自动触发，也未验证插件渠道安装。
 - 未运行任何目标业务项目的安全扫描、集成测试或部署检查。
 - 未对全部 225 条历史建议完成现代化审计；10 项解释只能说明其明确覆盖的范围。
 
 本次包校验及静态使用结果不证明 AI 的安全能力相对无 Skill 基线有所提升，也不保证生成的业务代码没有漏洞。
+
+## 2026-10-15 补记（Asia/Shanghai）
+
+[首次 GitHub Actions 运行](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315)已触发，但四个矩阵 job 均显示“账户因计费问题被锁定，job 未启动”的注释；没有任何工作流步骤得到远程执行。账户所有者处理 GitHub Billing 后仍需重跑，再按实际 job 结果更新验证状态。
+
+同日在 Windows / Python 3.14.2 重新运行 `guide.py check`、7 项工具测试、6 项订单案例测试和 `git diff --check`，均退出 0。这些结果只证明本地规则包与案例检查通过，不代替远程矩阵或客户端端到端验证。
