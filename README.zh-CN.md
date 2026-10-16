@@ -1,7 +1,7 @@
 # 🛡️ Secure Coding Skill
 
 <p align="center">
-  <b>让 AI 编码助手告别安全漏洞：基于腾讯工业级安全指南，先检索规则、再编写代码、最后验证交付。</b>
+  <b>让 AI 编码助手告别安全漏洞。<br>先检索规则，再构筑防线，最后拿证据说话。</b>
 </p>
 
 <p align="center">
@@ -9,296 +9,242 @@
 </p>
 
 <p align="center">
+  <a href="#case">先看效果</a> •
   <a href="#quickstart">极速上手</a> •
-  <a href="#why">痛点对比</a> •
+  <a href="#use-cases">适用场景</a> •
   <a href="#features">核心特性</a> •
-  <a href="#how-it-works">工作原理</a> •
-  <a href="#case">实战案例</a> •
-  <a href="#languages">支持语言</a> •
+  <a href="#compatibility">客户端兼容</a> •
   <a href="#faq">常见问题</a>
 </p>
 
 <p align="center">
   <a href="#languages"><img src="https://img.shields.io/badge/安全规则-225_条-blue.svg" alt="225 Rules"></a>
   <a href="#languages"><img src="https://img.shields.io/badge/覆盖语言-5_种主流语言-brightgreen.svg" alt="5 Languages"></a>
-  <img src="https://img.shields.io/badge/运行依赖-纯标准库_0依赖-orange.svg" alt="0 Dependencies">
+  <img src="https://img.shields.io/badge/CLI-仅需_Python_标准库-orange.svg" alt="Python Standard Library Only">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg" alt="License"></a>
 </p>
 
----
+**把 225 条安全规则，变成 AI 编码时随叫随到的安全火力。** Secure Coding Skill 将 [Tencent/secguide](https://github.com/Tencent/secguide) 封装为 Agent Skill：让编码助手先检索适用规则，再落实防护，交付时说明规则 ID、代码位置和实际检查结果。日常开发、缺陷修复、重构、代码审查，都能用上。
 
-<span id="why"></span>
-## ⚡ 为什么需要它？（直观对比）
+> **文档语言：** 原始规则与大部分配套文档为中文；中英文 README 提供相同的入门流程，CLI 界面为英文。
 
-AI 编写代码速度极快，但在默认情况下**不会自动套用防御性安全规则**：输入是否校验、查询是否参数化、权限是否在服务端鉴权，全凭模型概率，极易产生注入或水平越权等严重缺陷。
+<span id="case"></span>
+## 🧪 先看效果：订单只能自己查
 
-把全套规范直接塞进 Prompt？**上下文窗口瞬间被撑爆，费用激增且会干扰模型推理。**
+**一个真实开发需求：**“用 Python 实现订单查询，沿用已有登录态，用户只能读取自己的订单；检查输入、SQL 和权限边界。”
 
-**Secure Coding Skill** 将腾讯成熟的 [Tencent/secguide](https://github.com/Tencent/secguide) 安全指南封装为符合标准的 **Agent Skill**，以“渐进式展开（Progressive Disclosure）”按需提供指引：
+[可运行的订单查询案例](examples/order-query/README.md) 把这条链路串了起来：**需求 → 规则 → 实现 → 测试**。
 
 ```diff
-# 场景：根据用户请求中的 order_id 查询订单详情
+# 查询写法示意；完整输入校验见 orders.py。
 
-- 普通 AI 生成代码（高危缺陷：字符串直接拼接 SQL + 水平越权）
+- # 风险写法：直接拼接 SQL，没有订单归属限制
 - return connection.execute(f"SELECT * FROM orders WHERE id = '{order_id}'").fetchone()
 
-+ 引入 secure-coding 技能后生成代码（遵循 PY-BACKEND-1.2.1 与 1.8.3）
-+ # 严格校验输入格式 + 参数化绑定防 SQL 注入 + 强制服务端登录态限制订单归属
++ # PY-BACKEND-1.2.1 + PY-BACKEND-1.8.3：参数绑定 + 对象归属检查
 + return connection.execute(
 +     "SELECT id, note FROM orders WHERE id = ? AND user_id = ?",
 +     (order_id, authenticated_user_id),
 + ).fetchone()
 ```
 
----
+| 你会得到什么 | 在这个案例中 |
+| :--- | :--- |
+| **有依据的规则选择** | `PY-BACKEND-1.1.1` 输入校验；`PY-BACKEND-1.2.1` 参数绑定；`PY-BACKEND-1.8.1` 默认鉴权；`PY-BACKEND-1.8.3` 对象归属 |
+| **落到代码里的防护** | 输入检查 + SQL 参数绑定 + 基于服务端已验证身份的订单归属限制 |
+| **能亲手复跑的证据** | 6 项测试覆盖本人／他人／不存在的订单、注入形态输入与合法单引号、无效身份值及非法订单 ID |
 
-<span id="features"></span>
-## 💡 核心特性
+**直接跑起来**——在本仓库根目录执行，需要 Python 3.10+ 与标准库 `sqlite3`：
 
-- 🎯 **225 条工业级规则**：覆盖 Python、JavaScript/TypeScript、Java、Go、C/C++ 五大主流语言的核心前后端与系统级开发。
-- ⚡ **零上下文膨胀**：采用渐进式披露机制。初始化仅占约 100 token，只在涉及相关操作时按需加载具体规则正文，绝不爆上下文。
-- 🔍 **全链路可追溯**：规则正文、上游原文行号与来源 SHA-256 哈希完整随包提供，另附 10 项适配现代框架演进的适用性解释。
-- 🔌 **零第三方依赖 & 纯离线**：规则检索与完整性校验 CLI 仅使用 Python 3.10+ 标准库，不联网、不外发任何代码数据。
-- 🧪 **开箱即用可验证**：内置 7 项 CLI 回归测试与 6 项可运行的安全案例测试（覆盖注入与水平越权防御），安装包可随时离线复验完整性。
+```bash
+python -B -m unittest discover -s examples/order-query -p test_orders.py -v
+```
 
----
+案例的 6 项测试已在本地通过。上方对比用于演示规则，并非模型 A/B 实测；调用方须先完成用户认证，HTTP 认证、操作级权限和真实数据库集成不在案例范围内。[查看完整实现与测试范围 →](examples/order-query/README.md)
 
 <span id="quickstart"></span>
 ## 🚀 两步极速上手
 
-### 第一步：将技能包安装到你的项目
+### 1. 安装
 
-以下命令均在**目标业务项目根目录**执行。
-
-#### 方式 1：skills CLI 一行安装（推荐）
+在**目标业务项目根目录**运行，按提示选择编码助手。需要带 `npx` 的 Node.js；直接读取 Markdown 规则不需要 Python。
 
 ```bash
 npx skills add yuhengqin/secure-coding-skill
 ```
 
-[skills CLI](https://github.com/vercel-labs/skills) 会识别本机已安装的编码助手（Codex、Claude Code、Cursor、OpenCode、GitHub Copilot 等数十种主流客户端），并把完整的 `secure-coding` 技能包安装到各客户端约定的技能目录。需要 Node.js（npx），安装环节不依赖 Python。
+### 2. 开始干活
 
-- 先预览再安装：`npx skills add yuhengqin/secure-coding-skill --list`
-- 指定客户端：追加 `--agent codex --agent claude-code`
-- 个人全局安装（本机所有项目可用）：追加 `-g`
-- 后续更新 / 卸载：`npx skills update secure-coding` · `npx skills remove secure-coding`
+把技能带进一个实际任务。如果项目涉及订单查询，可以直接对助手说：
 
-#### 方式 2：终端克隆复制（无需 Node）
-
-**Linux / macOS:**
-```bash
-git clone --depth 1 https://github.com/yuhengqin/secure-coding-skill.git .tmp-skill \
-  && mkdir -p .agents/skills \
-  && cp -R .tmp-skill/skills/secure-coding .agents/skills/ \
-  && rm -rf .tmp-skill
+```text
+请使用 secure-coding 技能实现或审查本项目的订单查询。
+用户只能读取自己的订单。先检索相关的输入校验、SQL 与权限规则，
+完成后说明规则 ID、对应代码位置、防护措施、实际执行的检查及未验证事项。
 ```
 
-**Windows PowerShell:**
-```powershell
-git clone --depth 1 https://github.com/yuhengqin/secure-coding-skill.git .tmp-skill
-New-Item -ItemType Directory -Path ".agents\skills" -Force | Out-Null
-Copy-Item -LiteralPath ".\.tmp-skill\skills\secure-coding" -Destination ".agents\skills" -Recurse
-Remove-Item -Path ".\.tmp-skill" -Recurse -Force
-```
+**如何判断用上了：**助手读取了适用规则，并把结论对应到代码和检查。也可以先让它定位 `secure-coding` 并读取 `PY-BACKEND-1.2.1`；若找不到技能，核对安装目录后重新打开项目。建议显式指定技能名称调用。
 
 <details>
-<summary><b>更多安装途径（AI 助手安装 / 全局安装 / 其他客户端 / 手动复制）</b></summary>
+<summary><b>可选：检查安装后的规则包</b></summary>
 
-- **让 AI 助手安装（Codex / Claude Code / Cursor 等）**：克隆本仓库后，让助手阅读 [README_AI.md](README_AI.md) 完成安装与检查。
-- **个人全局安装**：使用 `npx skills add yuhengqin/secure-coding-skill -g`，或手动复制到个人全局技能目录：
-  - Linux / macOS: `~/.agents/skills/secure-coding/`
-  - Windows: `%USERPROFILE%\.agents\skills\secure-coding\`
-- **其他客户端**：安装到客户端文档约定的技能目录（如 Claude Code 为 `.claude/skills/`）——skills CLI 已内置这些路径。
-- **手动复制**：保留完整 `skills/secure-coding` 目录（包含 `SKILL.md`、`LICENSE`、`NOTICE.md`、`references/`、`sources/`、`scripts/` 与 `tests/`），不要只复制单个文件。
-
-</details>
-
----
-
-### 第二步：在编码对话中唤醒使用
-
-在向 AI 提出编码需求时，直接附带调用指令（支持 Codex、Claude Code、Cursor、Windsurf 等主流工具）：
-
-> **📋 一键复制提示词：**
-> 
-> “请使用 `secure-coding` 技能完成本次改动。写代码前先检索相关的输入、数据存储及鉴权规则，并在完成后说明引用的规则 ID、防护措施及实际执行的验证。”
-
-*(在支持快捷符号的客户端中，亦可直接使用 `$secure-coding` 或 `@secure-coding` 触发)*
-
----
-
-### 验证安装有效性
-
-在**业务项目根目录**运行完整性校验（需 Python 3.10+，纯标准库）。路径按实际安装位置调整——Codex / Cursor / OpenCode 通常为 `.agents/skills/secure-coding`，Claude Code 为 `.claude/skills/secure-coding`：
+有 Python 3.10+ 时，在业务项目根目录运行。若客户端使用其他目录，请替换为实际安装路径。
 
 ```bash
 python .agents/skills/secure-coding/scripts/guide.py check
 ```
 
-> **预期输出：** JSON 报告中 `"status": "ok"`，即成功校验 `225 条规则、6 份来源、10 项解释`。
+预期返回 `"status": "ok"`，包含 **225 条规则、6 份来源、10 项解释**。这验证包完整性；客户端是否成功调用需单独确认。
 
----
+</details>
+
+<details>
+<summary><b>更多安装方式、更新与卸载</b></summary>
+
+| 你的需求 | 命令或入口 |
+| :--- | :--- |
+| 先看看有哪些技能 | `npx skills add yuhengqin/secure-coding-skill --list` |
+| 指定客户端 | `npx skills add yuhengqin/secure-coding-skill --agent codex --agent claude-code` |
+| 本机所有项目可用 | `npx skills add yuhengqin/secure-coding-skill -g` |
+| 更新／卸载项目级安装 | `npx skills update secure-coding` / `npx skills remove secure-coding` |
+| 更新／卸载全局安装 | 在更新或卸载命令中追加 `-g` |
+| 没有 Node.js | [手动安装：Linux、macOS 与 PowerShell](docs/INSTALLATION.md) |
+| 让助手完成安装 | [AI 安装交接指南](README_AI.md) |
+
+[skills CLI](https://github.com/vercel-labs/skills) 会处理各客户端的安装位置。手动安装须保留完整 `skills/secure-coding/`，包括许可证和来源文件。更新手动副本前先比较并保留本地修改，更新后运行 `guide.py check`。
+
+</details>
+
+<span id="use-cases"></span>
+## 🎯 这些场景，直接叫上它
+
+| 你正在做什么 | 带进改动的规则与检查 |
+| :--- | :--- |
+| 写 API、查数据库 | 输入校验、参数化查询、身份认证与对象归属 |
+| 做上传下载、访问用户提供的 URL | 路径边界、文件约束、SSRF 与重定向处理 |
+| 渲染 HTML、修改浏览器行为 | XSS、输出上下文、DOM 操作与浏览器安全边界 |
+| 启动进程、反序列化数据 | 命令参数、执行边界与不可信输入 |
+| 重构或审查已有代码 | 适用规则 ID、代码证据、针对性检查与未覆盖事项 |
+
+<span id="why"></span>
+<span id="features"></span>
+## ⚡ 为什么选它？安全火力，随用随取
+
+AI 写码飞快，输入边界、SQL 参数和对象权限也该从第一处改动就跟上。**把安全作战手册，直接送到编码助手手边。**
+
+- 🎯 **225 条工业级规则，一次装齐。** Python、JavaScript/TypeScript、Java、Go、C/C++，五大语言收进一个技能包。
+- ⚡ **安全火力全开，上下文轻装上阵。** 渐进式披露，沿语言与任务索引按需读取规则正文，无需一开始载入五份指南全文。
+- 🔍 **每条规则，都有出处。** 原文、行号、来源 SHA-256 完整可查，另附 10 项带依据的历史建议适用性解释。
+- 🔌 **CLI 零第三方依赖。** Python 3.10+ 标准库即可完成本地检索与完整性校验，不联网、不采集代码。
+- 🧪 **拿检查结果说话。** 7 项工具回归测试 + 6 项可运行案例测试，执行命令公开，随时亲手复验。
 
 <span id="how-it-works"></span>
-## 🛠️ 工作原理：零上下文膨胀
-
-如果将数十页规范全文塞入提示词，会挤占宝贵的上下文。本项目通过**多层渐进式路由**实现高效加载：
+### 从需求到证据
 
 ```mermaid
 flowchart LR
-    A["用户提出需求<br/>(如: Go 编写支付接口)"] --> B["识别技能元数据<br/>(~100 tokens 触发感知)"]
-    B --> C["读取场景路由与索引<br/>(仅加载 common.md + go.md)"]
-    C --> D["精准读取适用正文<br/>(如 GO-BACKEND-1.1.1)"]
-    D --> E["安全实现与自查交付<br/>(输出代码 + 规则 ID + 验证)"]
+    A["你的编码任务"] --> B["语言与场景索引"]
+    B --> C["适用规则与解释"]
+    C --> D["实现或审查"]
+    D --> E["规则 ID + 代码位置 + 检查结果"]
 ```
 
-助手仅读取当前改动语言的规则，规则选择由模型按需驱动；本地 `guide.py` 脚本可在离线环境下根据规则 ID 瞬间返回正文与出处。
-
----
-
-<span id="case"></span>
-## 🧪 实战案例：订单查询
-
-在 [examples/order-query](examples/order-query/README.md) 中，展示了如何通过该技能实现一个防御完善的 Python 订单查询接口：
-
-- **适用规则**：`PY-BACKEND-1.1.1`（输入校验）、`PY-BACKEND-1.2.1`（参数化查询）、`PY-BACKEND-1.8.1`（默认鉴权）、`PY-BACKEND-1.8.3`（防越权）。
-- **防御行为验证矩阵**：
-
-| 输入或测试情形 | 预期安全行为 | 验证状态 |
-| :--- | :--- | :---: |
-| 用户查询本人的订单 | 正常返回订单明细 | ✅ 通过 |
-| 尝试查询他人的订单 / 不存在的订单 | 返回 `None`，杜绝未授权访问 | ✅ 通过 |
-| 恶意输入 `order-b' OR 1=1 --` | 参数绑定使输入保持为纯数据，不扩大查询范围 | ✅ 通过 |
-| 合法 ID 包含单引号 | 按字面值安全处理并正常查询 | ✅ 通过 |
-| 缺失/伪造身份标识、非法订单格式 | 边界预检直接拒绝查询 | ✅ 通过 |
-
-在仓库根目录下即可运行此案例的完整测试：
-```bash
-python -B -m unittest discover -s examples/order-query -p test_orders.py -v
-```
-
-> 注：该函数假定调用方已完成用户认证；调用方认证、操作级权限与 HTTP 接入不在本案例范围内。
-
----
+模型负责选择适用规则，`guide.py` 负责在本地检索正文与出处。应用历史示例时，技能还要求核对当前 API 和项目约束。[查看完整工作流 →](skills/secure-coding/SKILL.md)
 
 <span id="languages"></span>
-## 📊 支持语言与防御焦点
+## 📊 语言与覆盖范围
 
-适用于日常功能开发、缺陷修复、安全重构及只读代码审查：
+| 语言 | 规则数 | 环境与防御重点 |
+| :--- | :---: | :--- |
+| **Python** | 45 | 脚本与服务端：SQL 注入、SSRF、反序列化、访问控制 |
+| **JavaScript / TypeScript** | 45 | 浏览器与 Node.js：XSS、DOM 安全、原型链污染、CORS |
+| **Java** | 49 | 服务端与 Android：表达式注入、XXE、密码学应用 |
+| **Go** | 37 | 后端与系统代码：路径、命令、并发与资源限制 |
+| **C / C++** | 49 | 原生代码：缓冲区与整数溢出、格式化字符串、内存生命周期 |
 
-| 语言 | 规则数 | 覆盖场景 | 重点防御领域 |
-| :--- | :---: | :--- | :--- |
-| **Python** | 45 | 通用业务、Web 服务端 | SQL注入、SSRF、不安全反序列化、越权访问、敏感配置泄露 |
-| **JavaScript / TS** | 45 | 浏览器前端、Node.js 服务端 | XSS 跨站脚本、DOM 劫持、原型链污染、CORS 跨域错配 |
-| **Java** | 49 | Spring 服务端、Android 应用 | 表达式注入 (SpEL)、XXE 外部实体注入、安全加密套件、组件反序列化 |
-| **Go** | 37 | 通用后端、微服务接口 | 路径穿越、命令执行注入、并发竞态安全、内存越界访问 |
-| **C / C++** | 49 | 系统底层、高性能模块 | 缓冲区溢出、整数溢出、Format String、指针双重释放 (UAF) |
+TypeScript 复用 JavaScript 运行时规则。原文的**必须／建议／推荐**级别保留；10 项适用性解释针对特定历史建议，全部规则尚未完成现代化审计。
 
-> 💡 *注：TypeScript 直接复用 JavaScript 运行时安全规则。上游指南的“必须／建议／推荐”级别完整保留；针对历史框架建议，技能包额外提供了 **10 项带出处的现代适用性解释**。*
+<span id="compatibility"></span>
+## 🔌 客户端兼容情况
 
----
+| 客户端／安装途径 | 规则包安装 | 技能发现与实际调用 |
+| :--- | :--- | :--- |
+| **OpenCode，经 skills CLI** | Windows，2026-10-16 实测：`-a opencode --copy -y`；25/25 文件一致，安装副本 `check` 通过 | 尚未端到端验证 |
+| **Codex、Claude Code、Cursor、GitHub Copilot 等 skills CLI 客户端** | 上游 CLI 提供安装适配，本仓库未逐一实测 | 尚未端到端验证 |
+| **手动复制** | 已验证完整包复制及安装后的 CLI 使用；目录遵循目标客户端约定 | 取决于客户端加载机制 |
+
+以安装器报告的位置为准。共享项目级路径通常为 `.agents/skills/secure-coding/`，不同客户端可能使用专用路径。[安装详情 →](docs/INSTALLATION.md) · [验证记录 →](docs/VALIDATION.md)
+
+<span id="validation"></span>
+## ✅ 验证结果，公开可查
+
+| 检查项 | 已记录结果 |
+| :--- | :--- |
+| 规则包 | **本地通过：**225 条规则、6 份来源、10 项解释 |
+| 工具与案例测试 | Windows / Python 3.14.2 下 **7 + 6 项通过** |
+| 远程 CI | 已配置 Windows / Ubuntu × Python 3.10 / 3.14；账户计费问题阻止运行，仍待执行 |
+| 模型安全能力提升 | 尚未开展与无技能基线的受控对比 |
+
+包校验和案例测试仅覆盖各自声明的范围；业务项目仍需运行自身的测试、扫描与审查。[执行命令与完整证据 →](docs/VALIDATION.md)
 
 <span id="faq"></span>
-## ❓ 常见问题 (FAQ)
+## ❓ 常见问题
 
 <details>
-<summary><b>Q1: 会大幅增加模型的 Token 消耗或 API 费用吗？</b></summary>
-不会。这是 Agent Skill 规范的核心优势：未触发时仅向模型暴露技能名称与简要描述（约 100 token）。触发后，助手仅按需检索并读取当前改动涉及的规则段落，不会加载五份指南全文。
+<summary><b>业务项目必须使用 Python 吗？</b></summary>
+
+不必。助手可以直接读取 Markdown 规则；Python 3.10+ 只用于本地检索、包校验与测试。
+
 </details>
 
 <details>
-<summary><b>Q2: 我的业务项目中没有安装 Python，可以使用本技能吗？</b></summary>
-完全可以。规则库本身是规整的 Markdown 文件，AI 助手可以直接通过文件读取与索引定位正文。Python 3.10+ 仅用于本地运行 <code>guide.py</code> 辅助检索、批量校验完整性或执行单元测试。
+<summary><b>会占用多少上下文？</b></summary>
+
+技能按渐进式披露组织：发现时提供元数据，调用后读取指令、索引和适用规则。实际 token 消耗取决于客户端和任务，本仓库尚未公布实测预算。
+
 </details>
 
 <details>
-<summary><b>Q3: 本技能可以替代 SonarQube、Semgrep、Snyk 等专业扫描器吗？</b></summary>
-不能。本技能的定位是<b>“源头预防与自我审校”</b>，帮助 AI 助手在生成代码的第一时间遵守防御性准则；代码合并与交付前，依然应当依赖项目原有的自动化静态分析、动态测试和人工审计流水线。
+<summary><b>能替代安全扫描器，或让 AI 客户端完全离线吗？</b></summary>
+
+它指导生成与审查；请保留项目原有的静态分析、动态测试和人工审查。本地 CLI 不联网，编码助手的模型调用和数据处理仍遵循客户端设置及服务商条款。
+
 </details>
 
 <details>
-<summary><b>Q4: 支持哪些 AI 客户端与 IDE？</b></summary>
-方式 1 的 skills CLI 覆盖 Codex、Claude Code、Cursor、OpenCode、GitHub Copilot 等数十种主流客户端，并自动使用各客户端约定的技能目录；其他客户端手动安装到其技能/规则目录即可。自动发现与触发灵敏度因客户端而异，建议显式指定技能名称调用；各客户端的端到端触发尚未逐一验证。
+<summary><b>能只安装一种语言吗？</b></summary>
+
+目前请保留完整包，完整性校验覆盖整个规则库；助手仍可选择性读取。单语言导出已列入路线图。
+
 </details>
-
-<details>
-<summary><b>Q5: 安装后如何更新或卸载？</b></summary>
-通过 skills CLI 安装的：运行 <code>npx skills update secure-coding</code> 更新、<code>npx skills remove secure-coding</code> 卸载；手动复制的：重新复制覆盖或删除技能目录。更新后建议运行 <code>guide.py check</code> 确认包完整性。请始终保留完整包，不要单独增删某个语言目录。
-</details>
-
-<details>
-<summary><b>Q6: 可以只提取某一种语言的规则吗？</b></summary>
-目前建议保留完整技能包。规则来源哈希校验机制针对完整规则库设计；单语言按需导出的轻量分发功能已列入<a href="#roadmap">路线图</a>。
-</details>
-
----
-
-## ✅ 验证状态与工程边界
-
-本仓库坚持以事实与证据为准：
-
-| 校验项 | 当前状态与验证证据 |
-| :--- | :--- |
-| **规则包完整性与 CLI** | 已在 Windows / Python 3.14.2 本地验证通过：`guide.py check` 退出 0（225 条规则、6 份来源、10 项解释） |
-| **skills CLI 安装链路** | 2026-10-16 实测：`npx skills add yuhengqin/secure-coding-skill` 可发现技能并完整安装（25/25 文件与本仓库哈希一致），安装副本 `guide.py check` 通过 |
-| **测试套件运行** | 7 项 CLI 回归测试 + 6 项实战案例测试本地全部通过（Windows / Python 3.14.2） |
-| **离线与安全性** | 规则检索与完整性校验不发出网络请求、无第三方依赖、不采集任何代码 |
-| **远程 CI 矩阵（Windows / Ubuntu × Python 3.10 / 3.14）** | 已配置；首次远程运行因 GitHub 账户计费锁定未启动任何 job，待账户恢复后重跑 |
-| **客户端自动发现与触发** | 尚未端到端验证；建议显式指定技能名称调用 |
-
-完整验证记录与执行命令详见 [验证记录](docs/VALIDATION.md) 与 [使用手册](docs/USAGE.md)。
-
----
 
 <span id="roadmap"></span>
-## 🗺️ 路线图
+## 🤝 一起完善它
 
-- 远程 CI 首次绿色运行，以及客户端自动发现 / 触发的端到端验证（含 skills CLI 安装渠道）。
-- 单语言导出：按需安装所用语言的规则子集。
-- 持续扩充适用性解释，逐步核对历史建议与当前框架 / API 的匹配。
-- 更多客户端适配（如 Claude Code 插件市场封装）。
+欢迎提交**客户端验证记录**、**有当前依据的规则更正**、**包含有效测试的可运行案例**。从[贡献指南](CONTRIBUTING.md)开始；可利用的工具缺陷请按[安全报告说明](SECURITY.md)提交。
 
-欢迎按[贡献指南](CONTRIBUTING.md)认领或报告补充。
+- 完成客户端实际调用验证，补充真实使用演示。
+- 跑通首个远程 CI，发布带版本号的 Release。
+- 扩充有来源的适用性解释与可运行案例。
+- 探索单语言导出和更多客户端适配。
 
----
+## 📚 继续探索
 
-## 📚 深入阅读与文档索引
+| 你想了解什么 | 从这里开始 |
+| :--- | :--- |
+| 手动安装 | [安装指南](docs/INSTALLATION.md) |
+| 检索规则、执行检查 | [命令与使用手册](docs/USAGE.md) |
+| 更多开发与审查提示词 | [使用示例](examples/USAGE.md) |
+| 原始来源与封装修改 | [来源追溯](docs/PROVENANCE.md) · [第三方声明](THIRD_PARTY_NOTICES.md) |
+| 维护与发布 | [维护说明](docs/MAINTENANCE.md) · [发布步骤](docs/RELEASING.md) · [更新记录](CHANGELOG.md) |
 
-- [命令与详细使用手册](docs/USAGE.md)
-- [多场景提示词模板与审查示例](examples/USAGE.md)
-- [规则来源与上游追溯记录](docs/PROVENANCE.md)
-- [验证记录](docs/VALIDATION.md)
-- [代码与规则维护说明](docs/MAINTENANCE.md)
-- [版本发布与校验流程](docs/RELEASING.md)
-- [版本更新记录](CHANGELOG.md)
-- [AI 助手安装专用指引](README_AI.md)
-
-**仓库结构：**
-
-```
-skills/secure-coding/     # 可安装的技能包（须完整安装/复制）
-├── SKILL.md              # 助手入口与使用指令
-├── references/           # 场景路由、语言索引、适用性解释
-├── sources/              # 上游指南原文快照（逐字节校验）
-├── scripts/guide.py      # 离线 CLI：list / show / check / build
-└── tests/                # 7 项工具回归测试
-examples/order-query/     # 可运行案例 + 6 项行为测试
-docs/                     # 使用、验证、来源、维护文档
-.github/workflows/        # CI 矩阵（validate.yml）
-```
-
----
+可安装的完整技能包位于 `skills/secure-coding/`，可运行案例位于 `examples/order-query/`。大部分配套文档使用中文。
 
 ## 📜 来源与开源协议
 
-- **原始著作权**：本项目规则基于 **Secure Coding Guide** 整理，作者及版权方为 **THL A29 Limited, a Tencent company**，Copyright (C) 2021。
-- **原项目地址**：[Tencent/secguide](https://github.com/Tencent/secguide)。
-- **本项目许可**：本项目基于 **CC BY-SA 4.0** 许可证开源分发，保留上游完整 [LICENSE](LICENSE)。
-- **免责声明**：本项目是独立的开源社区封装与工程实践，未获得腾讯官方背书或赞助。具体修改、适配与解释说明详见 [第三方声明](THIRD_PARTY_NOTICES.md) 与 [NOTICE.md](skills/secure-coding/NOTICE.md)。
-
----
+基于 **THL A29 Limited, a Tencent company** 的 **Secure Coding Guide**，Copyright (C) 2021。按 **[CC BY-SA 4.0](LICENSE)** 分发，保留原作署名与修改说明。本项目为独立社区封装，未获得腾讯官方背书。安装包须保留 `LICENSE`、`NOTICE.md` 及来源文件。
 
 <p align="center">
-  如果这个项目对你的日常安全编码有所帮助，欢迎点亮右上角的 ⭐️ <b>Star</b> 支持！<br>
-  发现规则需要补充或适应现代新特性？欢迎提交 <a href="https://github.com/yuhengqin/secure-coding-skill/issues/new/choose">Issue</a> 或发起 <a href="CONTRIBUTING.md">Pull Request</a>。
+  下一次让 AI 写代码，就把安全一起带上。<br>
+  如果它帮到了你，欢迎点亮 ⭐️ <b>Star</b>、分享真实案例，或<a href="https://github.com/yuhengqin/secure-coding-skill/issues/new/choose">提交问题</a>。
 </p>
