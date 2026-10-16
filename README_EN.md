@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.svg" alt="Secure Coding Skill — 225 industrial security rules · 5 languages · Python stdlib only" width="100%">
+  <img src="./assets/banner.png" alt="Secure Coding Skill — Rules → Code → Evidence; 225 rules, 5 languages" width="100%">
 </p>
 
 <h1 align="center">🛡️ Secure Coding Skill</h1>
@@ -342,7 +342,7 @@ secure-coding-skill/
 ├── README_EN.md               ← this file (English)
 ├── README_AI.md               ← AI-agent installation handoff (Chinese)
 ├── AGENTS.md / CLAUDE.md      ← agent navigation (Claude / Codex / OpenCode / Cursor)
-├── assets/banner.svg          ← visual anchor
+├── assets/banner.png          ← visual anchor
 ├── skills/secure-coding/      ← the installable skill package
 │   ├── SKILL.md               ← skill entry (agents read this first)
 │   ├── scripts/guide.py       ← zero-dep CLI: check / show / list / build

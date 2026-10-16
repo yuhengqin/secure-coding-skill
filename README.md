@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.svg" alt="Secure Coding Skill — 225 条工业级安全规则 · 5 种语言 · 仅需 Python 标准库" width="100%">
+  <img src="./assets/banner.png" alt="Secure Coding Skill — 规则 → 代码 → 证据；225 条规则，5 类语言" width="100%">
 </p>
 
 <h1 align="center">🛡️ Secure Coding Skill</h1>
@@ -339,7 +339,7 @@ secure-coding-skill/
 ├── README_EN.md               ← English README
 ├── README_AI.md               ← 给 AI 代理的安装交接入口
 ├── AGENTS.md / CLAUDE.md      ← 代理仓库导航（Claude / Codex / OpenCode / Cursor）
-├── assets/banner.svg          ← 视觉锚点
+├── assets/banner.png          ← 视觉锚点
 ├── skills/secure-coding/      ← 可安装的完整技能包
 │   ├── SKILL.md               ← 技能入口（代理先读这个）
 │   ├── scripts/guide.py       ← 零依赖 CLI：check / show / list / build
