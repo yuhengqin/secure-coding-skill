@@ -108,3 +108,18 @@ Bash 的执行环境为 Windows 上的 Git Bash，未实测原生 Linux、macOS 
 | 退出码复核 | `check`、7 项工具测试、6 项案例测试的实际进程退出码均确认为 0 |
 
 说明：验证为**显式调用**技能；客户端的自动发现、自动触发仍未验证。审查覆盖示例代码的规则适用性，不构成对业务项目的安全审计。其余客户端（Claude Code、Codex、Cursor 等）仍未逐一端到端验证。
+
+## 2026-10-16 首页文案与证据分层复验
+
+本轮同步优化中英文首页：保留首屏安装、三步流程、案例对话与状态数字，将代码对比、详细输出及目录树折叠；对话标明为案例编排，历史安装记录与本轮本地检查分开说明。规则包、来源快照和案例代码未改动。
+
+| 检查 | 实际结果与范围 |
+|---|---|
+| 包完整性 | `python -X utf8 -B skills/secure-coding/scripts/guide.py check` 退出 0；225 条规则、6 份来源、10 项解释 |
+| 工具与案例测试 | 分别运行 `python -X utf8 -B -m unittest discover -s skills/secure-coding/tests -v` 和 `python -X utf8 -B -m unittest discover -s examples/order-query -p test_orders.py -v`；7 + 6 项通过，均退出 0 |
+| 规则数字 | 从 `references/rules.json` 统计：188 条必须、27 条建议、10 条推荐；五类语言为 45 / 45 / 49 / 37 / 49 条，总计 225 |
+| 首页结构 | 122 处本地文件或锚点引用可定位；中英文显式锚点顺序、命令一致；折叠区和代码围栏配对完整 |
+| 查询示意 | 两份 README 的 diff 新增代码 AST 均与 `orders.py` 最后一个 return 一致；`show PY-BACKEND-1.2.1` 的标题、原文行段与哈希前缀复核一致 |
+| Python 缓存 | `git ls-files -- '*.pyc' '*/__pycache__/*'` 无输出；`.gitignore` 已有 `__pycache__/` 和 `*.py[cod]`，无需移除已跟踪文件 |
+
+本轮未重新安装或调用 OpenCode，相关声明引用上方已记录的端到端验证。GitHub About、最新 Actions 与 Release 的公开 API 查询受到未认证请求频率限制，未获得可用结果；未修改远程设置、未添加 CI 通过徽章、未发布 Release。About 与 Topics 的可复制建议已更新到 [RELEASING.md](RELEASING.md)。

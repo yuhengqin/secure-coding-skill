@@ -5,7 +5,7 @@
 <h1 align="center">🛡️ Secure Coding Skill</h1>
 
 <p align="center">
-  <b>Eliminate security blind spots in AI coding.<br>Retrieve the rules. Build the defenses. Show the evidence.</b>
+  <b>Give your AI coding assistant rules to check and evidence to show.<br>225 rules · 5 language families · From request to evidence</b>
 </p>
 
 <p align="center">
@@ -13,28 +13,68 @@
 </p>
 
 <p align="center">
-  <a href="#case">See It in Action</a> · <a href="#evidence">End-to-End Evidence</a> · <a href="#quickstart">Quickstart</a> · <a href="#use-cases">Use Cases</a> · <a href="#features">Features</a> · <a href="#compatibility">Compatibility</a> · <a href="#faq">FAQ</a>
+  <a href="#quickstart">Quickstart</a> · <a href="#case">See It in Action</a> · <a href="#evidence">Evidence</a> · <a href="#use-cases">Use Cases</a> · <a href="#features">Features</a> · <a href="#compatibility">Compatibility</a> · <a href="#repo">Layout</a> · <a href="#faq">FAQ</a> · <a href="#roadmap">Roadmap</a>
 </p>
 
 <p align="center">
   <a href="https://github.com/yuhengqin/secure-coding-skill/stargazers"><img src="https://img.shields.io/github/stars/yuhengqin/secure-coding-skill.svg?label=%E2%AD%90%20Stars" alt="GitHub Stars"></a>
-  <a href="#languages"><img src="https://img.shields.io/badge/rules-225-industrial%20rules-blue.svg" alt="225 Rules"></a>
+  <a href="#languages"><img src="https://img.shields.io/badge/rules-225-blue.svg" alt="225 Rules"></a>
   <a href="#languages"><img src="https://img.shields.io/badge/languages-5-brightgreen.svg" alt="5 Languages"></a>
   <img src="https://img.shields.io/badge/CLI-Python_3.10%2B_stdlib_only-orange.svg" alt="Python Standard Library Only">
+  <a href="./docs/VALIDATION.md"><img src="https://img.shields.io/badge/rule_package%20check-ok-green.svg" alt="Rule package check: ok"></a>
+  <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/Agent_Skills-format-6366f1.svg" alt="Agent Skills format specification"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/yuhengqin/secure-coding-skill.svg" alt="License: CC BY-SA 4.0"></a>
 </p>
 
-> 🤖 **You're an AI agent (Claude / Codex / OpenCode / Cursor)?** Read [`README_AI.md`](./README_AI.md) to install and make your first call; repo navigation lives in [`AGENTS.md`](./AGENTS.md) / [`CLAUDE.md`](./CLAUDE.md). (Those two files are in Chinese; the install steps are copy-paste ready.)
+**Put 225 security rules from Tencent/secguide into your AI coding assistant.** Retrieve relevant rules by language and task, then tie implementation and review to **rule IDs, code locations, and checks actually performed**.
 
-**Put 225 security rules to work in your next AI coding session.** Secure Coding Skill turns [Tencent/secguide](https://github.com/Tencent/secguide) into an Agent Skill: your coding assistant retrieves relevant rules, applies them to the change, and reports rule IDs, code locations, and checks performed. Built for everyday development, fixes, refactoring, and code review.
+Run in your **target project's root** and select your coding agent:
+
+```bash
+npx skills add yuhengqin/secure-coding-skill
+```
+
+Requires Node.js with `npx`. You can also [ask an assistant to install it](./README_AI.md) or [copy the complete package manually](./docs/INSTALLATION.md). Explicit invocation is verified in OpenCode; see [compatibility](#compatibility) for other clients.
+
+**① Install → ② Ask for a task using `secure-coding` → ③ Check the rules, code, and evidence in the result.** [Try your first task →](#quickstart)
+
+| Security rules | Languages | Applicability notes | Regression tests | CLI third-party deps |
+| :---: | :---: | :---: | :---: | :---: |
+| **225** | **5** | **10** | **13 (7 + 6)** | **0** |
+
+Covers **Python · JavaScript/TypeScript · Java · Go · C/C++**, preserving the original MUST / SHOULD / RECOMMENDED levels. See [validation records](./docs/VALIDATION.md) for the counts and local checks; the `check ok` badge refers to a recorded local package check.
+
+**Working code can still miss an authorization boundary.** An order lookup can pass a functional test while missing parameter binding or an ownership condition. This skill brings the relevant rules into implementation and asks the assistant to state what it checked and what remains unverified.
 
 <span id="case"></span>
 
 ## 🧪 See It in Action: Only Read Your Own Orders
 
-**The request:** “Implement an order lookup in Python. Use the existing authenticated identity, let users read only their own orders, and check input, SQL, and authorization boundaries.”
+The [runnable order-query example](./examples/order-query/README.md) follows **request → rules → implementation → tests**. This is a **staged dialogue based on the example, not a verbatim transcript or model A/B test**. Actual install and invocation records are in [evidence](#evidence).
 
-The [runnable order-query example](./examples/order-query/README.md) follows the whole path: **request → rules → implementation → tests**.
+```text
+You  ❯ Use secure-coding to implement a Python order lookup. Reuse the existing
+       authenticated identity; users may only read their own orders.
+
+AI   ❯ Reads 4 applicable rules:
+       PY-BACKEND-1.1.1 input validation · PY-BACKEND-1.2.1 parameterized query
+       PY-BACKEND-1.8.1 default authorization · PY-BACKEND-1.8.3 object ownership
+       The caller must authenticate, check operation-level permissions,
+       and supply a server-verified identity.
+
+You  ❯ Where did the code change, and what did you check?
+
+AI   ❯ orders.py:17–23 validates input; 25–28 binds values and checks ownership.
+       6 tests pass: own orders are readable; other and missing orders return
+       None; injection-shaped input cannot widen the query; invalid identity
+       values and order IDs are rejected.
+       Unverified: HTTP auth, operation-level permissions, real DB integration.
+```
+
+[Implementation: `orders.py`](./examples/order-query/orders.py#L17-L28) · [The 6 tests](./examples/order-query/test_orders.py) · [Rule-to-code mapping](./examples/order-query/README.md#从规则到实现)
+
+<details>
+<summary><b>Expand: query comparison and rule mapping</b></summary>
 
 ```diff
 # Illustrative query comparison; full input checks are in orders.py.
@@ -55,19 +95,31 @@ The [runnable order-query example](./examples/order-query/README.md) follows the
 | **Concrete defenses** | Input checks + SQL parameters + an ownership condition using a server-verified identity |
 | **Executable evidence** | 6 tests covering own/other/missing orders, injection-shaped input and literal quotes, invalid identity values, and invalid order IDs |
 
+</details>
+
 **Try the evidence yourself** — from this repository root, with Python 3.10+ and standard-library `sqlite3`:
 
 ```bash
 python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 ```
 
-The example passes all 6 tests locally. The comparison illustrates the rules; it is not a measured model A/B result. The caller must authenticate the user; HTTP authentication, operation-level permissions, and real database integration are outside this example. [Full implementation and test scope →](./examples/order-query/README.md)
+The example uses an in-memory SQLite database and passes all 6 tests locally. Validating an identity's numeric value is not authentication. [Full implementation and boundaries →](./examples/order-query/README.md)
 
 <span id="evidence"></span>
 
-## 📡 End-to-End Evidence (2026-10-16, real output)
+## 📡 Evidence: What Has Actually Run
 
-Everything below is verbatim output from running this repository in a real environment.
+These are **2026-10-16 Windows** validation records and output excerpts. OpenCode invocation and fresh installation refer to the [existing end-to-end record](./docs/VALIDATION.md#2026-10-16-端到端调用补记opencodeasiashanghai); the package check and all 13 tests passed again during this README update.
+
+| Check | Result | What it establishes |
+| :--- | :--- | :--- |
+| `guide.py check` | **ok**: 225 rules, 6 sources, 10 interpretations | Package integrity |
+| Tool and example tests | **7 + 6 pass** | CLI regressions and order-query behavior |
+| Fresh skills CLI installation | **25/25 SHA-256 hashes match** | The recorded installation matches its source package |
+| Explicit OpenCode invocation | **Skill loaded; example reviewed against its rules** | That client's explicitly requested invocation path |
+
+<details>
+<summary><b>Expand: installation, integrity, rule lookup, and test evidence</b></summary>
 
 **① Explicit skill invocation in OpenCode, loaded successfully:**
 
@@ -83,7 +135,7 @@ Everything below is verbatim output from running this repository in a real envir
 npx -y skills add yuhengqin/secure-coding-skill -a opencode --copy -y
 ```
 
-Every installed file matches this repository byte-for-byte by SHA-256, and passes the integrity check below.
+The recorded installed copy matched the repository at the time, file by file by SHA-256, and passed the integrity check.
 
 **③ Integrity check (`guide.py check`):**
 
@@ -105,7 +157,7 @@ $ python skills/secure-coding/scripts/guide.py check
 }
 ```
 
-**④ Rule lookup (`guide.py show`) with source line numbers and hash:**
+**④ Rule lookup (`guide.py show`) with source line numbers and hash (excerpt; hash abbreviated):**
 
 ```console
 $ python skills/secure-coding/scripts/guide.py show PY-BACKEND-1.2.1
@@ -119,35 +171,27 @@ Original excerpt (historical examples; apply interpretations and verify applicab
 …
 ```
 
-**⑤ Test evidence:**
+**⑤ Test evidence (result summary; individual cases and timings omitted):**
 
 ```console
-$ python -m unittest discover -s skills/secure-coding/tests -v
-Ran 7 tests in 0.457s
+$ python -B -m unittest discover -s skills/secure-coding/tests -v
+Ran 7 tests
 OK
 
 $ python -B -m unittest discover -s examples/order-query -p test_orders.py -v
-Ran 6 tests in 0.001s
+Ran 6 tests
 OK
 ```
 
-> Note: `check` validates package integrity (hashes, coverage, generated files). It is not a security scan of your business code, and it does not prove the AI will auto-invoke the skill.
+</details>
+
+**Boundaries:** a package check does not establish business-code security; successful explicit invocation does not establish automatic triggering. No controlled experiment has measured an improvement in model security. See [validation scope](#validation) for remote CI status.
 
 <span id="quickstart"></span>
 
-## 🚀 Quickstart in 2 Steps
+## 🚀 Installed? Try a Task
 
-### 1. Install
-
-Run in your **target project's root** and select your coding agent. Requires Node.js with `npx`; Python is optional for reading the Markdown rules directly.
-
-```bash
-npx skills add yuhengqin/secure-coding-skill
-```
-
-### 2. Put It to Work
-
-Ask your assistant to apply the skill to a real task. For a project with order queries, try:
+After installing with the command above, ask your assistant to apply the skill to a real task. For a project with order queries, try:
 
 ```text
 Use the secure-coding skill to implement or review the order lookup in this project.
@@ -190,19 +234,22 @@ The [skills CLI](https://github.com/vercel-labs/skills) handles agent-specific d
 
 <span id="routing"></span>
 
-## 🧭 Not Sure Where to Start? Find Yourself
+<details>
+<summary><b>🧭 Find the right entry point for your role</b></summary>
 
 | You are… | You want to… | Go here |
 | :--- | :--- | :--- |
 | 🤖 AI agent | Install, verify, first call | [`README_AI.md`](./README_AI.md) |
 | 🤖 AI agent | Understand repo layout & guardrails | [`AGENTS.md`](./AGENTS.md) / [`CLAUDE.md`](./CLAUDE.md) |
-| 👤 Human (first visit) | Get it running in 2 min | [Quickstart](#quickstart) |
+| 👤 Human (first visit) | Try a first task | [Quickstart](#quickstart) |
 | 👤 Human (on OpenCode) | End-to-end workflow | [`docs/USAGE.md`](./docs/USAGE.md) |
 | 🔧 Manual install | Pick agent & platform | [`docs/INSTALLATION.md`](./docs/INSTALLATION.md) |
 | 📖 Looking up a rule | Exact rule lookup | `guide.py show <rule-id>` |
 | 🔍 Verifying rule sources | Check hashes & provenance | [`docs/PROVENANCE.md`](./docs/PROVENANCE.md) · [`docs/VALIDATION.md`](./docs/VALIDATION.md) |
 | 🧩 Maintaining or releasing | Build & release process | [`docs/MAINTENANCE.md`](./docs/MAINTENANCE.md) · [`docs/RELEASING.md`](./docs/RELEASING.md) |
 | 🤝 Contributing | Open an issue / PR | [`CONTRIBUTING.md`](./CONTRIBUTING.md) · [Issue templates](./.github/ISSUE_TEMPLATE) |
+
+</details>
 
 <span id="use-cases"></span>
 
@@ -218,17 +265,16 @@ The [skills CLI](https://github.com/vercel-labs/skills) handles agent-specific d
 
 <span id="features"></span>
 
-## 🔥 Why This Skill? Security Firepower, Ready to Load
+## 🔍 Why Package the Rules as a Skill?
 
-AI coding moves fast. Input boundaries, SQL parameters, and object permissions deserve a place in that workflow from the first change. **Put the security playbook within your assistant's reach.**
-
-- 🎯 **225 industrial rules, one skill.** Python, JavaScript/TypeScript, Java, Go, and C/C++ in a single installable package.
-- 🪶 **Full firepower, light context.** Progressive disclosure routes the assistant through language and task indexes to the rule bodies it needs — no five full guides up front.
+- 🎯 **225 rules, one skill.** Python, JavaScript/TypeScript, Java, Go, and C/C++ in a single installable package.
+- 🪶 **Read on demand.** Language and task indexes lead to relevant rules without loading five full guides up front. Token savings have not been measured.
 - 🔍 **Every rule has a trail.** Original text, line numbers, and source SHA-256 hashes, plus 10 sourced applicability notes for selected historical guidance.
 - 🔌 **Zero third-party CLI dependencies.** Python 3.10+ standard library handles local lookup and integrity checks — no network requests, no code collection.
 - 🧪 **Show the checks.** 7 tool regression tests and 6 runnable example tests, with commands you can repeat yourself.
 
-### From Task to Evidence
+<details>
+<summary><b>Expand: the retrieval workflow from task to evidence</b></summary>
 
 ```mermaid
 flowchart LR
@@ -239,6 +285,8 @@ flowchart LR
 ```
 
 The model selects applicable rules; `guide.py` retrieves their text and provenance locally. The skill also asks the assistant to check current APIs and project constraints when applying historical examples. [Explore the workflow →](./skills/secure-coding/SKILL.md)
+
+</details>
 
 <span id="languages"></span>
 
@@ -252,7 +300,7 @@ The model selects applicable rules; `guide.py` retrieves their text and provenan
 | **Go** | 37 | Backend and systems code: paths, commands, concurrency, resource limits |
 | **C / C++** | 49 | Native code: buffer and integer overflows, format strings, memory lifetime |
 
-TypeScript uses the JavaScript runtime rules. Original **MUST / SHOULD / RECOMMENDED** levels are preserved. The 10 applicability notes address specific historical recommendations; the full rule set has not undergone a complete modernization audit.
+TypeScript uses the JavaScript runtime rules. The total includes **188 MUST, 27 SHOULD, and 10 RECOMMENDED rules**, not 225 vulnerability classes. The 10 applicability notes address specific historical recommendations; the full rule set has not undergone a complete modernization audit. Source: [Tencent/secguide](https://github.com/Tencent/secguide).
 
 <span id="compatibility"></span>
 
@@ -276,7 +324,7 @@ Use the installer's reported location. The shared project path is commonly `.age
 | Tool and example tests | **7 + 6 passed** on Windows / Python 3.14.2 |
 | OpenCode end-to-end invocation | **Verified:** explicit `secure-coding` invocation loaded successfully (2026-10-16) |
 | Fresh install via skills CLI | **Verified:** 25/25 file hashes match; installed package passes `check` (2026-10-16) |
-| Remote CI | Windows / Ubuntu × Python 3.10 / 3.14 configured; execution pending after an account billing block |
+| Remote CI | Windows / Ubuntu × Python 3.10 / 3.14 configured; the [recorded first run](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315) could not start jobs due to account billing; no passing run recorded |
 | Model security improvement | No controlled comparison against an unassisted baseline yet |
 
 Package integrity and example tests cover their stated scope. Project security still needs project tests, scanners, and review. [Commands and full evidence →](./docs/VALIDATION.md)
@@ -284,6 +332,9 @@ Package integrity and example tests cover their stated scope. Project security s
 <span id="repo"></span>
 
 ## 🗂️ Repository Layout
+
+<details>
+<summary><b>Expand: skill package, example, and maintenance docs</b></summary>
 
 ```
 secure-coding-skill/
@@ -300,13 +351,22 @@ secure-coding-skill/
 │   └── tests/                 ← 7 tool regression tests
 ├── examples/order-query/      ← runnable case: order lookup (6 tests)
 ├── docs/                      ← installation / usage / provenance / validation / maintenance / releasing
-├── .github/workflows/         ← remote validation workflow (pending billing resolution)
+├── .github/workflows/         ← remote validation workflow
 └── THIRD_PARTY_NOTICES.md     ← third-party notices
 ```
+
+</details>
 
 <span id="faq"></span>
 
 ## ❓ FAQ
+
+<details>
+<summary><b>Why not just paste the secguide originals into the AI?</b></summary>
+
+You can. This package adds reusable retrieval and reporting instructions: find rules by language and scenario, trace each to source lines and a SHA-256 hash, and consult 10 applicability notes for selected historical guidance. It asks assistants to map rules to code and distinguish checked items from unverified ones. You do not need all five guides in context at once, but actual token savings have not been measured. You still need to check that the assistant follows these instructions.
+
+</details>
 
 <details>
 <summary><b>Does my project need Python?</b></summary>

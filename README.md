@@ -5,7 +5,7 @@
 <h1 align="center">🛡️ Secure Coding Skill</h1>
 
 <p align="center">
-  <b>让 AI 编码助手告别安全漏洞。<br>先检索规则，再构筑防线，最后拿证据说话。</b>
+  <b>让 AI 写代码时，有安全规则可查，有检查结果可交。<br>225 条规则 · 5 类语言 · 从需求到证据</b>
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="#case">先看效果</a> · <a href="#evidence">端到端实测</a> · <a href="#quickstart">极速上手</a> · <a href="#use-cases">适用场景</a> · <a href="#features">核心特性</a> · <a href="#compatibility">客户端兼容</a> · <a href="#faq">常见问题</a>
+  <a href="#quickstart">快速上手</a> · <a href="#case">先看效果</a> · <a href="#evidence">验证证据</a> · <a href="#use-cases">适用场景</a> · <a href="#features">核心特性</a> · <a href="#compatibility">客户端兼容</a> · <a href="#repo">仓库结构</a> · <a href="#faq">常见问题</a> · <a href="#roadmap">路线图</a>
 </p>
 
 <p align="center">
@@ -21,20 +21,58 @@
   <a href="#languages"><img src="https://img.shields.io/badge/%E5%AE%89%E5%85%A8%E8%A7%84%E5%88%99-225_%E6%9D%A1-blue.svg" alt="225 Rules"></a>
   <a href="#languages"><img src="https://img.shields.io/badge/%E8%A6%86%E7%9B%96%E8%AF%AD%E8%A8%80-5_%E7%A7%8D%E4%B8%BB%E6%B5%81%E8%AF%AD%E8%A8%80-brightgreen.svg" alt="5 Languages"></a>
   <img src="https://img.shields.io/badge/CLI-Python_3.10%2B_%E6%A0%87%E5%87%86%E5%BA%93-orange.svg" alt="Python Standard Library Only">
+  <a href="./docs/VALIDATION.md"><img src="https://img.shields.io/badge/%E8%A7%84%E5%88%99%E5%8C%85%20check-ok-green.svg" alt="Rule package check: ok"></a>
+  <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/Agent_Skills-format-6366f1.svg" alt="Agent Skills format specification"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/yuhengqin/secure-coding-skill.svg" alt="License: CC BY-SA 4.0"></a>
 </p>
 
-> 🤖 **你是 AI 代理（Claude / Codex / OpenCode / Cursor）？** 直接读 [`README_AI.md`](./README_AI.md) 完成安装与首次调用；仓库导航见 [`AGENTS.md`](./AGENTS.md) / [`CLAUDE.md`](./CLAUDE.md)。
+**把 Tencent/secguide 的 225 条安全规则，装进你的 AI 编码助手。** 按语言与任务检索适用规则，让实现和审查有依据，交付能对应到**规则 ID、代码位置与实际检查结果**。
 
-**把 225 条安全规则，变成 AI 编码时随叫随到的安全火力。** Secure Coding Skill 把 [Tencent/secguide](https://github.com/Tencent/secguide) 封装为 Agent Skill：让编码助手先检索适用规则，再落实防护，交付时说明规则 ID、代码位置和实际检查结果。日常开发、缺陷修复、重构、代码审查，都能用上。
+在**目标业务项目根目录**运行，按提示选择编码助手：
+
+```bash
+npx skills add yuhengqin/secure-coding-skill
+```
+
+需要带 `npx` 的 Node.js；也可以[让助手安装](./README_AI.md)，或[手动复制完整包](./docs/INSTALLATION.md)。OpenCode 已验证显式调用；其他客户端见[兼容情况](#compatibility)。
+
+**① 装好技能 → ② 提需求并指定 `secure-coding` → ③ 检查交付中的规则、代码与证据。** [试第一个任务 →](#quickstart)
+
+| 安全规则 | 覆盖语言 | 适用性解释 | 回归测试 | CLI 第三方依赖 |
+| :---: | :---: | :---: | :---: | :---: |
+| **225** | **5** | **10** | **13（7 + 6）** | **0** |
+
+覆盖 **Python · JavaScript/TypeScript · Java · Go · C/C++**。规则保留“必须／建议／推荐”级别；数字与本地检查记录见[验证文档](./docs/VALIDATION.md)，`check ok` 徽章表示已记录的本地包校验结果。
+
+**代码能跑通，不等于权限边界正确。** 一条订单查询即使功能测试通过，也可能漏掉参数绑定或订单归属限制。这个技能把相关规则带进实现过程，并要求助手说明检查了什么、还没验证什么。
 
 <span id="case"></span>
 
 ## 🧪 先看效果：订单只能自己查
 
-**一个真实开发需求：** “用 Python 实现订单查询，沿用已有登录态，用户只能读取自己的订单；检查输入、SQL 和权限边界。”
+[可运行的订单查询案例](./examples/order-query/README.md)：**需求 → 规则 → 实现 → 测试**。下面是按案例编排的**对话示意，非逐字实录，也非模型 A/B 实测**；实际安装与调用记录见[验证证据](#evidence)。
 
-[可运行的订单查询案例](./examples/order-query/README.md) 把这条链路串了起来：**需求 → 规则 → 实现 → 测试**。
+```text
+你   ❯ 使用 secure-coding 实现 Python 订单查询：沿用已有登录态，
+       用户只能读取自己的订单。
+
+AI   ❯ 先读取 4 条适用规则：
+       PY-BACKEND-1.1.1 输入校验 · PY-BACKEND-1.2.1 参数化查询
+       PY-BACKEND-1.8.1 默认鉴权 · PY-BACKEND-1.8.3 对象归属
+       调用方须完成认证与操作权限检查，传入服务端已验证的身份。
+
+你   ❯ 改在哪里，验证了什么？
+
+AI   ❯ orders.py:17–23 校验输入；25–28 参数绑定并限制订单归属。
+       6 项测试通过：本人可查，他人和不存在的订单返回 None；
+       注入形态输入不扩大查询，非法身份与订单 ID 被拒绝。
+       未验证：HTTP 认证、操作级权限、真实数据库集成。
+```
+
+[查看实现 `orders.py`](./examples/order-query/orders.py#L17-L28) · [查看 6 项测试](./examples/order-query/test_orders.py) · [规则与代码对应表](./examples/order-query/README.md#从规则到实现)
+
+<details>
+<summary><b>展开：查询前后对比与规则映射</b></summary>
 
 ```diff
 # 查询写法示意；完整输入校验见 orders.py。
@@ -55,19 +93,31 @@
 | **落到代码里的防护** | 输入校验 + SQL 参数绑定 + 基于服务端已验证身份的订单归属限制 |
 | **能亲手复跑的证据** | 6 项测试覆盖本人／他人／不存在的订单、注入形态输入与合法单引号、无效身份值及非法订单 ID |
 
+</details>
+
 **直接跑起来**——在本仓库根目录执行，需要 Python 3.10+ 与标准库 `sqlite3`：
 
 ```bash
 python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 ```
 
-案例的 6 项测试已在本地通过。上方对比用于演示规则，并非模型 A/B 实测；调用方须先完成用户认证，HTTP 认证、操作级权限和真实数据库集成不在案例范围内。[查看完整实现与测试范围 →](./examples/order-query/README.md)
+案例使用 SQLite 内存数据库，6 项测试已在本地通过；身份数值校验本身不构成认证。[完整实现与边界 →](./examples/order-query/README.md)
 
 <span id="evidence"></span>
 
-## 📡 端到端实测（2026-10-16，真实输出）
+## 📡 验证证据：哪些已经跑过
 
-以下全部为本仓库在真实环境的实际执行输出，未经修饰。
+以下为 **2026-10-16、Windows 环境**的验证记录与输出节选。OpenCode 调用和全新安装依据[已有端到端记录](./docs/VALIDATION.md#2026-10-16-端到端调用补记opencodeasiashanghai)；包校验与 13 项测试在本次 README 更新时重新通过。
+
+| 检查 | 结果 | 证明范围 |
+| :--- | :--- | :--- |
+| `guide.py check` | **ok**：225 条规则、6 份来源、10 项解释 | 规则包完整性 |
+| 工具与案例测试 | **7 + 6 项通过** | CLI 回归与订单案例行为 |
+| skills CLI 全新安装 | **25/25 文件 SHA-256 一致** | 已记录的安装副本与源包一致 |
+| OpenCode 显式调用 | **技能加载成功，完成案例规则审查** | 该客户端的手动指定调用路径 |
+
+<details>
+<summary><b>展开：安装、校验、规则检索与测试证据</b></summary>
 
 **① OpenCode 显式调用技能，加载成功：**
 
@@ -83,7 +133,7 @@ python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 npx -y skills add yuhengqin/secure-coding-skill -a opencode --copy -y
 ```
 
-安装副本逐文件 SHA-256 与本仓库一致，并通过下方完整性校验。
+验证记录中的安装副本逐文件 SHA-256 与当时仓库一致，并通过完整性校验。
 
 **③ 完整性校验（`guide.py check`）：**
 
@@ -105,7 +155,7 @@ $ python skills/secure-coding/scripts/guide.py check
 }
 ```
 
-**④ 规则检索（`guide.py show`），带原文行号与来源哈希：**
+**④ 规则检索（`guide.py show`），带原文行号与来源哈希（节选，哈希缩写）：**
 
 ```console
 $ python skills/secure-coding/scripts/guide.py show PY-BACKEND-1.2.1
@@ -119,38 +169,31 @@ Original excerpt (historical examples; apply interpretations and verify applicab
 …
 ```
 
-**⑤ 测试证据：**
+**⑤ 测试证据（结果摘要，省略逐项输出与耗时）：**
 
 ```console
-$ python -m unittest discover -s skills/secure-coding/tests -v
-Ran 7 tests in 0.457s
+$ python -B -m unittest discover -s skills/secure-coding/tests -v
+Ran 7 tests
 OK
 
 $ python -B -m unittest discover -s examples/order-query -p test_orders.py -v
-Ran 6 tests in 0.001s
+Ran 6 tests
 OK
 ```
 
-> 说明：`check` 只验证规则包完整性（哈希、覆盖、生成文件），不是对业务代码的安全扫描，也不证明 AI 一定会自动触发技能。
+</details>
+
+**诚实边界：** 包校验通过不代表业务代码安全；显式调用成功不代表自动触发已验证。尚无受控实验量化模型安全能力提升。远程 CI 状态见[验证范围](#validation)。
 
 <span id="quickstart"></span>
 
-## 🚀 两步极速上手
+## 🚀 装好后，试一个任务
 
-### 1. 安装
-
-在**目标业务项目根目录**运行，按提示选择编码助手。需要带 `npx` 的 Node.js；直接读取 Markdown 规则不需要 Python。
-
-```bash
-npx skills add yuhengqin/secure-coding-skill
-```
-
-### 2. 开始干活
-
-把技能带进一个实际任务。如果项目涉及订单查询，可以直接对助手说：
+在首页命令完成安装后，把技能带进一个实际任务。如果项目涉及订单查询，可以直接对助手说：
 
 ```text
-请使用 secure-coding 技能实现或审查本项目的订单查询。用户只能读取自己的订单。先检索相关的输入校验、SQL 与权限规则，
+请使用 secure-coding 技能实现或审查本项目的订单查询。
+用户只能读取自己的订单。先检索相关的输入校验、SQL 与权限规则，
 完成后说明规则 ID、对应代码位置、防护措施、实际执行的检查及未验证事项。
 ```
 
@@ -188,19 +231,22 @@ python .agents/skills/secure-coding/scripts/guide.py check
 
 <span id="routing"></span>
 
-## 🧭 不知道从哪开始？对号入座
+<details>
+<summary><b>🧭 不知道从哪开始？按角色找入口</b></summary>
 
 | 你是… | 你想… | 去这里 |
 | :--- | :--- | :--- |
 | 🤖 AI 代理 | 安装、校验、首次调用 | [`README_AI.md`](./README_AI.md) |
 | 🤖 AI 代理 | 了解本仓库结构与红线 | [`AGENTS.md`](./AGENTS.md) / [`CLAUDE.md`](./CLAUDE.md) |
-| 👤 人类（第一次来） | 2 分钟跑通 | [两步极速上手](#quickstart) |
+| 👤 人类（第一次来） | 试第一个任务 | [快速上手](#quickstart) |
 | 👤 人类（用 OpenCode） | 端到端流程与调用方式 | [`docs/USAGE.md`](./docs/USAGE.md) |
 | 🔧 想手动安装 | 选客户端、选平台 | [`docs/INSTALLATION.md`](./docs/INSTALLATION.md) |
 | 📖 想查某条规则 | 精确检索规则正文 | `guide.py show <规则ID>` |
 | 🔍 想验证规则来源 | 核对哈希与出处 | [`docs/PROVENANCE.md`](./docs/PROVENANCE.md) · [`docs/VALIDATION.md`](./docs/VALIDATION.md) |
 | 🧩 想维护或发布规则包 | 构建、发布流程 | [`docs/MAINTENANCE.md`](./docs/MAINTENANCE.md) · [`docs/RELEASING.md`](./docs/RELEASING.md) |
 | 🤝 想参与贡献 | 开 Issue / PR | [`CONTRIBUTING.md`](./CONTRIBUTING.md) · [Issue 模板](./.github/ISSUE_TEMPLATE) |
+
+</details>
 
 <span id="use-cases"></span>
 
@@ -216,17 +262,16 @@ python .agents/skills/secure-coding/scripts/guide.py check
 
 <span id="features"></span>
 
-## 🔥 为什么选它？安全火力，随用随取
+## 🔍 为什么把规则做成技能
 
-AI 写码飞快，输入边界、SQL 参数和对象权限也该从第一处改动就跟上。**把安全作战手册，直接送到编码助手手边。**
-
-- 🎯 **225 条工业级规则，一次装齐。** Python、JavaScript/TypeScript、Java、Go、C/C++，五大语言收进一个技能包。
-- 🪶 **安全火力全开，上下文轻装上阵。** 渐进式披露，沿语言与任务索引按需读取规则正文，无需一开始载入五份指南全文。
+- 🎯 **225 条规则，一次装齐。** Python、JavaScript/TypeScript、Java、Go、C/C++，五类语言收进一个技能包。
+- 🪶 **按需读取。** 渐进式披露，沿语言与任务索引读取相关正文，无需一开始载入五份指南全文；尚未量化 token 节省幅度。
 - 🔍 **每条规则，都有出处。** 原文、行号、来源 SHA-256 完整可查，另有 10 项带依据的历史建议适用性解释。
 - 🔌 **CLI 零第三方依赖。** Python 3.10+ 标准库即可完成本地检索与完整性校验，不联网、不采集代码。
 - 🧪 **拿检查结果说话。** 7 项工具回归测试 + 6 项可运行案例测试，执行命令公开，随时亲手复验。
 
-### 从需求到证据
+<details>
+<summary><b>展开：从需求到证据的检索流程</b></summary>
 
 ```mermaid
 flowchart LR
@@ -237,6 +282,8 @@ flowchart LR
 ```
 
 模型负责选择适用规则，`guide.py` 负责在本地检索正文与出处。应用历史示例时，技能还要求核对当前 API 和项目约束。[查看完整工作流 →](./skills/secure-coding/SKILL.md)
+
+</details>
 
 <span id="languages"></span>
 
@@ -250,7 +297,7 @@ flowchart LR
 | **Go** | 37 | 后端与系统代码：路径、命令、并发与资源限制 |
 | **C / C++** | 49 | 原生代码：缓冲区与整数溢出、格式化字符串、内存生命周期 |
 
-TypeScript 复用 JavaScript 运行时规则。原文的**必须／建议／推荐**级别保留。10 项适用性解释针对特定历史建议，全部规则尚未完成现代化审计。
+TypeScript 复用 JavaScript 运行时规则。225 条包括 **188 条必须、27 条建议、10 条推荐**，不是 225 类漏洞。10 项适用性解释针对特定历史建议，全部规则尚未完成现代化审计。来源为 [Tencent/secguide](https://github.com/Tencent/secguide)。
 
 <span id="compatibility"></span>
 
@@ -274,7 +321,7 @@ TypeScript 复用 JavaScript 运行时规则。原文的**必须／建议／推�
 | 工具与案例测试 | Windows / Python 3.14.2 上 **7 + 6 项通过** |
 | OpenCode 端到端调用 | **已验证：** 显式调用 `secure-coding` 加载成功（2026-10-16） |
 | skills CLI 全新安装 | **已验证：** 25/25 文件哈希一致，安装副本校验通过（2026-10-16） |
-| 远程 CI | 已配置 Windows / Ubuntu × Python 3.10 / 3.14；账户计费问题阻止运行，仍待执行 |
+| 远程 CI | 已配置 Windows / Ubuntu × Python 3.10 / 3.14；[已记录的首次运行](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315)因账户计费问题未启动 job，尚无通过记录 |
 | 模型安全能力提升 | 尚未开展与无技能基线的受控对比 |
 
 包校验和案例测试仅覆盖各自声明的范围；业务项目仍需运行自身的测试、扫描与审查。[执行命令与完整证据 →](./docs/VALIDATION.md)
@@ -282,6 +329,9 @@ TypeScript 复用 JavaScript 运行时规则。原文的**必须／建议／推�
 <span id="repo"></span>
 
 ## 🗂️ 仓库结构
+
+<details>
+<summary><b>展开目录：技能包、案例与维护文档</b></summary>
 
 ```
 secure-coding-skill/
@@ -298,13 +348,22 @@ secure-coding-skill/
 │   └── tests/                 ← 7 项工具回归测试
 ├── examples/order-query/      ← 可运行案例：订单查询（6 项测试）
 ├── docs/                      ← 安装 / 用法 / 来源 / 验证 / 维护 / 发布
-├── .github/workflows/         ← 远程校验工作流（待 billing 解除后运行）
+├── .github/workflows/         ← 远程校验工作流
 └── THIRD_PARTY_NOTICES.md     ← 第三方声明
 ```
+
+</details>
 
 <span id="faq"></span>
 
 ## ❓ 常见问题
+
+<details>
+<summary><b>直接把 secguide 原文丢给 AI 不就行了？为什么还要这个技能？</b></summary>
+
+可以。本技能增加的是可复用的检索和交付约定：按语言与场景找规则，每条带原文行号和 SHA-256，10 项解释补充特定历史建议的适用条件；交付时要求助手对应代码位置，并区分“已检查”与“未验证”。无需每次把五份全文放进上下文，但实际 token 节省尚未测量。这些约定也需要检查助手是否执行。
+
+</details>
 
 <details>
 <summary><b>业务项目必须使用 Python 吗？</b></summary>

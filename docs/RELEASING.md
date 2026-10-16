@@ -22,13 +22,18 @@
 
    如果已存在 `origin`，先用 `git remote -v` 核对，避免直接覆盖或推送到错误目标。
 
-3. 建议仓库描述：`A progressive-loading secure coding skill based on Tencent/secguide, with 225 rules across five languages.`
-4. 可选 Topics：`agent-skills`、`secure-coding`、`codex`、`security-guidelines`。
+3. GitHub About 建议使用以下双语简介（可直接复制；此文档不代表远程设置已更新）：
+
+   ```text
+   把 Tencent/secguide 的 225 条安全规则带进 AI 编码与审查。225 security rules across 5 language families, with source references and repeatable checks.
+   ```
+
+4. 建议 Topics：`agent-skills`、`secure-coding`、`claude-code`、`codex`、`ai-agents`、`secguide`、`code-review`、`appsec`、`security-guidelines`。更新时保留已有且相关的标签。
 5. 查看 Actions 中的包校验结果；根据团队需要设置分支保护。
 
 ## 版本与下载包
 
-首次版本建议 `v0.1.0`。先完成验证，将 `CHANGELOG.md` 的 Unreleased 内容转入实际发布日期，再提交、打标签和推送：
+首次版本建议 `v0.1.0`。先确认待发布提交的远程 CI 四个矩阵 job 全部通过，再恢复首页 CI 徽章并发布；本地检查通过或工作流配置正确不能代替远程运行结果。完成验证后，将 `CHANGELOG.md` 的 Unreleased 内容转入实际发布日期，再提交、打标签和推送：
 
 ```sh
 git add CHANGELOG.md
