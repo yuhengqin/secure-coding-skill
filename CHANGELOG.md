@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- 首页接入 skills CLI 一行安装（`npx skills add yuhengqin/secure-coding-skill`），克隆复制降为备选，并补充更新/卸载命令与客户端覆盖说明；中英文首页同步补齐实战案例、验证边界、路线图、文档索引与仓库结构。
+- 实测 skills CLI 安装链路（2026-10-16）：技能可被发现、完整安装的 25 个文件与仓库 SHA-256 一致、安装副本 `guide.py check` 通过；记录见 `docs/VALIDATION.md`。
+- 修正首页验证状态表述：原“Windows / Ubuntu 及 Python 3.10 ~ 3.14 已通过”与验证记录不符，改为按实际证据表述（Windows / Python 3.14.2 本地验证；远程 CI 因账户计费锁定待重跑）；CI 徽章暂时移除，待首个绿色远程运行后恢复。
 - 重写中文首页，先说明用途、适用人群和工作方式，再提供两种安装方式、可运行案例、验证边界与路线图。
 - 默认提供英文首页 `README.md`，中文完整首页调整为 `README.zh-CN.md`，并在两份首页中说明原规则正文仍为中文。
 - 增加工具问题与规则更正的 Issue 模板，以及私密漏洞报告说明 `SECURITY.md`。

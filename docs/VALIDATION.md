@@ -64,3 +64,15 @@ git diff --check
 [首次 GitHub Actions 运行](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315)已触发，但四个矩阵 job 均显示“账户因计费问题被锁定，job 未启动”的注释；没有任何工作流步骤得到远程执行。账户所有者处理 GitHub Billing 后仍需重跑，再按实际 job 结果更新验证状态。
 
 同日在 Windows / Python 3.14.2 重新运行 `guide.py check`、7 项工具测试、6 项订单案例测试和 `git diff --check`，均退出 0。这些结果只证明本地规则包与案例检查通过，不代替远程矩阵或客户端端到端验证。
+
+## 2026-10-16 补记（Asia/Shanghai）
+
+对首页新增的 skills CLI 安装路径做了实测（Windows、Node.js v24.14.0、npx 11.15.0、Python 3.14.2）：
+
+| 检查 | 实际结果 |
+|---|---|
+| 技能发现 | `npx skills add yuhengqin/secure-coding-skill --list` 退出 0，列出 `secure-coding` |
+| 完整安装 | `npx skills add yuhengqin/secure-coding-skill -a opencode --copy -y` 安装到临时项目 `.agents/skills/secure-coding/`；与仓库 `skills/secure-coding/` 逐文件比对，文件清单与 SHA-256 全部一致（25/25） |
+| 安装后校验 | 对安装副本运行 `guide.py check`，退出 0：225 条规则、6 份来源、10 项解释 |
+
+说明：实测针对 GitHub 公开仓库当前 main 状态；skills CLI 支持的其余客户端（Claude Code、Cursor 等）未逐一端到端验证，实际安装目录以该工具检测结果为准。远程 CI 矩阵仍未执行，首页暂以文字说明其状态，待首个绿色远程运行后恢复 CI 徽章。

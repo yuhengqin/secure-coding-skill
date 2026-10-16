@@ -19,7 +19,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/yuhengqin/secure-coding-skill/actions/workflows/validate.yml"><img src="https://github.com/yuhengqin/secure-coding-skill/actions/workflows/validate.yml/badge.svg" alt="CI"></a>
   <a href="#languages"><img src="https://img.shields.io/badge/安全规则-225_条-blue.svg" alt="225 Rules"></a>
   <a href="#languages"><img src="https://img.shields.io/badge/覆盖语言-5_种主流语言-brightgreen.svg" alt="5 Languages"></a>
   <img src="https://img.shields.io/badge/运行依赖-纯标准库_0依赖-orange.svg" alt="0 Dependencies">
@@ -60,7 +59,7 @@ AI 编写代码速度极快，但在默认情况下**不会自动套用防御性
 - ⚡ **零上下文膨胀**：采用渐进式披露机制。初始化仅占约 100 token，只在涉及相关操作时按需加载具体规则正文，绝不爆上下文。
 - 🔍 **全链路可追溯**：规则正文、上游原文行号与来源 SHA-256 哈希完整随包提供，另附 10 项适配现代框架演进的适用性解释。
 - 🔌 **零第三方依赖 & 纯离线**：规则检索与完整性校验 CLI 仅使用 Python 3.10+ 标准库，不联网、不外发任何代码数据。
-- 🧪 **开箱即用可验证**：内置 7 项 CLI 回归测试与 6 项可运行的安全案例测试（覆盖注入与水平越权防御）；配有跨平台 CI 矩阵。
+- 🧪 **开箱即用可验证**：内置 7 项 CLI 回归测试与 6 项可运行的安全案例测试（覆盖注入与水平越权防御），安装包可随时离线复验完整性。
 
 ---
 
@@ -69,11 +68,22 @@ AI 编写代码速度极快，但在默认情况下**不会自动套用防御性
 
 ### 第一步：将技能包安装到你的项目
 
-选择以下任意一种方式将技能目录引入项目：
+以下命令均在**目标业务项目根目录**执行。
 
-#### 方式 1：终端一行命令复制（推荐）
+#### 方式 1：skills CLI 一行安装（推荐）
 
-在你的**目标业务项目根目录**下执行：
+```bash
+npx skills add yuhengqin/secure-coding-skill
+```
+
+[skills CLI](https://github.com/vercel-labs/skills) 会识别本机已安装的编码助手（Codex、Claude Code、Cursor、OpenCode、GitHub Copilot 等数十种主流客户端），并把完整的 `secure-coding` 技能包安装到各客户端约定的技能目录。需要 Node.js（npx），安装环节不依赖 Python。
+
+- 先预览再安装：`npx skills add yuhengqin/secure-coding-skill --list`
+- 指定客户端：追加 `--agent codex --agent claude-code`
+- 个人全局安装（本机所有项目可用）：追加 `-g`
+- 后续更新 / 卸载：`npx skills update secure-coding` · `npx skills remove secure-coding`
+
+#### 方式 2：终端克隆复制（无需 Node）
 
 **Linux / macOS:**
 ```bash
@@ -92,13 +102,14 @@ Remove-Item -Path ".\.tmp-skill" -Recurse -Force
 ```
 
 <details>
-<summary><b>更多安装途径（AI 助手安装 / 全局安装 / 手动复制）</b></summary>
+<summary><b>更多安装途径（AI 助手安装 / 全局安装 / 其他客户端 / 手动复制）</b></summary>
 
 - **让 AI 助手安装（Codex / Claude Code / Cursor 等）**：克隆本仓库后，让助手阅读 [README_AI.md](README_AI.md) 完成安装与检查。
-- **个人全局安装**：希望本机所有项目通用时，复制到个人全局技能目录：
+- **个人全局安装**：使用 `npx skills add yuhengqin/secure-coding-skill -g`，或手动复制到个人全局技能目录：
   - Linux / macOS: `~/.agents/skills/secure-coding/`
   - Windows: `%USERPROFILE%\.agents\skills\secure-coding\`
-- **手动复制**：保留完整 `skills/secure-coding` 目录（包含 `SKILL.md`、`LICENSE`、`NOTICE.md`、`references/` 与 `sources/`），不要只复制单个文件。
+- **其他客户端**：安装到客户端文档约定的技能目录（如 Claude Code 为 `.claude/skills/`）——skills CLI 已内置这些路径。
+- **手动复制**：保留完整 `skills/secure-coding` 目录（包含 `SKILL.md`、`LICENSE`、`NOTICE.md`、`references/`、`sources/`、`scripts/` 与 `tests/`），不要只复制单个文件。
 
 </details>
 
@@ -118,13 +129,13 @@ Remove-Item -Path ".\.tmp-skill" -Recurse -Force
 
 ### 验证安装有效性
 
-在**业务项目根目录**运行完整性校验（需 Python 3.10+，纯标准库，无需安装任何 pip 包）：
+在**业务项目根目录**运行完整性校验（需 Python 3.10+，纯标准库）。路径按实际安装位置调整——Codex / Cursor / OpenCode 通常为 `.agents/skills/secure-coding`，Claude Code 为 `.claude/skills/secure-coding`：
 
 ```bash
 python .agents/skills/secure-coding/scripts/guide.py check
 ```
 
-> **预期输出：** 成功校验 `225 条规则、6 份来源、10 项解释`。
+> **预期输出：** JSON 报告中 `"status": "ok"`，即成功校验 `225 条规则、6 份来源、10 项解释`。
 
 ---
 
@@ -166,6 +177,8 @@ flowchart LR
 python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 ```
 
+> 注：该函数假定调用方已完成用户认证；调用方认证、操作级权限与 HTTP 接入不在本案例范围内。
+
 ---
 
 <span id="languages"></span>
@@ -195,7 +208,7 @@ python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 
 <details>
 <summary><b>Q2: 我的业务项目中没有安装 Python，可以使用本技能吗？</b></summary>
-完全可以。规则库本身是规整的 Markdown 文件，AI 助手可以直接通过文件读取与索引定位正文。Python 3.10+ 仅用于本地运行 `guide.py` 辅助检索、批量校验完整性或执行单元测试。
+完全可以。规则库本身是规整的 Markdown 文件，AI 助手可以直接通过文件读取与索引定位正文。Python 3.10+ 仅用于本地运行 <code>guide.py</code> 辅助检索、批量校验完整性或执行单元测试。
 </details>
 
 <details>
@@ -205,40 +218,74 @@ python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 
 <details>
 <summary><b>Q4: 支持哪些 AI 客户端与 IDE？</b></summary>
-支持所有遵循 <code>.agents/skills/</code> 目录约定的客户端（如 Codex CLI / IDE）；对于 <b>Cursor</b>、<b>Claude Code</b>、<b>Windsurf</b>、<b>GitHub Copilot</b> 等工具，均可直接读取 <code>SKILL.md</code> 与规则索引作为工作区规则使用。
+方式 1 的 skills CLI 覆盖 Codex、Claude Code、Cursor、OpenCode、GitHub Copilot 等数十种主流客户端，并自动使用各客户端约定的技能目录；其他客户端手动安装到其技能/规则目录即可。自动发现与触发灵敏度因客户端而异，建议显式指定技能名称调用；各客户端的端到端触发尚未逐一验证。
 </details>
 
 <details>
-<summary><b>Q5: 可以只提取某一种语言的规则吗？</b></summary>
-目前建议保留完整技能包。规则来源哈希校验机制针对完整规则库设计；单语言按需导出的轻量分发功能已列入后续规划。
+<summary><b>Q5: 安装后如何更新或卸载？</b></summary>
+通过 skills CLI 安装的：运行 <code>npx skills update secure-coding</code> 更新、<code>npx skills remove secure-coding</code> 卸载；手动复制的：重新复制覆盖或删除技能目录。更新后建议运行 <code>guide.py check</code> 确认包完整性。请始终保留完整包，不要单独增删某个语言目录。
+</details>
+
+<details>
+<summary><b>Q6: 可以只提取某一种语言的规则吗？</b></summary>
+目前建议保留完整技能包。规则来源哈希校验机制针对完整规则库设计；单语言按需导出的轻量分发功能已列入<a href="#roadmap">路线图</a>。
 </details>
 
 ---
 
-## 🔍 验证状态与工程边界
+## ✅ 验证状态与工程边界
 
 本仓库坚持以事实与证据为准：
 
 | 校验项 | 当前状态与验证证据 |
 | :--- | :--- |
-| **规则包完整性与 CLI** | 已在 Windows / Ubuntu 及 Python 3.10 ~ 3.14 环境验证通过 |
-| **测试套件运行** | 7 项 CLI 回归测试 + 6 项实战案例测试均 100% 通过 |
-| **离线与安全性** | 全流程无外部网络请求，无需第三方 pip 包，不采集任何代码 |
-| **自动化发现机制** | 各客户端的自动触发灵敏度受提示词与上下文影响，推荐显式指定技能名称调用 |
+| **规则包完整性与 CLI** | 已在 Windows / Python 3.14.2 本地验证通过：`guide.py check` 退出 0（225 条规则、6 份来源、10 项解释） |
+| **skills CLI 安装链路** | 2026-10-16 实测：`npx skills add yuhengqin/secure-coding-skill` 可发现技能并完整安装（25/25 文件与本仓库哈希一致），安装副本 `guide.py check` 通过 |
+| **测试套件运行** | 7 项 CLI 回归测试 + 6 项实战案例测试本地全部通过（Windows / Python 3.14.2） |
+| **离线与安全性** | 规则检索与完整性校验不发出网络请求、无第三方依赖、不采集任何代码 |
+| **远程 CI 矩阵（Windows / Ubuntu × Python 3.10 / 3.14）** | 已配置；首次远程运行因 GitHub 账户计费锁定未启动任何 job，待账户恢复后重跑 |
+| **客户端自动发现与触发** | 尚未端到端验证；建议显式指定技能名称调用 |
 
 完整验证记录与执行命令详见 [验证记录](docs/VALIDATION.md) 与 [使用手册](docs/USAGE.md)。
 
 ---
 
-## 🗺️ 深入阅读与文档索引
+<span id="roadmap"></span>
+## 🗺️ 路线图
+
+- 远程 CI 首次绿色运行，以及客户端自动发现 / 触发的端到端验证（含 skills CLI 安装渠道）。
+- 单语言导出：按需安装所用语言的规则子集。
+- 持续扩充适用性解释，逐步核对历史建议与当前框架 / API 的匹配。
+- 更多客户端适配（如 Claude Code 插件市场封装）。
+
+欢迎按[贡献指南](CONTRIBUTING.md)认领或报告补充。
+
+---
+
+## 📚 深入阅读与文档索引
 
 - [命令与详细使用手册](docs/USAGE.md)
 - [多场景提示词模板与审查示例](examples/USAGE.md)
 - [规则来源与上游追溯记录](docs/PROVENANCE.md)
+- [验证记录](docs/VALIDATION.md)
 - [代码与规则维护说明](docs/MAINTENANCE.md)
 - [版本发布与校验流程](docs/RELEASING.md)
 - [版本更新记录](CHANGELOG.md)
 - [AI 助手安装专用指引](README_AI.md)
+
+**仓库结构：**
+
+```
+skills/secure-coding/     # 可安装的技能包（须完整安装/复制）
+├── SKILL.md              # 助手入口与使用指令
+├── references/           # 场景路由、语言索引、适用性解释
+├── sources/              # 上游指南原文快照（逐字节校验）
+├── scripts/guide.py      # 离线 CLI：list / show / check / build
+└── tests/                # 7 项工具回归测试
+examples/order-query/     # 可运行案例 + 6 项行为测试
+docs/                     # 使用、验证、来源、维护文档
+.github/workflows/        # CI 矩阵（validate.yml）
+```
 
 ---
 
