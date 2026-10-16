@@ -1,6 +1,6 @@
 # 命令与使用手册
 
-首次使用见 [两步极速上手](../README.zh-CN.md#quickstart)；无需 Node.js 的安装见[手动安装指南](INSTALLATION.md)，安装助手见 [README_AI.md](../README_AI.md)。以下命令均从**本仓库根目录**执行，需 Python 3.10+，无第三方包依赖。
+首次使用见 [两步极速上手](../README.md#quickstart)；无需 Node.js 的安装见[手动安装指南](INSTALLATION.md)，安装助手见 [README_AI.md](../README_AI.md)。以下命令均从**本仓库根目录**执行，需 Python 3.10+，无第三方包依赖。
 
 ## 检索与读取
 

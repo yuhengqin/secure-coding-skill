@@ -94,3 +94,17 @@ git diff --check
 隔离场景使用临时 Git 函数模拟成功或部分克隆后失败，以验证控制流和已有数据保护；真实 Git 安装另行执行，不把模拟结果当作联网安装证明。验证中发现 PowerShell 5.1 在方括号路径下读取 `Get-Item -LiteralPath '.'` 会失败，已改用 `(Get-Location).ProviderPath` 并复验通过。
 
 Bash 的执行环境为 Windows 上的 Git Bash，未实测原生 Linux、macOS 或 WSL。以上结果不覆盖客户端自动发现／调用，也未验证业务安全能力提升；验证脚本及隔离项目仅作为本次系统临时目录中的检查产物，不随技能分发。
+
+## 2026-10-16 端到端调用补记（OpenCode，Asia/Shanghai）
+
+同日在 Windows / Python 3.14.2 / Node.js v24.14.0 环境中，首次完成 OpenCode 客户端的端到端验证（显式调用，非自动触发）：
+
+| 检查 | 实际结果与范围 |
+|---|---|
+| 客户端加载技能 | 在 OpenCode 会话中显式调用 `skill({"id":"secure-coding"})`，返回加载成功，技能 Base 目录为 `D:\chat\.agents\skills\secure-coding` |
+| 活跃安装同步 | 将该安装目录与仓库 `skills/secure-coding/` 逐文件比对：25/25 文件 SHA-256 一致（补齐 LICENSE、NOTICE.md、sources/CONTRIBUTING.md、sources/provenance.json，并同步 3 个旧版文件）；对安装副本运行 `guide.py check` 退出 0，7 项工具测试通过 |
+| 全新安装复验 | 在全新临时目录执行 `npx -y skills add yuhengqin/secure-coding-skill -a opencode --copy -y`；安装副本 25/25 文件与仓库哈希一致，`check`、`show PY-BACKEND-1.2.1`、`list` 均退出 0 |
+| 真实规则调用 | 按技能工作流读取 `references/common.md`、`index.md`、`review.md`，对 `examples/order-query/orders.py` 完成规则审查：定位 `PY-BACKEND-1.1.1`（类型/长度校验）、`PY-BACKEND-1.2.1`（参数绑定）、`PY-BACKEND-1.8.1`（默认鉴权）、`PY-BACKEND-1.8.3`（对象归属）四条适用规则及对应代码位置；6 项案例测试通过（退出 0） |
+| 退出码复核 | `check`、7 项工具测试、6 项案例测试的实际进程退出码均确认为 0 |
+
+说明：验证为**显式调用**技能；客户端的自动发现、自动触发仍未验证。审查覆盖示例代码的规则适用性，不构成对业务项目的安全审计。其余客户端（Claude Code、Codex、Cursor 等）仍未逐一端到端验证。

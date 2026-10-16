@@ -1,6 +1,6 @@
 # Manual installation / 手动安装
 
-[English quickstart](../README.md#quickstart) · [中文快速开始](../README.zh-CN.md#quickstart)
+[English quickstart](../README_EN.md#quickstart) · [中文快速开始](../README.md#quickstart)
 
 The recommended installation is `npx skills add yuhengqin/secure-coding-skill`. Use the commands below when you have Git but do not want to install Node.js. Run **one complete block** from your **target project's root**, not this distribution repository.
 

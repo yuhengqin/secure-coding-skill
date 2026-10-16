@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- 中文首页设为默认：`README.md` 为中文，英文首页移至 `README_EN.md`（原 `README.zh-CN.md` 不再使用），双语互链与 `docs/` 内引用同步更新。
+- 双语首页重构：新增 SVG 视觉锚点（`assets/banner.svg`）、GitHub Stars 动态徽章、AI 代理前置入口、2026-10-16 真实端到端实测输出（技能加载、skills CLI 安装 25/25、`check`/`show` 真实输出、7+6 测试证据）、场景路由表与仓库结构树。
+- 增加 `AGENTS.md` 与 `CLAUDE.md`：面向来访 AI 代理的仓库导航与红线（sources 只读、`build` 唯一会写文件的命令、如实报告未验证项）。
+- 记录 OpenCode 端到端调用验证（2026-10-16）：显式调用 `secure-coding` 加载成功；活跃安装与仓库 25/25 哈希一致；按技能工作流完成订单案例规则审查；详见 `docs/VALIDATION.md`。
 - 同步重排中英文 README：提前展示订单查询案例，将上手主流程压缩为安装与调用两步，补充任务场景、客户端验证表和按读者需求组织的文档入口。
 - 手动安装移入双语 `docs/INSTALLATION.md`：独立临时目录、克隆失败即停止、拒绝覆盖现有安装或沿链接路径写入，只清理本次创建的临时目录。
 - 首页接入 skills CLI 一行安装（`npx skills add yuhengqin/secure-coding-skill`），克隆复制降为备选，并补充更新/卸载命令与客户端覆盖说明；中英文首页同步补齐实战案例、验证边界、路线图、文档索引与仓库结构。
