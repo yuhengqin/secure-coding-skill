@@ -34,7 +34,7 @@ Run in your **target project's root** and select your coding agent:
 npx skills add yuhengqin/secure-coding-skill
 ```
 
-Requires Node.js with `npx`. You can also [ask an assistant to install it](./README_AI.md) or [copy the complete package manually](./docs/INSTALLATION.md). Explicit invocation is verified in OpenCode; see [compatibility](#compatibility) for other clients.
+Requires Node.js with `npx`. You can also [ask an assistant to install it](./README_AI.md) or [copy the complete package manually](./docs/INSTALLATION.md). Explicit invocation has been recorded for OpenCode, Claude Code, Codex CLI, and Cursor; see [compatibility](#compatibility) for tested configurations.
 
 **① Install → ② Ask for a task using `secure-coding` → ③ Check the rules, code, and evidence in the result.** [Try your first task →](#quickstart)
 
@@ -109,7 +109,7 @@ The example uses an in-memory SQLite database and passes all 6 tests locally. Va
 
 ## 📡 Evidence: What Has Actually Run
 
-These are **2026-10-16 Windows** validation records and output excerpts. OpenCode invocation and fresh installation refer to the [existing end-to-end record](./docs/VALIDATION.md#2026-10-16-端到端调用补记opencodeasiashanghai); the package check and all 13 tests passed again during this README update.
+These records cover **2026-10-16 and 2026-10-18 on Windows**. OpenCode invocation and the fresh skills CLI installation refer to the [existing end-to-end record](./docs/VALIDATION.md#2026-10-16-端到端调用补记opencodeasiashanghai). New Claude Code / Codex CLI / Cursor runs used local DeepSeek model configurations; connection and tool requirements are documented in the [client record](./docs/CLIENT_VALIDATION.md). The package check and all 13 tests passed again during this update.
 
 | Check | Result | What it establishes |
 | :--- | :--- | :--- |
@@ -117,6 +117,9 @@ These are **2026-10-16 Windows** validation records and output excerpts. OpenCod
 | Tool and example tests | **7 + 6 pass** | CLI regressions and order-query behavior |
 | Fresh skills CLI installation | **25/25 SHA-256 hashes match** | The recorded installation matches its source package |
 | Explicit OpenCode invocation | **Skill loaded; example reviewed against its rules** | That client's explicitly requested invocation path |
+| Explicit Claude Code invocation | **Native Skill tool loaded it; 6 example tests passed** | CLI invocation with this machine's third-party model configuration |
+| Explicit Codex CLI invocation | **Skill rules read; 6 example tests passed** | DeepSeek backend and existing Node tool path; environment workarounds documented |
+| Cursor desktop | **Skill and rules read; 6 example tests passed** | DeepSeek configuration with temporary proxy and HTTP/1.1 settings; original network settings restored |
 
 <details>
 <summary><b>Expand: installation, integrity, rule lookup, and test evidence</b></summary>
@@ -309,7 +312,10 @@ TypeScript uses the JavaScript runtime rules. The total includes **188 MUST, 27 
 | Client / installation route | Package installation | Discovery and actual invocation |
 | :--- | :--- | :--- |
 | **OpenCode via skills CLI** | Windows, 2026-10-16: `-a opencode --copy -y`; 25/25 files match; installed package passes `check` | ✅ End-to-end verified (2026-10-16, explicit invocation loaded successfully — see [evidence](#evidence)) |
-| **Codex, Claude Code, Cursor, GitHub Copilot, other skills CLI agents** | Installation routes provided by the upstream CLI; not individually tested here | Not yet verified end-to-end; verification records welcome |
+| **Claude Code 2.1.233** | Windows, 2026-10-18: complete copy to `.claude/skills/`; 25/25 files match; `check` passes | ✅ Explicit Skill tool invocation and 6 example tests passed with a locally configured third-party model; see [record](./docs/CLIENT_VALIDATION.md) |
+| **Codex CLI 0.162.1** | Windows, 2026-10-18: complete copy to `.agents/skills/`; 25/25 files match; `check` passes | ✅ Explicit invocation and 6 example tests passed with DeepSeek; default OpenAI connectivity and built-in shell did not pass; see [record](./docs/CLIENT_VALIDATION.md) |
+| **Cursor 3.24.18** | Windows, 2026-10-18: complete copy to `.cursor/skills/`; 25/25 files match; `check` passes | ✅ Desktop explicitly loaded the skill, retrieved rules, and ran 6 passing example tests; temporary proxy and HTTP/1.1 requirements are in the [record](./docs/CLIENT_VALIDATION.md) |
+| **GitHub Copilot and other skills CLI agents** | Installation routes provided by the upstream CLI; not individually tested here | Not yet verified end-to-end; verification records welcome |
 | **Manual copy** | Complete-package copying and installed CLI use verified; use your client's documented directory | Depends on the client's loading mechanism |
 
 Use the installer's reported location. The shared project path is commonly `.agents/skills/secure-coding/`; agent-specific paths can differ. [Installation details →](./docs/INSTALLATION.md) · [Validation records →](./docs/VALIDATION.md)
@@ -323,6 +329,8 @@ Use the installer's reported location. The shared project path is commonly `.age
 | Rule package integrity | **Pass locally:** 225 rules, 6 sources, 10 interpretations (hashes, coverage, generated files all consistent) |
 | Tool and example tests | **7 + 6 passed** on Windows / Python 3.14.2 |
 | OpenCode end-to-end invocation | **Verified:** explicit `secure-coding` invocation loaded successfully (2026-10-16) |
+| Claude Code / Codex CLI invocation | **Verified:** explicit invocation with local third-party backends; each ran 6 passing example tests (2026-10-18; see [configuration and limits](./docs/CLIENT_VALIDATION.md)) |
+| Cursor actual invocation | **Verified:** explicit desktop invocation and 6 passing example tests (2026-10-18, local DeepSeek configuration; temporary network settings restored) |
 | Fresh install via skills CLI | **Verified:** 25/25 file hashes match; installed package passes `check` (2026-10-16) |
 | Remote CI | Windows / Ubuntu × Python 3.10 / 3.14 configured; the [recorded first run](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315) could not start jobs due to account billing; no passing run recorded |
 | Model security improvement | No controlled comparison against an unassisted baseline yet |
@@ -410,7 +418,7 @@ No. Rules come from the secguide originals; the repository vendors the source sn
 Useful contributions include **client verification records**, **rule corrections with current sources**, and **runnable examples with meaningful tests**. Start with [CONTRIBUTING.md](./CONTRIBUTING.md); report exploitable tool defects through [SECURITY.md](./SECURITY.md).
 
 - ✅ OpenCode end-to-end invocation verified (2026-10-16)
-- ⬜ End-to-end verification for the remaining clients (Claude Code / Codex / Cursor)
+- ✅ Claude Code / Codex CLI / Cursor explicit invocation (2026-10-18, local DeepSeek model configurations; see [requirements and scope](./docs/CLIENT_VALIDATION.md))
 - ⬜ First green remote CI run and a versioned release
 - ⬜ More sourced applicability notes and runnable cases
 - ⬜ Single-language exports and additional client adapters

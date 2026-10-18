@@ -1,0 +1,531 @@
+{
+  "date": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "os": "Windows",
+  "python": "3.14.2",
+  "scope": "Explicit invocation in three installed local clients; local third-party model configurations; no no-skill-name automatic-trigger or model-quality comparison.",
+  "source_commit": "555ff68b8ad0f51d194054967cdd56cb564e214b",
+  "source_files_sha256": {
+    "LICENSE": "317408f36f0b43b11f5aa82ef4a9bb8a5b246fb49baf4f3b6244e0b819ab304e",
+    "NOTICE.md": "2e0216577110f11102068fd31cb1263f12938b251d58c8ce61d968fc600c1c47",
+    "references/common.md": "93774e8967393d049540a5c8f20f9be88edf517e9856516754f6dfcb0000ab1b",
+    "references/cpp.md": "6c1b02d1136a8c148ff364fee7d266467739387e61aeb8a5e8de73f826e2ce22",
+    "references/go.md": "d8b22e21382623ff34090ca4aaf75cac21e35336ac3d2a96f69bde5f4bcb5637",
+    "references/index.md": "a9866287e90a17074d40b60b68da890d73a4523677100404e7cb5df26712bffa",
+    "references/interpretations.md": "4d79d250646d01bd9894e20c152f758501b4cf6c01d30f76dcca1c25071ba116",
+    "references/java.md": "a882de25e2187423f8b785297290b1fb7dd2fdd4179c5fc449c25a1bcbf9f143",
+    "references/javascript.md": "a1458cbf1f602ba110bc9c29c6f25d195b60c8def3fbec58c1829b50f43ac792",
+    "references/overrides.json": "127c306e42d949b347d4d71318054695ac41becc0f7037777c66cfb5c8f5c383",
+    "references/python.md": "53c5067d3085f2ceeaa3653e56bf7ec7512513463c07488ba24884fbdfc8966e",
+    "references/review.md": "a2c74066e8fa40676054e2acfb9cd3a35456a4885d9d2e869b3af07625cf7ef6",
+    "references/rules.json": "750c2300c7529bc84dab30de4daf2eaf71d9f22fb9b99014ed160b793949ee4d",
+    "scripts/guide.py": "e5603b63c63a5e150c2f15701fd5cfdac49337a0209e87b50e47b0261a97226f",
+    "SKILL.md": "53a507d761324110536f952a33b8b64bdb4eec3d4a1ba35244c19faa6c19b47a",
+    "sources/C,C++安全指南.md": "8a1880e65b833ec95e6a4d10c2c08dc9efea67c5bef8e2fe8f572fd374be25ab",
+    "sources/CONTRIBUTING.md": "cb79b0426474b013fa21b6bb974da1c22afa0ed519d778bb648fd5caa9a94b56",
+    "sources/Go安全指南.md": "95c020a29e40061ed0d4e6d5f7ea5a6c4029b4512eb0b3b43d98b6a9c1f459fe",
+    "sources/JavaScript安全指南.md": "ca377face9a0c04fdcf9e12afa8769eee8fdd911f6d48b18c8322498c11d2c27",
+    "sources/Java安全指南.md": "3798229da5f5d5c07b163016fa09140a9d4bc596d8b1bbd9d8e4f0c49f85ca20",
+    "sources/manifest.json": "3f291bd9c419353c1bd9784d8df4e1bf0c78a74e8e5600fb95f1b94d42c58a86",
+    "sources/provenance.json": "65020713e73f433b513cb179f79ecf58110b86484f5cf3a44eea0108b74471f9",
+    "sources/Python安全指南.md": "b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+    "sources/README.md": "01282422dc68a1a0448c66c068204dad253b802644e9923a47a46b1a16d6f7bd",
+    "tests/test_guide.py": "76a0167ddc33dd6f84847a4a17973d71f6a319bd82a42fb5d631b060848f5b79"
+  },
+  "fixtures": {
+    "codex": {
+      "project": "<FIXTURE_ROOT>\\codex",
+      "skill_path": "<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding",
+      "matching_files": 25,
+      "check_exit_code": 0,
+      "check": {
+        "status": "ok",
+        "rules": 225,
+        "by_language": {
+          "python": 45,
+          "javascript": 45,
+          "java": 49,
+          "go": 37,
+          "cpp": 49
+        },
+        "sources": 6,
+        "interpretations": 10,
+        "scope": "package integrity only; not a target-code security scan"
+      }
+    },
+    "claude": {
+      "project": "<FIXTURE_ROOT>\\claude",
+      "skill_path": "<FIXTURE_ROOT>\\claude\\.claude\\skills\\secure-coding",
+      "matching_files": 25,
+      "check_exit_code": 0,
+      "check": {
+        "status": "ok",
+        "rules": 225,
+        "by_language": {
+          "python": 45,
+          "javascript": 45,
+          "java": 49,
+          "go": 37,
+          "cpp": 49
+        },
+        "sources": 6,
+        "interpretations": 10,
+        "scope": "package integrity only; not a target-code security scan"
+      }
+    },
+    "cursor": {
+      "project": "<FIXTURE_ROOT>\\cursor",
+      "skill_path": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding",
+      "matching_files": 25,
+      "check_exit_code": 0,
+      "check": {
+        "status": "ok",
+        "rules": 225,
+        "by_language": {
+          "python": 45,
+          "javascript": 45,
+          "java": 49,
+          "go": 37,
+          "cpp": 49
+        },
+        "sources": 6,
+        "interpretations": 10,
+        "scope": "package integrity only; not a target-code security scan"
+      }
+    }
+  },
+  "prompt": "请使用 secure-coding 技能审查当前项目的 orders.py。业务约束：调用方传入服务端已经验证的登录身份，用户只能读取自己的订单。\n这是一次真实客户端显式调用验证。请通过客户端的技能发现机制定位并加载该技能，实际读取适用规则全文，再把规则 ID 对应到 orders.py 的具体行号与防护行为。运行已有 test_orders.py 的 unittest（python -X utf8 -B -m unittest discover -s . -p test_orders.py -v）。\n请用中文报告：实际加载的技能绝对路径、适用规则及代码位置、实际检查命令和结果、仍未验证的事项。找不到技能就如实报告，不要伪造加载或测试成功。仅做只读审查，不修改文件、不安装依赖、不运行 guide.py build、不执行指南中的示例、不调用子代理、不访问其他项目。输出控制在 700 字以内。",
+  "expected_core_rule_ids": [
+    "PY-BACKEND-1.1.1",
+    "PY-BACKEND-1.2.1",
+    "PY-BACKEND-1.8.1",
+    "PY-BACKEND-1.8.3"
+  ],
+  "claude_code": {
+    "status": "pass",
+    "version": "2.1.233",
+    "reported_model": "deepseek-v4.1-flash[1M]",
+    "backend_note": "Existing locally configured third-party backend; not a test of an Anthropic Claude model.",
+    "process": {
+      "started_utc": "2026-10-18T01:59:44Z",
+      "exit_code": 0,
+      "duration_seconds": 33.16,
+      "fixture_unchanged": true
+    },
+    "native_invocation": {
+      "tool": "Skill",
+      "input": {
+        "skill": "secure-coding"
+      },
+      "result": "Launching skill: secure-coding"
+    },
+    "rule_headers_from_tool_output": [
+      "# PY-BACKEND-1.2.1 [必须] 使用参数化查询",
+      "Source: sources/Python安全指南.md:177-262 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "# PY-BACKEND-1.8.1 [必须] 默认鉴权",
+      "Source: sources/Python安全指南.md:479-481 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "# PY-BACKEND-1.8.3 [必须] 避免越权访问",
+      "Source: sources/Python安全指南.md:489-498 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "# PY-BACKEND-1.1.1 [必须] 按类型进行数据校验",
+      "Source: sources/Python安全指南.md:153-173 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "# PY-BACKEND-1.2.2 [必须] 对参数进行过滤",
+      "Source: sources/Python安全指南.md:264-275 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "# PY-BACKEND-1.8.2 [必须] 授权遵循最小权限原则",
+      "Source: sources/Python安全指南.md:484-486 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "# PY-BACKEND-1.9.1 [必须] 不向对外错误提示",
+      "Source: sources/Python安全指南.md:507-510 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+      "# PY-BACKEND-1.9.2 [必须] 禁止异常抛出敏感信息",
+      "Source: sources/Python安全指南.md:512-512 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+    ],
+    "unit_tests": {
+      "tool": "Bash",
+      "input": {
+        "command": "cd \"<FIXTURE_ROOT>/claude\" && python -X utf8 -B -m unittest discover -s . -p test_orders.py -v 2>&1",
+        "description": "Run existing unittest suite"
+      },
+      "result": "test_invalid_identifier_is_rejected (test_orders.OrderQueryTests.test_invalid_identifier_is_rejected) ... ok\r\ntest_missing_or_invalid_identity_is_rejected (test_orders.OrderQueryTests.test_missing_or_invalid_identity_is_rejected) ... ok\r\ntest_missing_order_is_not_returned (test_orders.OrderQueryTests.test_missing_order_is_not_returned) ... ok\r\ntest_other_users_order_is_not_returned (test_orders.OrderQueryTests.test_other_users_order_is_not_returned) ... ok\r\ntest_owner_can_read_order (test_orders.OrderQueryTests.test_owner_can_read_order) ... ok\r\ntest_sql_syntax_remains_data (test_orders.OrderQueryTests.test_sql_syntax_remains_data) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.004s\r\n\r\nOK",
+      "is_error": false
+    },
+    "permission_denials": [
+      {
+        "tool_name": "Bash",
+        "tool_use_id": "call_00_8bg8by2xrjmvlc672q7m738c",
+        "tool_input": {
+          "command": "cd \"<FIXTURE_ROOT>/claude/.claude/skills/secure-coding\" && grep -n \"^#\\{2,3\\} \" references/interpretations.md | head -40 && echo \"---OVERRIDES---\" && head -c 1500 references/overrides.json",
+          "description": "List interpretation headings and overrides"
+        }
+      }
+    ],
+    "final_response": "## 安全编码审查报告（orders.py，只读）\n\n**1. 技能加载（显式调用验证）**\n- 经 Skill 工具加载 `secure-coding`，技能根目录绝对路径：\n  `<FIXTURE_ROOT>\\claude\\.claude\\skills\\secure-coding`\n- 实际读取全文：`SKILL.md`、`references/common.md`、`references/index.md`、`references/python.md`、`references/review.md`，并用 `scripts/guide.py show` 读取规则正文（含源文件行号与 sha256）。\n\n**2. 适用规则与代码位置**\n\n| 规则 ID | 位置 | 判断 | 证据 |\n|---|---|---|---|\n| PY-BACKEND-1.2.1 必须 使用参数化查询 | orders.py:25-28 | 静态符合 | `execute(\"... WHERE id=? AND user_id=?\", (order_id, authenticated_user_id))`，值全走占位符 |\n| PY-BACKEND-1.2.2 必须 对参数进行过滤 | orders.py:22-23, 25-28 | 静态符合 | 未拼接 SQL；id 限定 str 且 1–64 字符，以绑定参数传入。规则原文的黑名单过滤示例不适用于已参数化场景 |\n| PY-BACKEND-1.1.1 必须 按类型进行数据校验 | orders.py:17-23 | 静态符合 | 类型（`type() is int`，排除 bool）、范围（`0 < id ≤ 2^63-1`）、长度（1–64）、格式均校验且拒绝非法值 |\n| PY-BACKEND-1.8.3 必须 避免越权访问 | orders.py:17-21, 26 | 静态符合 | 身份由调用方以关键字参数注入并要求为服务端已验证值；归属条件 `user_id = ?` 进入同一 SQL，非本人订单返回 None（无先查后判缺口） |\n| PY-BACKEND-1.8.1 默认鉴权 / 1.8.2 最小权限 | orders.py:17-21 | 部分适用 | 本文件无接口层，\"默认鉴权\"由调用方承担；函数以缺省必填身份 + 拒绝式默认实现 |\n| PY-BACKEND-1.9.1/1.9.2 异常不泄露 | orders.py:21, 23 | 静态符合 | 异常消息为固定文本，不含身份、订单值或堆栈细节 |\n\n**3. 实际检查命令与结果**\n- `python -X utf8 -B -m unittest discover -s . -p test_orders.py -v` → 运行 6 项，全部 `ok`，`Ran 6 tests in 0.004s`，`OK`（退出码 0）。覆盖本人订单、他人订单不可见、不存在订单、注入串按数据处理、非法/缺失身份抛 PermissionError、非法标识抛 ValueError。\n- 静态阅读未发现拼接 SQL、身份取自请求参数、跨用户返回数据等模式。\n\n**4. 仍未验证的事项**\n- 调用方是否真传\"服务端已验证身份\"（业务约束的上一环）无任何代码可证，属外部契约缺口。\n- 无接口/路由/会话代码，PY-BACKEND-1.8.1 的整体鉴权、CSRF、响应头、日志脱敏（1.7.x、1.2.x）不在本次可见范围。\n- 未做动态/模糊测试与真实数据库（含并发、连接生命周期）验证；未运行 `guide.py check`、未安装依赖、未执行指南示例、未修改文件。\n- 测试通过仅证明上述断言，不证明无其他漏洞。",
+    "raw_trace": {
+      "filename": "claude-stdout.jsonl",
+      "bytes": 134893,
+      "sha256": "553b33f65577d0b3a52c533f7eb299d5d383a623b3d2e405548665ae29948eca"
+    }
+  },
+  "codex_cli": {
+    "status": "pass_with_environment_workarounds",
+    "version": "0.162.1",
+    "model": "deepseek-flash",
+    "backend_note": "Existing configured DeepSeek Responses provider, selected per command; official OpenAI backend failed TLS.",
+    "process": {
+      "started_utc": "2026-10-18T02:05:18Z",
+      "exit_code": 0,
+      "duration_seconds": 44.36,
+      "fixture_unchanged": true
+    },
+    "explicit_invocation_prefix": "$secure-coding",
+    "per_process_overrides": {
+      "provider": "existing DeepSeek provider",
+      "model_reasoning_effort": "low",
+      "features.multi_agent": false,
+      "features.apps": false,
+      "features.code_mode": false
+    },
+    "observed_rule_reads": [
+      {
+        "files": [
+          {
+            "path": "<FIXTURE_ROOT>\\codex\\orders.py"
+          },
+          {
+            "path": "<FIXTURE_ROOT>\\codex\\test_orders.py"
+          }
+        ]
+      },
+      {
+        "files": [
+          {
+            "path": "<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding\\references\\index.md"
+          },
+          {
+            "path": "<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding\\references\\common.md"
+          }
+        ]
+      },
+      {
+        "file_path": "<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding\\references\\python.md"
+      },
+      {
+        "files": [
+          {
+            "path": "<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding\\sources\\Python安全指南.md",
+            "offset": 145,
+            "limit": 135
+          },
+          {
+            "path": "<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding\\sources\\Python安全指南.md",
+            "offset": 470,
+            "limit": 50
+          },
+          {
+            "path": "<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding\\references\\review.md"
+          }
+        ]
+      }
+    ],
+    "unit_tests": {
+      "tool": "node_repl.js",
+      "input": {
+        "code": "const cp = await import(\"node:child_process\");\nconst r = cp.spawnSync(\"python\", [\"-X\",\"utf8\",\"-B\",\"-m\",\"unittest\",\"discover\",\"-s\",\".\",\"-p\",\"test_orders.py\",\"-v\"], { cwd: \"<FIXTURE_ROOT>\\\\codex\", encoding: \"utf8\" });\nnodeRepl.write(JSON.stringify({status: r.status, signal: r.signal, error: r.error && String(r.error), stdout: r.stdout, stderr: r.stderr}, null, 1));",
+        "title": "运行 test_orders unittest"
+      },
+      "result": {
+        "status": 0,
+        "signal": null,
+        "stdout": "",
+        "stderr": "test_invalid_identifier_is_rejected (test_orders.OrderQueryTests.test_invalid_identifier_is_rejected) ... ok\r\ntest_missing_or_invalid_identity_is_rejected (test_orders.OrderQueryTests.test_missing_or_invalid_identity_is_rejected) ... ok\r\ntest_missing_order_is_not_returned (test_orders.OrderQueryTests.test_missing_order_is_not_returned) ... ok\r\ntest_other_users_order_is_not_returned (test_orders.OrderQueryTests.test_other_users_order_is_not_returned) ... ok\r\ntest_owner_can_read_order (test_orders.OrderQueryTests.test_owner_can_read_order) ... ok\r\ntest_sql_syntax_remains_data (test_orders.OrderQueryTests.test_sql_syntax_remains_data) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.004s\r\n\r\nOK\r\n"
+      }
+    },
+    "shell_errors": [
+      {
+        "command": "\"<USERPROFILE>\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Force | Select-Object Mode,Length,Name; Write-Output '---'; Get-ChildItem -Recurse -File -Filter *.py | Select-Object FullName\"",
+        "output": "Failed to create unified exec process: helper_unknown_error: setup refresh had errors",
+        "exit_code": -1
+      },
+      {
+        "command": "\"<USERPROFILE>\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-ChildItem -Recurse -File .agents\\\\skills\\\\secure-coding | Select-Object FullName,Length\"",
+        "output": "Failed to create unified exec process: helper_unknown_error: setup refresh had errors",
+        "exit_code": -1
+      },
+      {
+        "command": "\"<USERPROFILE>\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'python -X utf8 -B -m unittest discover -s . -p test_orders.py -v'",
+        "output": "Failed to create unified exec process: helper_unknown_error: setup refresh had errors",
+        "exit_code": -1
+      },
+      {
+        "command": "\"C:\\\\Windows\\\\system32\\\\cmd.exe\" /c 'python -X utf8 -B -m unittest discover -s . -p test_orders.py -v'",
+        "output": "Failed to create unified exec process: helper_unknown_error: setup refresh had errors",
+        "exit_code": -1
+      }
+    ],
+    "final_response": "**技能加载**\n客户端技能发现清单给出 `secure-coding`，SKILL.md 绝对路径为 `<FIXTURE_ROOT>\\codex\\.agents\\skills\\secure-coding\\SKILL.md`（磁盘核对存在）。已实际读取 `references/index.md`、`common.md`、`python.md`、`review.md`，及原文 `sources/Python安全指南.md` 第153–275、479–512行全文。适用条目均无 INT-* 解释锚点。\n\n**适用规则与代码位置**\n- `PY-BACKEND-1.1.1`【必须】类型校验：`orders.py:17-23`，身份用 `type(...) is not int` + 正数且 ≤2^63-1，订单号限 `str` 且 1–64 字符，不符即抛错；`orders.py:10-11` 类型标注。静态符合。\n- `PY-BACKEND-1.2.1`【必须】参数化查询：`orders.py:25-27`，SQL 为常量串，`?` 占位并以元组传参，数据与命令分离。静态符合。\n- `PY-BACKEND-1.2.2`【必须】参数过滤：本文件无拼接 SQL，不适用（原文仅针对动态拼接）。\n- `PY-BACKEND-1.8.1`【必须】默认鉴权：`orders.py:17-21`，缺失/非法身份直接 `PermissionError`，默认拒绝。部分符合——函数不校验会话本身。\n- `PY-BACKEND-1.8.3`【必须】避免越权：`orders.py:26-27`，`WHERE id = ? AND user_id = ?` 绑定服务端身份，实现对象级归属过滤。静态符合。\n- `PY-BACKEND-1.9.2`【必须】异常不含敏感信息：`orders.py:21,23`，消息为通用文案，未回显身份或订单值。静态符合。\n- `PY-COMMON-1.2.1~1.2.3`（日志，建议）：无日志代码，未涉及。\n- `PY-COMMON-2.1.1`（Python 3.6+，建议）：`int | None` 实需 3.10+，满足。\n\n**实际检查命令与结果**\n指定命令：`python -X utf8 -B -m unittest discover -s . -p test_orders.py -v`。`exec_command` 工具持续返回 `helper_unknown_error`（无法启动 shell），遂经 Node `child_process.spawnSync` 以完全相同 argv 与工作目录执行：退出码 0，`Ran 6 tests ... OK`，覆盖本人可读、跨用户拒绝、缺失订单、注入串仍作数据、非法身份与非法订单号拒绝。\n\n**仍未验证**\n- 调用方是否确实传入服务端已验证身份：本文件仅信任入参，无认证/会话代码，越权防护依赖调用契约。\n- 未验证上层异常输出、日志与部署配置，`PY-BACKEND-1.9.1` 无法判定。\n- 仅内存 SQLite 测试与静态审查，未做 SAST/动态扫描，未验证真实数据库驱动与连接权限。\n- 按要求未改文件、未装依赖、未运行 `guide.py build`、未执行指南示例、未调用子代理。",
+    "raw_trace": {
+      "filename": "codex-deepseek-stdout.jsonl",
+      "bytes": 48408,
+      "sha256": "d1b95632c54d0adba6bc1dcfc08729100a856598748d83ecacd3eb5059fcfdd8"
+    }
+  },
+  "cursor": {
+    "status": "pass_with_temporary_network_settings",
+    "version": "3.24.18",
+    "editor_commit": "be4c9e5350d77747b42cd467cbd3370a753d4640",
+    "session_status": "completed",
+    "session_id": "d266d601-016e-4830-acca-8a2d4eae6141",
+    "ui_model_label": "Auto",
+    "persisted_model_name": "deepseek-v4-pro",
+    "invocation_route": "Installed desktop chat; official prompt deeplink, reviewed confirmation, explicit task submission.",
+    "invocation_requested_by_skill_name": true,
+    "native_skill_read": {
+      "name": "read_file_v2",
+      "status": "completed",
+      "params": {
+        "targetFile": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\SKILL.md",
+        "charsLimit": 1000000,
+        "effectiveUri": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\SKILL.md"
+      },
+      "result": {
+        "totalLinesInFile": 30
+      }
+    },
+    "observed_file_reads": [
+      {
+        "name": "read_file_v2",
+        "status": "completed",
+        "params": {
+          "targetFile": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\SKILL.md",
+          "charsLimit": 1000000,
+          "effectiveUri": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\SKILL.md"
+        },
+        "result": {
+          "totalLinesInFile": 30
+        }
+      },
+      {
+        "name": "read_file_v2",
+        "status": "completed",
+        "params": {
+          "targetFile": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\references\\common.md",
+          "charsLimit": 1000000,
+          "effectiveUri": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\references\\common.md"
+        },
+        "result": {
+          "totalLinesInFile": 17
+        }
+      },
+      {
+        "name": "read_file_v2",
+        "status": "completed",
+        "params": {
+          "targetFile": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\references\\index.md",
+          "charsLimit": 1000000,
+          "effectiveUri": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\references\\index.md"
+        },
+        "result": {
+          "totalLinesInFile": 43
+        }
+      },
+      {
+        "name": "read_file_v2",
+        "status": "completed",
+        "params": {
+          "targetFile": "<FIXTURE_ROOT>\\cursor\\orders.py",
+          "charsLimit": 1000000,
+          "effectiveUri": "<FIXTURE_ROOT>\\cursor\\orders.py"
+        },
+        "result": {
+          "totalLinesInFile": 29
+        }
+      },
+      {
+        "name": "read_file_v2",
+        "status": "completed",
+        "params": {
+          "targetFile": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\references\\review.md",
+          "charsLimit": 1000000,
+          "effectiveUri": "<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\references\\review.md"
+        },
+        "result": {
+          "totalLinesInFile": 40
+        }
+      },
+      {
+        "name": "read_file_v2",
+        "status": "completed",
+        "params": {
+          "targetFile": "<FIXTURE_ROOT>\\cursor\\test_orders.py",
+          "limit": 80,
+          "charsLimit": 1000000,
+          "effectiveUri": "<FIXTURE_ROOT>\\cursor\\test_orders.py"
+        },
+        "result": {
+          "totalLinesInFile": 59
+        }
+      }
+    ],
+    "rule_lookup": {
+      "command": "python \"<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\scripts\\guide.py\" show PY-BACKEND-1.2.1 PY-BACKEND-1.8.1 PY-BACKEND-1.8.3",
+      "status": "completed",
+      "execution_status": "success",
+      "rule_headers": [
+        "# PY-BACKEND-1.2.1 [必须] 使用参数化查询",
+        "Source: sources/Python安全指南.md:177-262 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+        "# PY-BACKEND-1.8.1 [必须] 默认鉴权",
+        "Source: sources/Python安全指南.md:479-481 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed",
+        "# PY-BACKEND-1.8.3 [必须] 避免越权访问",
+        "Source: sources/Python安全指南.md:489-498 sha256=b1d1f0b779b4e6352667a95e4bf28e59eb96e3ff05c20bf43e772cc8c1048eed"
+      ]
+    },
+    "rule_ids_observed": [
+      "PY-BACKEND-1.2.1",
+      "PY-BACKEND-1.8.1",
+      "PY-BACKEND-1.8.3"
+    ],
+    "rule_scope_note": "The first explicit Cursor request selected three rules. No follow-up supplied a missing rule ID; this is invocation evidence, not complete rule-coverage evaluation.",
+    "unit_tests": {
+      "command": "python -X utf8 -B -m unittest discover -s . -p test_orders.py -v",
+      "cwd_from_workspace": "<FIXTURE_ROOT>\\cursor",
+      "status": "completed",
+      "execution_status": "success",
+      "approval": "run",
+      "result": {
+        "output": "test_invalid_identifier_is_rejected (test_orders.OrderQueryTests.test_invalid_identifier_is_rejected) ... ok\r\ntest_missing_or_invalid_identity_is_rejected (test_orders.OrderQueryTests.test_missing_or_invalid_identity_is_rejected) ... ok\r\ntest_missing_order_is_not_returned (test_orders.OrderQueryTests.test_missing_order_is_not_returned) ... ok\r\ntest_other_users_order_is_not_returned (test_orders.OrderQueryTests.test_other_users_order_is_not_returned) ... ok\r\ntest_owner_can_read_order (test_orders.OrderQueryTests.test_owner_can_read_order) ... ok\r\ntest_sql_syntax_remains_data (test_orders.OrderQueryTests.test_sql_syntax_remains_data) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 6 tests in 0.004s\r\n\r\nOK\r\n",
+        "rejected": false,
+        "notInterrupted": true
+      },
+      "numeric_exit_code_recorded": false,
+      "exit_code_note": "Persisted tool result records success/completion and the full six-test OK output, but does not expose a separate numeric exit-code field."
+    },
+    "final_response": "## 审查报告（只读）\n\n**技能路径**：`<FIXTURE_ROOT>\\cursor\\.cursor\\skills\\secure-coding\\SKILL.md`  \n经 `references/common.md`、`index.md`、`python.md` 路由后，用 `guide.py show` 加载了 **PY-BACKEND-1.2.1 / 1.8.1 / 1.8.3** 全文。\n\n| 规则 ID | 代码位置 | 防护行为 | 判断 |\n|---|---|---|---|\n| PY-BACKEND-1.2.1 | `orders.py:25-29` | `?` 参数绑定，数据与 SQL 分离 | 静态符合；测试已覆盖注入样例 |\n| PY-BACKEND-1.8.1 | `orders.py:17-21` | 无合法 `authenticated_user_id` 即 `PermissionError` | 静态符合；测试已覆盖 |\n| PY-BACKEND-1.8.3 | `orders.py:10-12,17-21,25-29` | 身份仅可信关键字参数；查询带 `user_id` 归属过滤 | 静态符合；跨用户返回 `None` 已测 |\n\n**检查命令**：`python -X utf8 -B -m unittest discover -s . -p test_orders.py -v`  \n**结果**：6 tests，OK（exit 0）。\n\n**仍未验证**：本模块不实现登录/会话，调用方是否真提供服务端已校验身份无法在此证明；无 Web/部署层、真实库表权限、并发与横向接口面的运行证据。",
+    "fixture_verification": {
+      "matching_skill_files": 25,
+      "case_files_sha256": {
+        "orders.py": "428394a214a65de72fabe8e41607698b5f52724f976f1e6f785864fbf7f9f49c",
+        "test_orders.py": "c098dd9c8d46954cf931d5a5dde2a9b6201a961c9712c1820a09b98a3725ea79"
+      },
+      "files_unchanged": true
+    },
+    "network_workaround": {
+      "initial_error": "ENOTFOUND agentn.global.api5.cursor.sh; Reconnecting...",
+      "temporary_settings": {
+        "http.proxy": "http://127.0.0.1:7897",
+        "cursor.general.disableHttp2": true
+      },
+      "window_reloaded": true,
+      "settings_restored_byte_for_byte": true,
+      "settings_before_and_after_sha256": "d9157f2ebade8557da0065d74315526a91ed017898c40151ef235a73c72d695a",
+      "default_network_configuration_verified": false
+    },
+    "evidence_source": "Read-only extraction limited to this conversation ID in the local Cursor chat store; selected tool arguments/results and visible final response only.",
+    "raw_trace": {
+      "filename": "cursor-task-records.json",
+      "sha256": "6cd1b819bee91ead936ab7ec04cba317ba7fb6996a08655603a96757e3333433"
+    },
+    "ui_observations": {
+      "filename": "cursor-observations.json",
+      "sha256": "d4f371eb48ab877652ae3fc77bdf3abfae3e9914c71741cc00ad4e14254275a8"
+    },
+    "earlier_attempt": {
+      "status": "blocked_login",
+      "subsequent_observation": "At the final window check, the project window was closed and a Cursor installer window was visible. No installer action was taken; actual invocation remains pending after installation and login.",
+      "version": "2.6.21",
+      "editor_commit": "fea2f546c979a0a4ad1deab23552a43568807590",
+      "package_only": "25 files match and guide.py check exits 0; model invocation and tests inside Cursor not yet performed.",
+      "observed_ui_lines": [
+        "60 组 <FIXTURE_ROOT>\\cursor\\.cursor • Contains emphasized items",
+        "62 组 <FIXTURE_ROOT>\\cursor\\orders.py • Untracked",
+        "64 组 <FIXTURE_ROOT>\\cursor\\test_orders.py • Untracked",
+        "138 文本 Plan, @ for context, / for commands",
+        "141 文本 Log in",
+        "Plan, @ for context, / for commands",
+        "Log in"
+      ]
+    }
+  },
+  "failed_attempts": {
+    "codex_default_openai": {
+      "status": "timed_out_after_300_seconds",
+      "observed_errors": [
+        {
+          "type": "error",
+          "message": "Reconnecting... 2/5 (stream disconnected before completion: tls handshake eof)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 3/5 (stream disconnected before completion: tls handshake eof)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 4/5 (stream disconnected before completion: tls handshake eof)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... 5/5 (stream disconnected before completion: tls handshake eof)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        },
+        {
+          "type": "error",
+          "message": "Reconnecting... waiting for network (Connection failed: error sending request)"
+        }
+      ],
+      "raw_trace": {
+        "filename": "codex-stdout.jsonl",
+        "bytes": 44819,
+        "sha256": "3ca5812092f3cf7f55c62af20f44dbcbdad1ddbb47cff5e60002c27b5fd0bda2"
+      }
+    },
+    "codex_deepseek_with_code_mode": {
+      "process_exit_code": 1,
+      "observed_errors": [
+        {
+          "type": "error",
+          "message": "{\"error\":{\"message\":\"Unsupported custom tool: 'exec'. Only 'apply_patch' is supported. (request_id: e70fe752-4bc8-437d-8bae-eb1c9a486237)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+        },
+        {
+          "type": "turn.failed",
+          "error": {
+            "message": "{\"error\":{\"message\":\"Unsupported custom tool: 'exec'. Only 'apply_patch' is supported. (request_id: e70fe752-4bc8-437d-8bae-eb1c9a486237)\",\"type\":\"invalid_request_error\",\"param\":null,\"code\":\"invalid_request_error\"}}"
+          }
+        }
+      ],
+      "raw_trace": {
+        "filename": "codex-deepseek-code-mode-stdout.jsonl",
+        "bytes": 1635,
+        "sha256": "ef34b2fbc42c349064b38a0ff44054c9a47dd8d4bfbe186967df65c6c505af0a"
+      }
+    }
+  },
+  "limitations": [
+    "No no-skill-name automatic triggering test.",
+    "No plugin distribution or fresh skills-CLI installation tested for these three clients.",
+    "Six in-memory SQLite assertions do not verify HTTP authentication or operation-level authorization.",
+    "Client execution succeeds with these local backend/tool configurations only; no guarantee for all installations or model quality."
+  ]
+}

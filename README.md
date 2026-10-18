@@ -34,7 +34,7 @@
 npx skills add yuhengqin/secure-coding-skill
 ```
 
-需要带 `npx` 的 Node.js；也可以[让助手安装](./README_AI.md)，或[手动复制完整包](./docs/INSTALLATION.md)。OpenCode 已验证显式调用；其他客户端见[兼容情况](#compatibility)。
+需要带 `npx` 的 Node.js；也可以[让助手安装](./README_AI.md)，或[手动复制完整包](./docs/INSTALLATION.md)。OpenCode、Claude Code、Codex CLI 与 Cursor 均已有显式调用记录，实测配置见[兼容情况](#compatibility)。
 
 **① 装好技能 → ② 提需求并指定 `secure-coding` → ③ 检查交付中的规则、代码与证据。** [试第一个任务 →](#quickstart)
 
@@ -107,7 +107,7 @@ python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 
 ## 📡 验证证据：哪些已经跑过
 
-以下为 **2026-10-16、Windows 环境**的验证记录与输出节选。OpenCode 调用和全新安装依据[已有端到端记录](./docs/VALIDATION.md#2026-10-16-端到端调用补记opencodeasiashanghai)；包校验与 13 项测试在本次 README 更新时重新通过。
+以下汇总 **2026-10-16 与 2026-10-18、Windows 环境**的验证记录。OpenCode 调用和 skills CLI 全新安装依据[已有端到端记录](./docs/VALIDATION.md#2026-10-16-端到端调用补记opencodeasiashanghai)；新增的 Claude Code / Codex CLI / Cursor 调用使用本机 DeepSeek 模型配置，连接与工具条件详见[客户端实测](./docs/CLIENT_VALIDATION.md)。包校验与 13 项测试在本次更新时重新通过。
 
 | 检查 | 结果 | 证明范围 |
 | :--- | :--- | :--- |
@@ -115,6 +115,9 @@ python -B -m unittest discover -s examples/order-query -p test_orders.py -v
 | 工具与案例测试 | **7 + 6 项通过** | CLI 回归与订单案例行为 |
 | skills CLI 全新安装 | **25/25 文件 SHA-256 一致** | 已记录的安装副本与源包一致 |
 | OpenCode 显式调用 | **技能加载成功，完成案例规则审查** | 该客户端的手动指定调用路径 |
+| Claude Code 显式调用 | **原生 Skill 工具加载成功，6 项案例测试通过** | 本机第三方模型配置下的 CLI 调用路径 |
+| Codex CLI 显式调用 | **读取技能规则，6 项案例测试通过** | DeepSeek 后端及已有 Node 工具路径；连接/工具绕行见实测记录 |
+| Cursor 桌面端 | **读取技能与规则，6 项案例测试通过** | DeepSeek 配置及临时代理、HTTP/1.1 条件；原网络设置已恢复 |
 
 <details>
 <summary><b>展开：安装、校验、规则检索与测试证据</b></summary>
@@ -306,7 +309,10 @@ TypeScript 复用 JavaScript 运行时规则。225 条包括 **188 条必须、2
 | 客户端／安装途径 | 规则包安装 | 技能发现与实际调用 |
 | :--- | :--- | :--- |
 | **OpenCode，经 skills CLI** | Windows，2026-10-16 实测：`-a opencode --copy -y`，25/25 文件一致，安装副本 `check` 通过 | ✅ 端到端已验证（2026-10-16，显式调用加载成功，见[端到端实测](#evidence)） |
-| **Codex、Claude Code、Cursor、GitHub Copilot 等 skills CLI 客户端** | 上游 CLI 提供安装适配，本仓库未逐一实测 | 尚未端到端验证，欢迎提交验证记录 |
+| **Claude Code 2.1.233** | Windows，2026-10-18：完整复制到 `.claude/skills/`，25/25 文件一致，`check` 通过 | ✅ 显式 Skill 工具调用及 6 项案例测试通过；本机第三方模型配置，见[实测](./docs/CLIENT_VALIDATION.md) |
+| **Codex CLI 0.162.1** | Windows，2026-10-18：完整复制到 `.agents/skills/`，25/25 文件一致，`check` 通过 | ✅ DeepSeek 后端下显式调用及 6 项案例测试通过；默认官方连接与内置 shell 未通过，见[实测](./docs/CLIENT_VALIDATION.md) |
+| **Cursor 3.24.18** | Windows，2026-10-18：完整复制到 `.cursor/skills/`，25/25 文件一致，`check` 通过 | ✅ 桌面端显式读取技能、检索规则并运行 6 项案例测试通过；临时代理与 HTTP/1.1 条件见[实测](./docs/CLIENT_VALIDATION.md) |
+| **GitHub Copilot 等其他 skills CLI 客户端** | 上游 CLI 提供安装适配，本仓库未逐一实测 | 尚未端到端验证，欢迎提交验证记录 |
 | **手动复制** | 已验证完整包复制及安装后的 CLI 使用；目录遵循目标客户端约定 | 取决于客户端加载机制 |
 
 以安装器报告的位置为准。共享项目级路径通常为 `.agents/skills/secure-coding/`，不同客户端可能使用专用路径。[安装详情 →](./docs/INSTALLATION.md) · [验证记录 →](./docs/VALIDATION.md)
@@ -320,6 +326,8 @@ TypeScript 复用 JavaScript 运行时规则。225 条包括 **188 条必须、2
 | 规则包完整性 | **本地通过：** 225 条规则、6 份来源、10 项解释（哈希、覆盖、生成文件全部一致） |
 | 工具与案例测试 | Windows / Python 3.14.2 上 **7 + 6 项通过** |
 | OpenCode 端到端调用 | **已验证：** 显式调用 `secure-coding` 加载成功（2026-10-16） |
+| Claude Code / Codex CLI 调用 | **已验证：** 本机第三方模型配置下显式调用，各运行 6 项案例测试通过（2026-10-18，见[配置与限制](./docs/CLIENT_VALIDATION.md)） |
+| Cursor 实际调用 | **已验证：** 桌面端显式调用及 6 项案例测试通过（2026-10-18，本机 DeepSeek 配置，临时网络设置已恢复） |
 | skills CLI 全新安装 | **已验证：** 25/25 文件哈希一致，安装副本校验通过（2026-10-16） |
 | 远程 CI | 已配置 Windows / Ubuntu × Python 3.10 / 3.14；[已记录的首次运行](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315)因账户计费问题未启动 job，尚无通过记录 |
 | 模型安全能力提升 | 尚未开展与无技能基线的受控对比 |
@@ -407,7 +415,7 @@ secure-coding-skill/
 欢迎提交**客户端验证记录**、**有当前依据的规则更正**、**包含有效测试的可运行案例**。从[贡献指南](./CONTRIBUTING.md)开始；可利用的工具缺陷请按[安全报告说明](./SECURITY.md)提交。
 
 - ✅ OpenCode 端到端调用验证（2026-10-16 完成）
-- ⬜ 完成其余客户端（Claude Code / Codex / Cursor）的实际调用验证
+- ✅ Claude Code / Codex CLI / Cursor 显式调用验证（2026-10-18，本机 DeepSeek 模型配置，见[实测条件与边界](./docs/CLIENT_VALIDATION.md)）
 - ⬜ 跑通首个远程 CI，发布带版本号的 Release
 - ⬜ 扩充有来源的适用性解释与可运行案例
 - ⬜ 探索单语言导出和更多客户端适配

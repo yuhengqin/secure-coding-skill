@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- 完成 Claude Code 2.1.233、Codex CLI 0.162.1 与 Cursor 3.24.18 的实际显式调用验证（2026-10-18，本机 DeepSeek 模型配置），各完成订单案例审查及 6 项测试；保存脱敏工具证据，公开 Codex 连接/工具绕行和 Cursor 临时代理、HTTP/1.1 条件，恢复 Cursor 原设置，同步中英文验证表及路线图。
 - 中文首页设为默认：`README.md` 为中文，英文首页移至 `README_EN.md`（原 `README.zh-CN.md` 不再使用），双语互链与 `docs/` 内引用同步更新。
 - 双语首页重构：新增 SVG 视觉锚点（`assets/banner.svg`）、GitHub Stars 动态徽章、AI 代理前置入口、2026-10-16 真实端到端实测输出（技能加载、skills CLI 安装 25/25、`check`/`show` 真实输出、7+6 测试证据）、场景路由表与仓库结构树。
 - 增加 `AGENTS.md` 与 `CLAUDE.md`：面向来访 AI 代理的仓库导航与红线（sources 只读、`build` 唯一会写文件的命令、如实报告未验证项）。

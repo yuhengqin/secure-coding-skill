@@ -53,7 +53,7 @@ git diff --check
 ## 未验证范围
 
 - GitHub 远程 Actions 的四个矩阵 job 尚未执行；已配置 Windows / Ubuntu × Python 3.10 / 3.14 的矩阵，本次本地运行仅为 Windows / Python 3.14.2。首次运行结果见下方补记。
-- 未验证当前或其他客户端的自动发现、自动触发，也未验证插件渠道安装。
+- 未验证不指定技能名称时的自动选择/触发，也未验证插件渠道安装；各客户端显式调用状态见下方最新补记。
 - 未运行任何目标业务项目的安全扫描、集成测试或部署检查。
 - 未对全部 225 条历史建议完成现代化审计；10 项解释只能说明其明确覆盖的范围。
 
@@ -123,3 +123,16 @@ Bash 的执行环境为 Windows 上的 Git Bash，未实测原生 Linux、macOS 
 | Python 缓存 | `git ls-files -- '*.pyc' '*/__pycache__/*'` 无输出；`.gitignore` 已有 `__pycache__/` 和 `*.py[cod]`，无需移除已跟踪文件 |
 
 本轮未重新安装或调用 OpenCode，相关声明引用上方已记录的端到端验证。GitHub About、最新 Actions 与 Release 的公开 API 查询受到未认证请求频率限制，未获得可用结果；未修改远程设置、未添加 CI 通过徽章、未发布 Release。About 与 Topics 的可复制建议已更新到 [RELEASING.md](RELEASING.md)。
+
+## 2026-10-18 Claude Code / Codex / Cursor 调用验证
+
+Windows / Python 3.14.2 / Node.js v24.14.0；被测源包提交为 `555ff68b8ad0f51d194054967cdd56cb564e214b`。使用三个独立临时项目，手动复制完整包；每份副本均为 25/25 文件 SHA-256 一致，`guide.py check` 退出 0。
+
+| 客户端 | 实际结果 |
+|---|---|
+| Claude Code 2.1.233 | 显式 `Skill({"skill":"secure-coding"})` 调用成功，读取相关规则并完成订单案例审查；客户端内 6 项测试通过，进程退出 0。使用本机已有第三方模型配置，非 Anthropic Claude 模型验证 |
+| Codex CLI 0.162.1 | 显式 `$secure-coding` 调用成功，读取索引和来源正文并完成案例审查；已有 Node MCP 工具执行 6 项测试通过，进程退出 0。使用本机已配置的 DeepSeek 后端并关闭单次命令的 `code_mode`；默认官方连接 TLS 失败、内置 shell 启动失败，未记为通过 |
+| Cursor 3.24.18 | 用户完成安装和登录后，在桌面端实际读取项目技能的 `SKILL.md`，检索 SQL、默认鉴权及对象归属三条规则并完成审查；客户端原生工具运行 6 项案例测试，回执为 `success`、6 项 `ok` 和 `OK`。使用本机 `deepseek-v4-pro` 配置，复试所需的临时代理及 HTTP/1.1 设置已逐字节恢复；默认网络配置未通过 |
+| 仓库复验 | `guide.py check` 退出 0，7 项工具测试和 6 项案例测试均通过 |
+
+详细输入、命令、工具回执、绕行和未验证范围见 [客户端实际调用记录](CLIENT_VALIDATION.md)；可机器读取的脱敏节选及 25 个源文件哈希见 [JSON 证据](validation/2026-10-18-clients.json)。不指定技能名称的自动触发、其他模型后端、这三个客户端的 skills CLI 安装及插件路径均未验证。OpenCode 沿用 2026-10-16 已有记录，本轮未重跑。
