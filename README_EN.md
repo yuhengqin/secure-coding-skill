@@ -5,7 +5,7 @@
 <h1 align="center">🛡️ Secure Coding Skill</h1>
 
 <p align="center">
-  <b>Give your AI coding assistant rules to check and evidence to show.<br>225 rules · 5 language families · From request to evidence</b>
+  <b>Give your AI coding assistant rules to check and evidence to show.<br>225 rules · 5 programming languages · From request to evidence</b>
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@ Requires Node.js with `npx`. You can also [ask an assistant to install it](./REA
 
 **① Install → ② Ask for a task using `secure-coding` → ③ Check the rules, code, and evidence in the result.** [Try your first task →](#quickstart)
 
-| Security rules | Languages | Applicability notes | Regression tests | CLI third-party deps |
+| Security rules | programming Languages | Applicability notes | Regression tests | CLI third-party deps |
 | :---: | :---: | :---: | :---: | :---: |
 | **225** | **5** | **10** | **13 (7 + 6)** | **0** |
 

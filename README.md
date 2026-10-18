@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="Secure Coding Skill — 规则 → 代码 → 证据；225 条规则，5 类语言" width="100%">
+  <img src="./assets/banner.png" alt="Secure Coding Skill — 规则 → 代码 → 证据；225 条规则，5种编程语言" width="100%">
 </p>
 
 <h1 align="center">🛡️ Secure Coding Skill</h1>
 
 <p align="center">
-  <b>让 AI 写代码时，有安全规则可查，有检查结果可交。<br>225 条规则 · 5 类语言 · 从需求到证据</b>
+  <b>让 AI 写代码时，有安全规则可查，有检查结果可交。<br>225 条规则 · 5种编程语言 · 从需求到证据</b>
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@ npx skills add yuhengqin/secure-coding-skill
 
 **① 装好技能 → ② 提需求并指定 `secure-coding` → ③ 检查交付中的规则、代码与证据。** [试第一个任务 →](#quickstart)
 
-| 安全规则 | 覆盖语言 | 适用性解释 | 回归测试 | CLI 第三方依赖 |
+| 安全规则 | 覆盖编程语言 | 适用性解释 | 回归测试 | CLI 第三方依赖 |
 | :---: | :---: | :---: | :---: | :---: |
 | **225** | **5** | **10** | **13（7 + 6）** | **0** |
 
@@ -264,7 +264,7 @@ python .agents/skills/secure-coding/scripts/guide.py check
 
 ## 🔍 为什么把规则做成技能
 
-- 🎯 **225 条规则，一次装齐。** Python、JavaScript/TypeScript、Java、Go、C/C++，五类语言收进一个技能包。
+- 🎯 **225 条规则，一次装齐。** Python、JavaScript/TypeScript、Java、Go、C/C++，5种编程语言收进一个技能包。
 - 🪶 **按需读取。** 渐进式披露，沿语言与任务索引读取相关正文，无需一开始载入五份指南全文；尚未量化 token 节省幅度。
 - 🔍 **每条规则，都有出处。** 原文、行号、来源 SHA-256 完整可查，另有 10 项带依据的历史建议适用性解释。
 - 🔌 **CLI 零第三方依赖。** Python 3.10+ 标准库即可完成本地检索与完整性校验，不联网、不采集代码。
