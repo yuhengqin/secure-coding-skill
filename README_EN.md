@@ -22,6 +22,7 @@
   <a href="#languages"><img src="https://img.shields.io/badge/languages-5-brightgreen.svg" alt="5 Languages"></a>
   <img src="https://img.shields.io/badge/CLI-Python_3.10%2B_stdlib_only-orange.svg" alt="Python Standard Library Only">
   <a href="./docs/VALIDATION.md"><img src="https://img.shields.io/badge/rule_package%20check-ok-green.svg" alt="Rule package check: ok"></a>
+  <a href="https://github.com/yuhengqin/secure-coding-skill/actions/workflows/validate.yml"><img src="https://github.com/yuhengqin/secure-coding-skill/actions/workflows/validate.yml/badge.svg?branch=main" alt="CI: Validate skill package"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/Agent_Skills-format-6366f1.svg" alt="Agent Skills format specification"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/yuhengqin/secure-coding-skill.svg" alt="License: CC BY-SA 4.0"></a>
 </p>
@@ -332,7 +333,7 @@ Use the installer's reported location. The shared project path is commonly `.age
 | Claude Code / Codex CLI invocation | **Verified:** explicit invocation with local third-party backends; each ran 6 passing example tests (2026-10-18; see [configuration and limits](./docs/CLIENT_VALIDATION.md)) |
 | Cursor actual invocation | **Verified:** explicit desktop invocation and 6 passing example tests (2026-10-18, local DeepSeek configuration; temporary network settings restored) |
 | Fresh install via skills CLI | **Verified:** 25/25 file hashes match; installed package passes `check` (2026-10-16) |
-| Remote CI | Windows / Ubuntu × Python 3.10 / 3.14 configured; the [recorded first run](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315) could not start jobs due to account billing; no passing run recorded |
+| Remote CI | **All four matrix jobs passed:** Windows / Ubuntu × Python 3.10 / 3.14 (2026-10-18, [first green run, attempt 2](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38917896095)); includes package integrity, 7 + 6 tests, deterministic regeneration and a clean tracked-file diff |
 | Model security improvement | No controlled comparison against an unassisted baseline yet |
 
 Package integrity and example tests cover their stated scope. Project security still needs project tests, scanners, and review. [Commands and full evidence →](./docs/VALIDATION.md)
@@ -419,7 +420,7 @@ Useful contributions include **client verification records**, **rule corrections
 
 - ✅ OpenCode end-to-end invocation verified (2026-10-16)
 - ✅ Claude Code / Codex CLI / Cursor explicit invocation (2026-10-18, local DeepSeek model configurations; see [requirements and scope](./docs/CLIENT_VALIDATION.md))
-- ⬜ First green remote CI run and a versioned release
+- ✅ First green remote CI with all four matrix jobs (2026-10-18); initial release [v0.1.0](https://github.com/yuhengqin/secure-coding-skill/releases/tag/v0.1.0)
 - ⬜ More sourced applicability notes and runnable cases
 - ⬜ Single-language exports and additional client adapters
 

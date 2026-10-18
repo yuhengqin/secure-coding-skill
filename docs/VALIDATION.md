@@ -1,6 +1,6 @@
 # 发布准备验证记录
 
-日期：**2026-10-13（Asia/Shanghai）**。环境：Windows、Python **3.14.2**。这份记录覆盖本次独立仓库的发布准备；后续版本变更后应重新验证。
+初始发布准备日期：**2026-10-13（Asia/Shanghai）**，环境为 Windows、Python **3.14.2**。后续复验按日期补记；最新远程 CI 与首版发布记录见文末，历史阻塞不代表当前状态。
 
 ## 已执行检查
 
@@ -52,7 +52,7 @@ git diff --check
 
 ## 未验证范围
 
-- GitHub 远程 Actions 的四个矩阵 job 尚未执行；已配置 Windows / Ubuntu × Python 3.10 / 3.14 的矩阵，本次本地运行仅为 Windows / Python 3.14.2。首次运行结果见下方补记。
+- 远程 CI 已覆盖 Windows / Ubuntu × Python 3.10 / 3.14 四个组合（2026-10-18，见文末）；其他操作系统与 Python 版本尚未验证。
 - 未验证不指定技能名称时的自动选择/触发，也未验证插件渠道安装；各客户端显式调用状态见下方最新补记。
 - 未运行任何目标业务项目的安全扫描、集成测试或部署检查。
 - 未对全部 225 条历史建议完成现代化审计；10 项解释只能说明其明确覆盖的范围。
@@ -136,3 +136,22 @@ Windows / Python 3.14.2 / Node.js v24.14.0；被测源包提交为 `555ff68b8ad0
 | 仓库复验 | `guide.py check` 退出 0，7 项工具测试和 6 项案例测试均通过 |
 
 详细输入、命令、工具回执、绕行和未验证范围见 [客户端实际调用记录](CLIENT_VALIDATION.md)；可机器读取的脱敏节选及 25 个源文件哈希见 [JSON 证据](validation/2026-10-18-clients.json)。不指定技能名称的自动触发、其他模型后端、这三个客户端的 skills CLI 安装及插件路径均未验证。OpenCode 沿用 2026-10-16 已有记录，本轮未重跑。
+
+## 2026-10-18 首个绿色远程 CI 与 v0.1.0
+
+在 GitHub 重跑 [Validate skill package #6](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38917896095)，第 **2** 次尝试于 **11:17（Asia/Shanghai）**完成，整体结论为 `success`。该次检查的提交为 `5dbe55c8df630b84f9d8956a79bd4e6766c570c6`；之前的账户计费阻塞在本次重跑中未再出现。
+
+| 矩阵任务 | 结果与可定位证据 |
+|---|---|
+| Windows / Python 3.10 | [success，job 117573672187](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38917896095/job/117573672187) |
+| Windows / Python 3.14 | [success，job 117573672310](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38917896095/job/117573672310) |
+| Ubuntu / Python 3.10 | [success，job 117573672279](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38917896095/job/117573672279) |
+| Ubuntu / Python 3.14 | [success，job 117573672364](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38917896095/job/117573672364) |
+
+四个 job 的包校验、7 项工具测试、6 项订单案例测试、`guide.py build` 确定性生成以及 `git diff --exit-code` 步骤均为 `success`。Ubuntu job 另有 runner 镜像即将迁移的通知，不影响本次通过结论。工作流仍使用只读 `contents` 权限及固定提交的 actions。
+
+本地同步复验 `guide.py check`、7 + 6 项测试与 `git diff --check`，全部退出 0。从提交 `c8c38e70765fd1aedf9e8e136de69a5c0ca51d6e` 独立导出后，相同包校验与 13 项测试通过；7 份来源/附加文件及两个许可证副本匹配溯源哈希，确定性生成前后 25 个技能文件字节不变。
+
+首版为 [v0.1.0](https://github.com/yuhengqin/secure-coding-skill/releases/tag/v0.1.0)，发布前须再次确认最终标签对应提交的四个远程矩阵任务全部成功；最终提交、对应 CI 运行与下载包校验结果记录在 Release 说明中。完整技能包和来源/署名文件随 GitHub 源码归档分发。
+
+远程 CI 证明所列平台/版本上的包与案例检查通过，不证明业务项目安全、客户端自动触发或模型能力提升；客户端调用仍按前文分别记录的配置与限制解释。

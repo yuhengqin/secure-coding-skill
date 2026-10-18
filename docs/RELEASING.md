@@ -33,17 +33,22 @@
 
 ## 版本与下载包
 
-首次版本建议 `v0.1.0`。先确认待发布提交的远程 CI 四个矩阵 job 全部通过，再恢复首页 CI 徽章并发布；本地检查通过或工作流配置正确不能代替远程运行结果。完成验证后，将 `CHANGELOG.md` 的 Unreleased 内容转入实际发布日期，再提交、打标签和推送：
+首版使用 [`v0.1.0`](https://github.com/yuhengqin/secure-coding-skill/releases/tag/v0.1.0)，首次绿色远程 CI 见 [验证记录](VALIDATION.md#2026-10-18-首个绿色远程-ci-与-v010)。后续版本先将 `CHANGELOG.md` 的 Unreleased 内容转入实际版本和发布日期，更新发布材料，再提交并推送候选提交。下面以首版命令为例，发布新版本时应替换版本号，不覆盖已有标签：
 
 ```sh
-git add CHANGELOG.md
+git add CHANGELOG.md README.md README_EN.md docs/VALIDATION.md docs/RELEASING.md
 git commit -m "docs: release v0.1.0"
-git tag -a v0.1.0 -m "Initial secure-coding skill release"
 git push origin main
+```
+
+在 Actions 中核对**候选提交的完整 SHA**，确认四个矩阵 job 及所有校验步骤全部成功后，再打标签、推送并创建 Release。本地检查、较早提交的绿色结果或工作流配置正确均不能代替该提交的远程结果。
+
+```sh
+git tag -a v0.1.0 -m "Initial secure-coding skill release"
 git push origin v0.1.0
 ```
 
-可在 GitHub 的 Releases 页面选择该标签创建版本。GitHub 自带源码 ZIP 包已包含所有文件；使用者只需按 README 复制完整技能目录。
+可在 GitHub 的 Releases 页面选择该标签创建版本。说明中记录完整提交 SHA、该提交的绿色 CI 链接及实际验证范围。GitHub 自带源码 ZIP 包已包含所有文件；使用者只需按 README 复制完整技能目录。发布后应下载该标签的源码归档，核对完整技能目录、来源与两个许可证副本，重新运行包校验及 7 + 6 项测试；不要把本地打包检查描述成远程下载验证。
 
 若另行提供仅含技能的压缩包，应保留 `secure-coding/SKILL.md`、`LICENSE`、`NOTICE.md`、所有 references/sources/scripts/tests。制作后重新解压并运行包校验及测试，勿根据文件名判断内容完整。
 

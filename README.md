@@ -22,6 +22,7 @@
   <a href="#languages"><img src="https://img.shields.io/badge/%E8%A6%86%E7%9B%96%E8%AF%AD%E8%A8%80-5_%E7%A7%8D%E4%B8%BB%E6%B5%81%E8%AF%AD%E8%A8%80-brightgreen.svg" alt="5 Languages"></a>
   <img src="https://img.shields.io/badge/CLI-Python_3.10%2B_%E6%A0%87%E5%87%86%E5%BA%93-orange.svg" alt="Python Standard Library Only">
   <a href="./docs/VALIDATION.md"><img src="https://img.shields.io/badge/%E8%A7%84%E5%88%99%E5%8C%85%20check-ok-green.svg" alt="Rule package check: ok"></a>
+  <a href="https://github.com/yuhengqin/secure-coding-skill/actions/workflows/validate.yml"><img src="https://github.com/yuhengqin/secure-coding-skill/actions/workflows/validate.yml/badge.svg?branch=main" alt="CI: Validate skill package"></a>
   <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/Agent_Skills-format-6366f1.svg" alt="Agent Skills format specification"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/yuhengqin/secure-coding-skill.svg" alt="License: CC BY-SA 4.0"></a>
 </p>
@@ -329,7 +330,7 @@ TypeScript 复用 JavaScript 运行时规则。225 条包括 **188 条必须、2
 | Claude Code / Codex CLI 调用 | **已验证：** 本机第三方模型配置下显式调用，各运行 6 项案例测试通过（2026-10-18，见[配置与限制](./docs/CLIENT_VALIDATION.md)） |
 | Cursor 实际调用 | **已验证：** 桌面端显式调用及 6 项案例测试通过（2026-10-18，本机 DeepSeek 配置，临时网络设置已恢复） |
 | skills CLI 全新安装 | **已验证：** 25/25 文件哈希一致，安装副本校验通过（2026-10-16） |
-| 远程 CI | 已配置 Windows / Ubuntu × Python 3.10 / 3.14；[已记录的首次运行](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38339001315)因账户计费问题未启动 job，尚无通过记录 |
+| 远程 CI | **四个矩阵任务全部通过：** Windows / Ubuntu × Python 3.10 / 3.14（2026-10-18，[首个绿色运行，第 2 次尝试](https://github.com/yuhengqin/secure-coding-skill/actions/runs/38917896095)）；含包校验、7 + 6 项测试、确定性生成与无差异检查 |
 | 模型安全能力提升 | 尚未开展与无技能基线的受控对比 |
 
 包校验和案例测试仅覆盖各自声明的范围；业务项目仍需运行自身的测试、扫描与审查。[执行命令与完整证据 →](./docs/VALIDATION.md)
@@ -416,7 +417,7 @@ secure-coding-skill/
 
 - ✅ OpenCode 端到端调用验证（2026-10-16 完成）
 - ✅ Claude Code / Codex CLI / Cursor 显式调用验证（2026-10-18，本机 DeepSeek 模型配置，见[实测条件与边界](./docs/CLIENT_VALIDATION.md)）
-- ⬜ 跑通首个远程 CI，发布带版本号的 Release
+- ✅ 首个远程 CI 四个矩阵任务通过（2026-10-18）；首版 [v0.1.0](https://github.com/yuhengqin/secure-coding-skill/releases/tag/v0.1.0)
 - ⬜ 扩充有来源的适用性解释与可运行案例
 - ⬜ 探索单语言导出和更多客户端适配
 
